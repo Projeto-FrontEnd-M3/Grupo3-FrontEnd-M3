@@ -1,5 +1,11 @@
+import { Text } from "../../styles/TypograpyText";
+
 const HomePage = () => {
-  return <h1>HomePage</h1>;
+  return (
+    <Text tag="h1" fontSize="title1" color="primary">
+      Hello World
+    </Text>
+  );
 };
 
 export default HomePage;
