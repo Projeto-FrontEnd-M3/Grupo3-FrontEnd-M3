@@ -1,6 +1,6 @@
 import { ContainerModal } from "../../../../components/ContainerModal/style";
-import { Text } from "../../../../styles/TypograpyText";
 import { ContainerModalLogin } from "./style";
+import { Text } from "../../../../styles/TypograpyText";
 
 const ModalLogin = () => {
   return (
