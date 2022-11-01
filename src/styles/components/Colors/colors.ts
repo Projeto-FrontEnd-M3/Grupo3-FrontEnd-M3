@@ -1,4 +1,4 @@
-import { IColor } from "../../../interface/GlobalStyles";
+import { IColor } from "../../../interface/TypeGlobalStyles";
 
 export const setColors = (color: IColor) => {
   switch (color) {

@@ -1,4 +1,4 @@
-import { IColor, IFontSize, Itag } from "../../../interface/GlobalStyles";
+import { IColor, IFontSize, Itag } from "../../../interface/TypeGlobalStyles";
 
 interface ITitleComponent {
   tag?: Itag;
@@ -8,7 +8,11 @@ interface ITitleComponent {
   fontSize?: IFontSize;
 }
 
-export const TitleComponent = ({ tag, children, className }: ITitleComponent) => {
+export const TitleComponent = ({
+  tag,
+  children,
+  className,
+}: ITitleComponent) => {
   return (
     <>
       {tag === "h1" && <h1 className={className}>{children}</h1>}
