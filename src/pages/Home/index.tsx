@@ -1,10 +1,9 @@
 import { Text } from "../../styles/TypograpyText";
+import ModalLogin from "./componentsHome/ModalLogin";
 
 const HomePage = () => {
   return (
-    <Text tag="h1" fontSize="title1" color="primary">
-      Hello World
-    </Text>
+    <ModalLogin />
   );
 };
 
