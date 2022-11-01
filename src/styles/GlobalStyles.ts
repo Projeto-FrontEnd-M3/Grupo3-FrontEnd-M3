@@ -4,16 +4,19 @@ export const GlobalStyles = createGlobalStyle`
     :root {
         //Primary Palette
         --color-primary: #00ADB5;
-        --color-secundary: #393E46;
-        --color-primary-negative: #00acb571;
+        --color-primary-focus: #AAD8D3;
+        --color-primary-negative: #355764;
 
         //Grey Scale Palette
+        --color-white: #ffffff;
         --color-grey-1: #EEEEEE;
-        --color-grey-2: #868E96;
+        --color-grey-2: #7E8894;
+        --color-grey-3: #393E46;
 
         //Feedback Palette
-        --color-success: #3FE864;
-        --color-error: #E83F5B;
+        --color-success: #C2FFD9;
+        --color-error: #Ff4848;
+        --color-alert: #FFD371;
     }
 
     html, body, div, span, applet, object, iframe,
