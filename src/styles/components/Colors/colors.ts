@@ -6,7 +6,7 @@ export const setColors = (color: IColor) => {
       return "var(--color-primary)";
 
     case "secundary":
-      return "var(--color-secundary)";
+      return "var(--color-primary-focus)";
 
     case "negative":
       return "var(--color-primary-negative)";
@@ -17,11 +17,20 @@ export const setColors = (color: IColor) => {
     case "success":
       return "var(--color-success)";
 
+    case "alert":
+      return "var(--color-alert)";
+
     case "white":
+      return "var(--color-white)";
+
+    case "grey1":
       return "var(--color-grey-1)";
 
-    case "grey":
+    case "grey2":
       return "var(--color-grey-2)";
+
+    case "grey3":
+      return "var(--color-grey-3)";
 
     case undefined:
       return "var(--color-grey-1)";

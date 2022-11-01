@@ -4,6 +4,7 @@
 - Variáveis: camelCase
 - Funções: camelCase & Arrow Function
 - Pastas: camelCase
+- Componentes: PascalCase
 
 # Organização 
 
@@ -17,3 +18,7 @@
 - styles: estilos e componentes de estilo da aplicação de forma global.
 - interface: usado para organizar tipagens globais.
 - context: onde será inserido o contexto da aplicação.
+
+# Ao clonar o repositório
+- Executar no terminal: npm install
+- Executar o servidor: npm run dev

@@ -25,6 +25,9 @@ export type IColor =
   | "negative"
   | "error"
   | "success"
+  | "alert"
   | "white"
-  | "grey"
+  | "grey1"
+  | "grey2"
+  | "grey3"
   | undefined;
