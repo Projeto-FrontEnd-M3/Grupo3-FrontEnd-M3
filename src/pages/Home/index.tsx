@@ -2,9 +2,7 @@ import { Text } from "../../styles/TypograpyText";
 import ModalLogin from "./componentsHome/ModalLogin";
 
 const HomePage = () => {
-  return (
-    <ModalLogin />
-  );
+  return <Text>hello world</Text>;
 };
 
 export default HomePage;
