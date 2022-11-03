@@ -11,7 +11,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Text } from "../../../../styles/TypograpyText";
 
@@ -20,7 +19,7 @@ interface Props {
 }
 
 const drawerWidth = "50%";
-const navItems = ["EQUIPE", "COMO FUNCIONA", "LOGIN"];
+const navItems = ["HOME", "EQUIPE", "COMO FUNCIONA", "LOGIN"];
 
 export function Header(props: Props) {
   const { window } = props;
@@ -81,6 +80,10 @@ export function Header(props: Props) {
               </Text>
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
+              <Button className="navBtn">HOME</Button>
+              <Text tag="span" color="primary">
+                |
+              </Text>
               <Button className="navBtn">EQUIPE</Button>
               <Text tag="span" color="primary">
                 |
@@ -113,7 +116,7 @@ export function Header(props: Props) {
             keepMounted: true,
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
