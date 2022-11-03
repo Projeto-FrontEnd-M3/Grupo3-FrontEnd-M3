@@ -1,5 +1,9 @@
+import { NavbarDashboard } from "../../components/NavbarDashboard";
+
 const DashBoardOng = () => {
-  return <h1>DashboardOng</h1>;
+  return (
+    <NavbarDashboard/>
+  )
 };
 
 export default DashBoardOng;

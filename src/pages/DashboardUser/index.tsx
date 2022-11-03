@@ -1,5 +1,9 @@
+import { NavbarDashboard } from "../../components/NavbarDashboard";
+
 const DashBoardUser = () => {
-  return <h1>DashboardUser</h1>;
+  return (
+    <NavbarDashboard/>
+  )
 };
 
 export default DashBoardUser
