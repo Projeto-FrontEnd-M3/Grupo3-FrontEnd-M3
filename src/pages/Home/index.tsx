@@ -3,6 +3,7 @@ import { Header } from "./componentsHome/Header";
 import { MainSection } from "./componentsHome/MainSection";
 import ModalLogin from "./componentsHome/ModalLogin";
 import ModalRegister from "./componentsHome/ModalRegister";
+import HowToUse from "./componentsHome/SectionHowToUse";
 import { SectionEquipe } from "./componentsHome/SectionEquipe";
 
 const HomePage = () => {
@@ -10,7 +11,9 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <MainSection />
+      {/* <MainSection /> */}
+      {/* <SectionEquipe /> */}
+      <HowToUse />
     </>
   );
 };

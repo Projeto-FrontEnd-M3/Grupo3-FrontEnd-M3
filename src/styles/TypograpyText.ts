@@ -43,6 +43,10 @@ export const Text = styled(TitleComponent)`
           font-size: 0.9rem;
           font-weight: bold;
         `;
+      case "text4":
+        return css`
+          font-size: 0.9rem;
+        `;
 
       case undefined:
         return css`
