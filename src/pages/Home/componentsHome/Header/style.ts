@@ -13,6 +13,7 @@ export const HeaderStyle = styled.div`
   }
   .navBtn {
     color: var(--color-primary-focus);
+    font-size: 18px;
   }
   .navMobile {
     background-color: var(--color-primary-negative);
