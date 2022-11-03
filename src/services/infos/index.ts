@@ -1,0 +1,51 @@
+export const productCreators = [
+  {
+    name: "Gabriel Malafaia",
+    email: "gabrielbsnsp@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gabrielmalafaia/",
+    gitHub: "https://github.com/Gabriel-Malafaia",
+    instagram: "https://www.instagram.com/gabrielmlf22/",
+  },
+  {
+    name: "Gabriel Malafaia",
+    email: "gabrielbsnsp@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gabrielmalafaia/",
+    gitHub: "https://github.com/Gabriel-Malafaia",
+    instagram: "https://www.instagram.com/gabrielmlf22/",
+  },
+  {
+    name: "Gabriel Malafaia",
+    email: "gabrielbsnsp@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gabrielmalafaia/",
+    gitHub: "https://github.com/Gabriel-Malafaia",
+    instagram: "https://www.instagram.com/gabrielmlf22/",
+  },
+  {
+    name: "Gabriel Malafaia",
+    email: "gabrielbsnsp@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gabrielmalafaia/",
+    gitHub: "https://github.com/Gabriel-Malafaia",
+    instagram: "https://www.instagram.com/gabrielmlf22/",
+  },
+  {
+    name: "Gabriel Malafaia",
+    email: "gabrielbsnsp@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gabrielmalafaia/",
+    gitHub: "https://github.com/Gabriel-Malafaia",
+    instagram: "https://www.instagram.com/gabrielmlf22/",
+  },
+  {
+    name: "Gabriel Malafaia",
+    email: "gabrielbsnsp@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gabrielmalafaia/",
+    gitHub: "https://github.com/Gabriel-Malafaia",
+    instagram: "https://www.instagram.com/gabrielmlf22/",
+  },
+  {
+    name: "Gabriel Malafaia",
+    email: "gabrielbsnsp@gmail.com",
+    linkedin: "https://www.linkedin.com/in/gabrielmalafaia/",
+    gitHub: "https://github.com/Gabriel-Malafaia",
+    instagram: "https://www.instagram.com/gabrielmlf22/",
+  },
+];

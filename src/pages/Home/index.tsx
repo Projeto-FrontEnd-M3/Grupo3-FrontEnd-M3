@@ -1,10 +1,12 @@
 import { Text } from "../../styles/TypograpyText";
+import { SectionEquipe } from "./componentsHome/SectionEquipe";
 // import ModalLogin from "./componentsHome/ModalLogin";
 
 const HomePage = () => {
   return (
-    <Text>Hello World.</Text>
-    // <ModalLogin />
+    <>
+      <SectionEquipe />
+    </>
   );
 };
 
