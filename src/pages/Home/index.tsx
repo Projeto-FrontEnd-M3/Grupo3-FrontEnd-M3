@@ -1,7 +1,7 @@
 import { Text } from "../../styles/TypograpyText";
 import { Header } from "./componentsHome/Header";
 import { MainSection } from "./componentsHome/MainSection";
-import ModalLogin from "./componentsHome/ModalLogin";
+import { SectionEquipe } from "./componentsHome/SectionEquipe";
 
 const HomePage = () => {
   return (
