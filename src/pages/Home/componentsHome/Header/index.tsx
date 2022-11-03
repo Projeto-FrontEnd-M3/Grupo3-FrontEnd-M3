@@ -1,36 +1,4 @@
-// import AppBar from "@mui/material/AppBar";
-
-// import Button from "@mui/material/Button";
-
-// import { Text } from "../../../../styles/TypograpyText";
 import { HeaderStyle } from "./style";
-
-// export const Header = () => {
-//   return (
-//     <HeaderStyle>
-//       <AppBar position="static">
-//         <div className="divLogo">
-//           <img src="" alt="Logo" />
-//           <Text tag="h1" color="secundary">
-//             Nome do Site
-//           </Text>
-//         </div>
-//         <div>
-//           <Button>EQUIPE</Button>
-//           <Text tag="span" color="primary">
-//             |
-//           </Text>
-//           <Button>COMO FUNCIONA</Button>
-//           <Text tag="span" color="primary">
-//             |
-//           </Text>
-//           <Button>LOGIN</Button>
-//         </div>
-//       </AppBar>
-//     </HeaderStyle>
-//   );
-// };
-
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -64,7 +32,7 @@ export function Header(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Text tag="h1" color="secundary">
+      <Text className="nameModal" tag="h1" color="secundary">
         Nome do Site
       </Text>
       <Divider />
@@ -87,15 +55,6 @@ export function Header(props: Props) {
     <HeaderStyle>
       <AppBar component="nav" className="header">
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 3, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Box
             sx={{
               width: "100%",
@@ -112,11 +71,16 @@ export function Header(props: Props) {
               }}
             >
               <img src="" alt="Logo" />
-              <Text tag="h1" color="secundary">
+              <Text
+                className="logoName"
+                tag="h1"
+                color="secundary"
+                fontSize="title3"
+              >
                 Nome do Site
               </Text>
             </Box>
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
               <Button className="navBtn">EQUIPE</Button>
               <Text tag="span" color="primary">
                 |
@@ -128,6 +92,15 @@ export function Header(props: Props) {
               <Button className="navBtn">LOGIN</Button>
             </Box>
           </Box>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 3, display: { md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Box component="nav" className="navMobile">

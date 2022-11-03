@@ -15,8 +15,17 @@ export const HeaderStyle = styled.div`
 
   .navBtn {
     color: var(--color-primary-focus);
+    font-size: 18px;
   }
   .navMobile {
     background-color: var(--color-primary-negative);
+  }
+  .nameMOdal {
+    height: 30px;
+  }
+  @media (max-width: 450px) {
+    .logoName {
+      display: none;
+    }
   }
 `;
