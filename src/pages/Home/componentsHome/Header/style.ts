@@ -7,10 +7,12 @@ export const HeaderStyle = styled.div`
     background-color: var(--color-primary-negative);
     padding: 0 50px 0 50px;
   }
+
   .divLogo {
     display: flex;
     gap: 10px;
   }
+
   .navBtn {
     color: var(--color-primary-focus);
   }
