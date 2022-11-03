@@ -13,30 +13,32 @@ export const SectionEquipe = () => {
       </Text>
 
       <ul>
-        {productCreators.map(({ name, email, linkedin, gitHub, instagram }, index) => {
-          return (
-            <li key={index}>
-              <div className="left__div">
-                <Text color="primary">{name}</Text>
-                <Text color="primary">{email}</Text>
-              </div>
+        {productCreators.map(
+          ({ name, email, linkedin, gitHub, instagram }, index) => {
+            return (
+              <li key={index}>
+                <div className="left__div">
+                  <Text color="primary">{name}</Text>
+                  <Text color="primary">{email}</Text>
+                </div>
 
-              <div>
-                <a target='_blank' href={linkedin}>
-                  <LinkedInIcon />
-                </a>
+                <div>
+                  <a target="_blank" href={linkedin}>
+                    <LinkedInIcon />
+                  </a>
 
-                <a target='_blank' href={gitHub}>
-                  <GitHubIcon />
-                </a>
+                  <a target="_blank" href={gitHub}>
+                    <GitHubIcon />
+                  </a>
 
-                <a target='_blank' href={instagram}>
-                  <InstagramIcon />
-                </a>
-              </div>
-            </li>
-          );
-        })}
+                  <a target="_blank" href={instagram}>
+                    <InstagramIcon />
+                  </a>
+                </div>
+              </li>
+            );
+          }
+        )}
       </ul>
     </ContainerEquipe>
   );
