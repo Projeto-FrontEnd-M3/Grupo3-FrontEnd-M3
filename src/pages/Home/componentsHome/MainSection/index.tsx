@@ -10,7 +10,7 @@ export const MainSection = () => {
       <div className="container">
         <div className="containerDivText">
           <Text tag="h1" color="grey3" fontSize="title1">
-            Nós conectamos você
+            Nós conectamos você!
           </Text>
           <Text tag="p" color="grey3">
             O site que conecta ONGs que precisam com devs que querem desenvolver

@@ -20,4 +20,12 @@ export const HeaderStyle = styled.div`
   .navMobile {
     background-color: var(--color-primary-negative);
   }
+  .nameMOdal {
+    height: 30px;
+  }
+  @media (max-width: 450px) {
+    .logoName {
+      display: none;
+    }
+  }
 `;
