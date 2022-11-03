@@ -1,22 +1,25 @@
-import { TitleComponent } from "../../styles/components/Typography";
+import { Text } from "../../styles/TypograpyText";
+import { HistoricContainer } from "./styles";
 
-const HistoricDashboard = (props) => {
+const list = []
+
+const HistoricDashboard = () => {
   return (
-    <div>
-      <TitleComponent>Histórico</TitleComponent>
+    <HistoricContainer>
+      <Text tag="h2" fontSize="title3" color="primary">Histórico</Text>
       <ul>
-        {props.list.length == 0 && (
-            <>
-                <TitleComponent tag="p" color="primary">
+        {list.length == 0 && (
+            <div className="historic__list--empty">
+                <Text tag="p" color="grey3">
                 Atualmente você não possui nenhum projeto.
-                </TitleComponent>
-                <TitleComponent tag="p" color="primary">
+                </Text>
+                <Text tag="p" color="grey3">
                     Para iniciar um novo, basta aceitar um projeto da lista ao lado.
-                </TitleComponent>
-            </>
+                </Text>
+            </div>
         )}
       </ul>
-    </div>
+    </HistoricContainer>
   );
 };
 
