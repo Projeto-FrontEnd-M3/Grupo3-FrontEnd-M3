@@ -16,6 +16,7 @@ export const MainStyled = styled.div`
     margin: 0 50px 0 50px;
   }
   .containerDivText {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -31,12 +32,12 @@ export const MainStyled = styled.div`
     margin-bottom: 50px;
   }
   .btnAbout {
-    width: 200px;
+    min-width: 200px;
     border: 2px solid var(--color-primary-negative);
     padding: 0 15px 0 15px;
   }
   .btnRegister {
-    width: 200px;
+    min-width: 200px;
     border: 2px solid white;
     color: white;
   }
