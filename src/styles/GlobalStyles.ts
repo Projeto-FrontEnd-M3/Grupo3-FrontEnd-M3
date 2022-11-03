@@ -104,4 +104,8 @@ export const GlobalStyles = createGlobalStyle`
     .filterBackdrop {
         backdrop-filter: blur(1px)
     }
+
+    .nameModal {
+        padding: 1rem;
+    }
 `;

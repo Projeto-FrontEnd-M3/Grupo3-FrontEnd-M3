@@ -17,12 +17,16 @@ export const HeaderStyle = styled.div`
     color: var(--color-primary-focus);
     font-size: 18px;
   }
+
   .navMobile {
     background-color: var(--color-primary-negative);
   }
-  .nameMOdal {
+
+  .nameModal {
     height: 30px;
+    padding: 1rem;
   }
+
   @media (max-width: 450px) {
     .logoName {
       display: none;

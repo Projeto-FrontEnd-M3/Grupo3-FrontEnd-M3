@@ -72,7 +72,7 @@ export function Header(props: Props) {
               <img src="" alt="Logo" />
               <Text
                 className="logoName"
-                tag="h1"
+                tag="h2"
                 color="secundary"
                 fontSize="title3"
               >
