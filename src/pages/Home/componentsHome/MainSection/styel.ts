@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const MainStyled = styled.div`
-  width: 100vw;
-  height: 88vh;
-
+  max-width: 100vw;
+  max-height: 100vh;
   background-color: var(--color-primary);
+  display: flex;
+  flex-direction: row;
   .container {
-    height: 88vh;
-    width: 75%;
+    max-height: 100%;
+    width: 70vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,11 +23,30 @@ export const MainStyled = styled.div`
     margin-bottom: 50px;
   }
   .containerDivBtn {
+    width: 50%;
     display: flex;
-    gap: 15px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 50px;
   }
-
-  .btnRegistro {
+  .btnAbout {
+    width: 200px;
+    border: 2px solid var(--color-primary-negative);
+    padding: 0 15px 0 15px;
+  }
+  .btnRegister {
+    width: 200px;
+    border: 2px solid white;
     color: white;
+  }
+  .containerImg {
+    width: 30vw;
+    height: 100vh;
+  }
+  img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;

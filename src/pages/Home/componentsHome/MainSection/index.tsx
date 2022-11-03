@@ -1,6 +1,8 @@
 import { Text } from "../../../../styles/TypograpyText";
 import Button from "@mui/material/Button";
 import { MainStyled } from "./styel";
+import { ButtonDefault } from "../../../../components/ButtonDefault/style";
+import img1 from "../../../../assets/imagem1.png";
 
 export const MainSection = () => {
   return (
@@ -15,15 +17,25 @@ export const MainSection = () => {
           </Text>
         </div>
         <div className="containerDivBtn">
-          <Button variant="outlined" className="btnSobre">
+          <ButtonDefault
+            className="btnAbout"
+            bgColor="primary"
+            color="negative"
+          >
             SAIBA MAIS
-          </Button>
-          <Button variant="outlined" className="btnRegistro">
+          </ButtonDefault>
+          <ButtonDefault
+            className="btnRegister"
+            bgColor="primary"
+            color="negative"
+          >
             CADASTRE-SE
-          </Button>
+          </ButtonDefault>
         </div>
       </div>
-      <div></div>
+      <div className="containerImg">
+        <img src={img1} alt="img de canto" />
+      </div>
     </MainStyled>
   );
 };
