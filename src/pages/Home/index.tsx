@@ -1,6 +1,7 @@
 import { Text } from "../../styles/TypograpyText";
 import { Header } from "./componentsHome/Header";
 import { MainSection } from "./componentsHome/MainSection";
+import HowToUse from "./componentsHome/SectionHowToUse";
 import { SectionEquipe } from "./componentsHome/SectionEquipe";
 
 const HomePage = () => {
@@ -8,7 +9,8 @@ const HomePage = () => {
     <>
       <Header />
       {/* <MainSection /> */}
-      <SectionEquipe />
+      {/* <SectionEquipe /> */}
+      <HowToUse />
     </>
   );
 };
