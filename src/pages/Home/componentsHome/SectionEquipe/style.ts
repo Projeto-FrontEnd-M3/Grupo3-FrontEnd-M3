@@ -9,6 +9,7 @@ export const ContainerEquipe = styled.div`
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin-top: 5rem;
 
     svg {
         color: var(--color-primary);

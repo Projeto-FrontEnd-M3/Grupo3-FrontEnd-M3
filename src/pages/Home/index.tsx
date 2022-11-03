@@ -1,11 +1,13 @@
 import { Text } from "../../styles/TypograpyText";
+import { Header } from "./componentsHome/Header";
+import { MainSection } from "./componentsHome/MainSection";
 import { SectionEquipe } from "./componentsHome/SectionEquipe";
-// import ModalLogin from "./componentsHome/ModalLogin";
 
 const HomePage = () => {
   return (
     <>
-      <SectionEquipe />
+      <Header />
+      <MainSection />
     </>
   );
 };
