@@ -49,6 +49,7 @@ export const NavbarDashboard = () => {
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'poppins',
                 fontWeight: 700,
+                marginRight: 10,
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
@@ -115,14 +116,19 @@ export const NavbarDashboard = () => {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               
                 <Button
-                 
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'flex', gap: 10, marginLeft: 10, fontFamily: 'poppins' }}
+                  sx={{ my: 2, color: 'white', display: 'flex', marginLeft: 5, fontFamily: 'poppins' }}
                 >
                   <Typography textAlign="center">Projetos</Typography>
-                  <Typography textAlign="center">Projeto Atual</Typography>
-                  
                 </Button>
+
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'flex', marginLeft: 5, fontFamily: 'poppins' }}
+                >
+                  <Typography textAlign="center">Projeto Atual</Typography>
+                </Button>
+                
              
             </Box>
   
