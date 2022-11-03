@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export const MainStyled = styled.div`
-  max-width: 100vw;
-  max-height: 100vh;
   background-color: var(--color-primary);
   display: flex;
   flex-direction: row;
+  height: 100vh;
 
   .container {
     max-height: 100%;
-    width: 70vw;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,14 +46,17 @@ export const MainStyled = styled.div`
   }
 
   .containerImg {
-    width: 30vw;
-    height: 100vh;
+    width: 29%;
   }
 
   img {
     max-width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 791px) {
+    height: 100vh;
   }
 
   @media (max-width: 690px) {

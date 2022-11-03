@@ -13,6 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { Text } from "../../../../styles/TypograpyText";
+import { useUserContext } from "../../../../context/UserContext";
 
 interface Props {
   window?: () => Window;
@@ -21,9 +22,10 @@ interface Props {
 const drawerWidth = "50%";
 const navItems = ["HOME", "EQUIPE", "COMO FUNCIONA", "LOGIN"];
 
-export function Header(props: Props) {
+export const Header = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { setActualSectionHome } = useUserContext();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -80,11 +82,21 @@ export function Header(props: Props) {
               </Text>
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
-              <Button className="navBtn">HOME</Button>
+              <Button
+                onClick={() => setActualSectionHome("home")}
+                className="navBtn"
+              >
+                HOME
+              </Button>
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button className="navBtn">EQUIPE</Button>
+              <Button
+                onClick={() => setActualSectionHome("squad")}
+                className="navBtn"
+              >
+                EQUIPE
+              </Button>
               <Text tag="span" color="primary">
                 |
               </Text>
@@ -92,7 +104,12 @@ export function Header(props: Props) {
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button className="navBtn">LOGIN</Button>
+              <Button
+                onClick={() => setActualSectionHome("login")}
+                className="navBtn"
+              >
+                LOGIN
+              </Button>
             </Box>
           </Box>
           <IconButton
@@ -128,4 +145,4 @@ export function Header(props: Props) {
       </Box>
     </HeaderStyle>
   );
-}
+};

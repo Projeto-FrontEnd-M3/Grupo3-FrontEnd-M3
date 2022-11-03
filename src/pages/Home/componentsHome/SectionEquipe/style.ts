@@ -6,7 +6,6 @@ export const ContainerEquipe = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 `;
 
 export const ContainerSquadIntern = styled.div`
@@ -17,7 +16,7 @@ export const ContainerSquadIntern = styled.div`
   gap: 5rem;
 
   svg {
-    color: var(--color-primary);
+    color: var(--color-primary-negative);
 
     :hover {
       transform: scale(1.15);

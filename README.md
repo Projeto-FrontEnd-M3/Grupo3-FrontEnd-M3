@@ -5,6 +5,7 @@
 - Funções: camelCase & Arrow Function
 - Pastas: camelCase
 - Componentes: PascalCase
+- Classes: CSS BEM
 
 # Organização 
 

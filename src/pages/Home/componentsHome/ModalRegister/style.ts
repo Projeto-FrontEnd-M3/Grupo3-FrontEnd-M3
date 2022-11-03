@@ -22,8 +22,8 @@ export const AlignModalRegister = styled.div`
   text-align: center;
 
   h2 {
-    letter-spacing: 2rem;
-    margin-right: calc(2rem * -1);
+    letter-spacing: 0.8rem;
+    margin-right: calc(1rem * -1);
   }
 
   span {

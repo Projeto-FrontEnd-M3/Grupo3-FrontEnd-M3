@@ -3,45 +3,71 @@ import { ContainerModalLogin, FormModalLogin } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import TextField from "@mui/material/TextField";
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
+import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
+import LockTwoToneIcon from "@mui/icons-material/LockTwoTone";
 import Box from "@mui/material/Box";
+import { useUserContext } from "../../../../context/UserContext";
 
 const ModalLogin = () => {
+  const { actualSectionHome, setActualSectionHome } = useUserContext();
+
   return (
-    <ContainerModal>
-      <ContainerModalLogin>
-        <FormModalLogin>
-          <Text tag="h2" fontSize="title1" color="primary">
-            LOGIN
-          </Text>
+    <>
+      {actualSectionHome == "login" && (
+        <ContainerModal>
+          <ContainerModalLogin>
+            <FormModalLogin>
+              <Text tag="h2" fontSize="title1" color="primary">
+                LOGIN
+              </Text>
 
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <AccountCircleTwoToneIcon
-              sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
-            />
-            <TextField id="input-with-sx" label="Email" variant="standard" />
-          </Box>
+              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                <AccountCircleTwoToneIcon
+                  sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
+                />
+                <TextField
+                  id="input-with-sx"
+                  label="Email"
+                  variant="standard"
+                />
+              </Box>
 
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <LockTwoToneIcon sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }} />
-            <TextField id="input-with-sx" label="Senha" variant="standard" />
-          </Box>
+              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                <LockTwoToneIcon
+                  sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
+                />
+                <TextField
+                  id="input-with-sx"
+                  label="Senha"
+                  variant="standard"
+                />
+              </Box>
 
-          <ButtonDefault bgColor="primary" color="primary">
-            ENTRAR
-          </ButtonDefault>
+              <ButtonDefault type="button" bgColor="primary" color="primary">
+                ENTRAR
+              </ButtonDefault>
 
-          <div className="horizontalBar"></div>
+              <div className="horizontalBar"></div>
 
-          <Text color="primary" fontSize="text3">
-            Não tem uma conta? <span>Cadastre-se</span>
-          </Text>
+              <Text color="primary" fontSize="text3">
+                Não tem uma conta?{" "}
+                <span onClick={() => setActualSectionHome("register")}>
+                  Cadastre-se
+                </span>
+              </Text>
 
-          <button className="buttonClosed">X</button>
-        </FormModalLogin>
-      </ContainerModalLogin>
-    </ContainerModal>
+              <button
+                type="button"
+                onClick={() => setActualSectionHome("none")}
+                className="buttonClosed"
+              >
+                X
+              </button>
+            </FormModalLogin>
+          </ContainerModalLogin>
+        </ContainerModal>
+      )}
+    </>
   );
 };
 
