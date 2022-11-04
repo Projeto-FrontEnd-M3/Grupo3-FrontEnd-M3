@@ -28,6 +28,11 @@ export const HeaderStyle = styled.div`
     padding: 1rem;
   }
 
+  img {
+    width: 50px;
+    border-radius: 50%;
+  }
+
   @media (max-width: 450px) {
     .logoName {
       display: none;

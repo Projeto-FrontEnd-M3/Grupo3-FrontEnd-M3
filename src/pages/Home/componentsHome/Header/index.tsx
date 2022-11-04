@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 import { Text } from "../../../../styles/TypograpyText";
 import { useUserContext } from "../../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import logoIcon from "../../../../assets/awesome-hand-logo-design_93835-290.webp";
 
 interface Props {
   window?: () => Window;
@@ -73,14 +74,14 @@ export const Header = (props: Props) => {
                 gap: "15px",
               }}
             >
-              <img src="" alt="Logo" />
+              <img src={logoIcon} alt="Logo" />
               <Text
                 className="logoName"
                 tag="h2"
                 color="secundary"
                 fontSize="title3"
               >
-                Nome do Site
+                Dev's Help
               </Text>
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
@@ -90,14 +91,14 @@ export const Header = (props: Props) => {
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button onClick={() => navigate("equipe")} className="navBtn">
-                EQUIPE
+              <Button onClick={() => navigate("sobre")} className="navBtn">
+                COMO FUNCIONA
               </Button>
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button onClick={() => navigate("sobre")} className="navBtn">
-                COMO FUNCIONA
+              <Button onClick={() => navigate("equipe")} className="navBtn">
+                EQUIPE
               </Button>
               <Text tag="span" color="primary">
                 |

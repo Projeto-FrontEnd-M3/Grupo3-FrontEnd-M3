@@ -108,4 +108,8 @@ export const GlobalStyles = createGlobalStyle`
     .nameModal {
         padding: 1rem;
     }
+
+    .App {
+        height: 100vh;
+    }
 `;

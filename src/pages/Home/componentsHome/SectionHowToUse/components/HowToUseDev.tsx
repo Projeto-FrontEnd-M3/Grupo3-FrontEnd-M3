@@ -1,8 +1,5 @@
 import { Text } from "../../../../../styles/TypograpyText";
-import {
-  ContainerAboutList,
-  ContainerAboutSite,
-} from "../style";
+import { ContainerAboutList, ContainerAboutSite } from "../style";
 import StepList from "./StepList";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 

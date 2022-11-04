@@ -2,10 +2,12 @@ import { Text } from "../../../../styles/TypograpyText";
 import { MainStyled } from "./style";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../../../context/UserContext";
 import img1 from "../../../../assets/imagem1.png";
 
 export const MainSection = () => {
   const navigate = useNavigate();
+  const { setActualSectionHome } = useUserContext();
 
   return (
     <MainStyled>
@@ -26,7 +28,11 @@ export const MainSection = () => {
           >
             SAIBA MAIS
           </ButtonDefault>
-          <ButtonDefault bgColor="white" color="white">
+          <ButtonDefault
+            onClick={() => setActualSectionHome("register")}
+            bgColor="white"
+            color="white"
+          >
             CADASTRE-SE
           </ButtonDefault>
         </div>
