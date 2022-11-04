@@ -4,11 +4,10 @@ export const MainStyled = styled.div`
   background-color: var(--color-primary);
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: calc(100vh - 5rem);
 
   .container {
-    max-height: 100%;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,49 +16,35 @@ export const MainStyled = styled.div`
   }
 
   .containerDivText {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 4rem;
+  }
+
+  .containerDivText h1 {
+    margin-bottom: 0.5rem;
   }
 
   .containerDivBtn {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    max-width: 420px;
+    width: 100%;
     gap: 10px;
-    margin-bottom: 50px;
-  }
-
-  .btnAbout {
-    min-width: 200px;
-    border: 2px solid var(--color-primary-negative);
-    padding: 0 15px 0 15px;
-  }
-
-  .btnRegister {
-    min-width: 200px;
-    border: 2px solid white;
-    color: white;
-  }
-
-  .containerImg {
-    width: 29%;
+    margin-bottom: 3rem;
   }
 
   img {
     max-width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
   }
 
   @media (max-width: 791px) {
     height: 100vh;
   }
 
-  @media (max-width: 690px) {
+  @media (max-width: 800px) {
     .containerDivBtn {
       flex-wrap: wrap;
     }

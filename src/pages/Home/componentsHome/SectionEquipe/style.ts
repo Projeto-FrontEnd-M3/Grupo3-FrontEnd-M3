@@ -9,14 +9,14 @@ export const ContainerEquipe = styled.div`
 `;
 
 export const ContainerSquadIntern = styled.div`
-  padding: 5rem 1rem 1rem 1rem;
+  padding: 8rem 0 2rem 0;
   display: flex;
   flex-direction: column;
   margin: auto;
   gap: 5rem;
 
   svg {
-    color: var(--color-primary-negative);
+    color: var(--color-primary);
 
     :hover {
       transform: scale(1.15);

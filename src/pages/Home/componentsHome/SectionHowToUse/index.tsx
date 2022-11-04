@@ -7,6 +7,7 @@ import { Box } from "@mui/system";
 import AboutSite from "./components/AboutSite";
 import HowToUseDev from "./components/HowToUseDev";
 import HowToUseOng from "./components/HowToUseOng";
+import { Text } from "../../../../styles/TypograpyText";
 
 interface TabPanelProps {
   children?: React.ReactNode;

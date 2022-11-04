@@ -14,6 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { Text } from "../../../../styles/TypograpyText";
 import { useUserContext } from "../../../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   window?: () => Window;
@@ -26,6 +27,7 @@ export const Header = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { setActualSectionHome } = useUserContext();
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -54,7 +56,7 @@ export const Header = (props: Props) => {
 
   return (
     <HeaderStyle>
-      <AppBar component="nav" className="header">
+      <AppBar position="static" component="nav" className="header">
         <Toolbar>
           <Box
             sx={{
@@ -82,25 +84,21 @@ export const Header = (props: Props) => {
               </Text>
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
-              <Button
-                onClick={() => setActualSectionHome("home")}
-                className="navBtn"
-              >
+              <Button onClick={() => navigate("home")} className="navBtn">
                 HOME
               </Button>
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button
-                onClick={() => setActualSectionHome("squad")}
-                className="navBtn"
-              >
+              <Button onClick={() => navigate("equipe")} className="navBtn">
                 EQUIPE
               </Button>
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button className="navBtn">COMO FUNCIONA</Button>
+              <Button onClick={() => navigate("sobre")} className="navBtn">
+                COMO FUNCIONA
+              </Button>
               <Text tag="span" color="primary">
                 |
               </Text>

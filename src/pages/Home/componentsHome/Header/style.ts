@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const HeaderStyle = styled.div`
   .header {
     width: 100%;
-    height: 55px;
+    height: 5rem;
     background-color: var(--color-primary-negative);
     padding: 0 50px 0 50px;
+    justify-content: center;
   }
 
   .divLogo {
