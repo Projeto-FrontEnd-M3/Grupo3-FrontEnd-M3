@@ -68,7 +68,7 @@ export const GlobalStyles = createGlobalStyle`
         background: #555; 
     }
 
-    ol, ul {
+    ol, ul, li {
         list-style: none;
     }
 
@@ -111,5 +111,6 @@ export const GlobalStyles = createGlobalStyle`
 
     .App {
         height: 100vh;
+      
     }
 `;

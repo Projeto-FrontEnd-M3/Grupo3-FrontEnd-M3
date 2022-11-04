@@ -1,42 +1,24 @@
 import styled from "styled-components";
 
 export const ContainerHowToUse = styled.div`
+  padding-top: 4rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  padding: 4rem 0 4rem 0;
   background-color: var(--color-primary-focus);
+`;
 
-  .headTtitle {
-    font-size: 1.5rem;
-  }
-
-  .containerBox {
-    width: 80%;
-    height: 80%;
-    background-color: var(--color-primary);
-  }
+export const ContainerHowToUseNav = styled.div`
+  width: 86%;
+  margin: auto;
 `;
 
 export const ContainerAboutSite = styled.div`
-  overflow-y: auto;
-  max-height: 500px;
-  background-color: black;
-  margin-top: 3rem;
+  width: 90%;
+  margin: auto;
   background-color: var(--color-primary);
   color: var(--color-grey-1);
-
-  .ContainerAboutCenter {
-    text-align: center;
-  }
-  @media (max-width: 800px) {
-    margin-top: 1rem;
-    .ContainerAboutCenter {
-      text-align: center;
-      font-size: 16px;
-    }
-  }
+  padding: 3rem;
+  border-radius: 50px;
 `;
 
 export const ContainerAboutList = styled.ul`
