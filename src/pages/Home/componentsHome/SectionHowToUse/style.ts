@@ -2,24 +2,28 @@ import styled from "styled-components";
 
 export const ContainerHowToUse = styled.div`
   display: flex;
-  width: 100%;
-  margin: 0 auto;
-  padding: 4rem 0px 1rem 0px;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 4rem 0 4rem 0;
   background-color: var(--color-primary-focus);
+
   .headTtitle {
     font-size: 1.5rem;
   }
 
   .containerBox {
-    height: 90vh;
-    width: 90vw;
+    width: 80%;
+    height: 80%;
     background-color: var(--color-primary);
   }
 `;
 
 export const ContainerAboutSite = styled.div`
-  margin-top: 3rem;
+  overflow-y: auto;
+  /* max-height: 500px; */
+  /* background-color: black; */
+  /* margin-top: 3rem;
   background-color: var(--color-primary);
   color: var(--color-grey-1);
 
@@ -32,7 +36,7 @@ export const ContainerAboutSite = styled.div`
       text-align: center;
       font-size: 16px;
     }
-  }
+  } */
 `;
 
 export const ContainerAboutList = styled.ul`

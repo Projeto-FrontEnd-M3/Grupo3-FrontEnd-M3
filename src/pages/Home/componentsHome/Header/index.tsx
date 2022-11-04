@@ -11,20 +11,24 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Text } from "../../../../styles/TypograpyText";
+import { useUserContext } from "../../../../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import logoIcon from "../../../../assets/awesome-hand-logo-design_93835-290.webp";
 
 interface Props {
   window?: () => Window;
 }
 
 const drawerWidth = "50%";
-const navItems = ["EQUIPE", "COMO FUNCIONA", "LOGIN"];
+const navItems = ["HOME", "EQUIPE", "COMO FUNCIONA", "LOGIN"];
 
-export function Header(props: Props) {
+export const Header = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { setActualSectionHome } = useUserContext();
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -53,7 +57,7 @@ export function Header(props: Props) {
 
   return (
     <HeaderStyle>
-      <AppBar component="nav" className="header">
+      <AppBar position="static" component="nav" className="header">
         <Toolbar>
           <Box
             sx={{
@@ -70,26 +74,41 @@ export function Header(props: Props) {
                 gap: "15px",
               }}
             >
-              <img src="" alt="Logo" />
+              <img src={logoIcon} alt="Logo" />
               <Text
                 className="logoName"
-                tag="h1"
+                tag="h2"
                 color="secundary"
                 fontSize="title3"
               >
-                Nome do Site
+                Dev's Help
               </Text>
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
-              <Button className="navBtn">EQUIPE</Button>
+              <Button onClick={() => navigate("home")} className="navBtn">
+                HOME
+              </Button>
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button className="navBtn">COMO FUNCIONA</Button>
+              <Button onClick={() => navigate("sobre")} className="navBtn">
+                COMO FUNCIONA
+              </Button>
               <Text tag="span" color="primary">
                 |
               </Text>
-              <Button className="navBtn">LOGIN</Button>
+              <Button onClick={() => navigate("equipe")} className="navBtn">
+                EQUIPE
+              </Button>
+              <Text tag="span" color="primary">
+                |
+              </Text>
+              <Button
+                onClick={() => setActualSectionHome("login")}
+                className="navBtn"
+              >
+                LOGIN
+              </Button>
             </Box>
           </Box>
           <IconButton
@@ -113,7 +132,7 @@ export function Header(props: Props) {
             keepMounted: true,
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -125,4 +144,4 @@ export function Header(props: Props) {
       </Box>
     </HeaderStyle>
   );
-}
+};

@@ -1,5 +1,3 @@
-import React from "react";
-import { Text } from "../../../../../styles/TypograpyText";
 import { StepListContainer, StepListNumber, StepListText } from "../style";
 
 interface iStepList {

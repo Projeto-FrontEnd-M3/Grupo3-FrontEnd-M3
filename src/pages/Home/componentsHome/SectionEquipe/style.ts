@@ -6,11 +6,10 @@ export const ContainerEquipe = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 `;
 
 export const ContainerSquadIntern = styled.div`
-  padding: 5rem 1rem 1rem 1rem;
+  padding: 8rem 0 2rem 0;
   display: flex;
   flex-direction: column;
   margin: auto;

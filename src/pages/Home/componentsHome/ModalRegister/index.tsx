@@ -8,17 +8,19 @@ import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import AccessibilityNewTwoToneIcon from "@mui/icons-material/AccessibilityNewTwoTone";
 import ComputerTwoToneIcon from "@mui/icons-material/ComputerTwoTone";
-import Box from "@mui/material/Box";
+import { useUserContext } from "../../../../context/UserContext";
 
-const ModalLogin = () => {
+const ModalRegister = () => {
+  const { setActualSectionHome } = useUserContext();
   return (
     <ContainerModal>
       <ContainerModalRegister>
         <AlignModalRegister>
-          <Text tag="h3" fontSize="title1" color="primary">Cadastre-se</Text>
+          <Text tag="h2" fontSize="title1" color="primary">
+            CADASTRO
+          </Text>
           <Text color="primary">Comece nos informando quem você é:</Text>
           <OngOrDevBox>
-            
             <figure>
               <AccessibilityNewTwoToneIcon
                 sx={{ color: "var(--color-primary)" }}
@@ -43,14 +45,20 @@ const ModalLogin = () => {
           <div className="horizontalBar"></div>
 
           <Text color="primary" fontSize="text3">
-            Já tem uma conta? <span>Login</span>
+            Já tem uma conta? <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
 
-          <button className="buttonClosed">X</button>
+          <button
+            type="button"
+            onClick={() => setActualSectionHome("none")}
+            className="buttonClosed"
+          >
+            X
+          </button>
         </AlignModalRegister>
       </ContainerModalRegister>
     </ContainerModal>
   );
 };
 
-export default ModalLogin;
+export default ModalRegister;
