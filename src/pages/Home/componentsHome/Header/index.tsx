@@ -21,8 +21,14 @@ interface Props {
   window?: () => Window;
 }
 
+interface INavigateRoutes {
+  HOME: string;
+  EQUIPE: string;
+  "COMO FUNCIONA": string;
+}
+
 const drawerWidth = "50%";
-const navItems = ["HOME", "EQUIPE", "COMO FUNCIONA", "LOGIN"];
+const navItems = ["HOME", "EQUIPE", "COMO FUNCIONA"];
 
 export const Header = (props: Props) => {
   const { window } = props;
@@ -34,20 +40,39 @@ export const Header = (props: Props) => {
     setMobileOpen(!mobileOpen);
   };
 
+  const navigateRoutes: INavigateRoutes = {
+    HOME: "home",
+    EQUIPE: "equipe",
+    "COMO FUNCIONA": "sobre",
+  };
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Text className="nameModal" tag="h1" color="secundary">
+      <Text className="nameModal" fontSize="text1" tag="h1" color="primary">
         Nome do Site
       </Text>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton
+              onClick={() =>
+                navigate(navigateRoutes[item as keyof INavigateRoutes])
+              }
+              sx={{ textAlign: "center", color: "#00ADB5" }}
+            >
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem key="login" disablePadding>
+          <ListItemButton
+            onClick={() => setActualSectionHome("login")}
+            sx={{ textAlign: "center", color: "#00ADB5" }}
+          >
+            <ListItemText primary="LOGIN" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -136,6 +161,7 @@ export const Header = (props: Props) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              minWidth: "206px",
             },
           }}
         >
