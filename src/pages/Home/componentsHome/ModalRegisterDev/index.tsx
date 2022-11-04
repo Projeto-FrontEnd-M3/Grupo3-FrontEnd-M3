@@ -9,9 +9,27 @@ import AlternateEmailTwoToneIcon from "@mui/icons-material/AlternateEmailTwoTone
 import CallTwoToneIcon from "@mui/icons-material/CallTwoTone";
 import Box from "@mui/material/Box";
 import { useUserContext } from "../../../../context/UserContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerValidate } from "../../../../services/validations/validation";
+import { useForm } from "react-hook-form";
+
+export interface IRegisterHookForm {
+  email: string;
+  password: string;
+  name: string;
+  type: string;
+  cnpj?: string;
+}
 
 const ModalRegisterDev = () => {
   const { setActualSectionHome } = useUserContext();
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<IRegisterHookForm>({ resolver: yupResolver(registerValidate) });
+
   return (
     <ContainerModal>
       <ContainerModalLogin>
