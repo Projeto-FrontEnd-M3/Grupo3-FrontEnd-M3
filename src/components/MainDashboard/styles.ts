@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const MainStyled = styled.main`
   width: 100%;
   height: calc(100vh - 68px);
@@ -16,14 +15,14 @@ export const MainStyled = styled.main`
     width: calc(calc(100vw - 1536px) / 2);
   }
 
-  &  .dashboard__left {
+  & .dashboard__left {
     width: 65%;
     height: 100%;
     background-color: var(--color-primary);
     padding: 0 24px;
   }
 
-  &  .dashboard__right {
+  & .dashboard__right {
     width: 35%;
     height: 100%;
 
@@ -34,7 +33,7 @@ export const MainStyled = styled.main`
     align-items: center;
   }
 
-  @media(max-width: 900px) {
+  @media (max-width: 900px) {
     height: calc(100vh - 64px);
   }
 `;

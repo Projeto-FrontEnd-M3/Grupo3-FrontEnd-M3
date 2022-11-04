@@ -4,7 +4,7 @@ import MainDashboard from "../../components/MainDashboard";
 import ProjectsCarousel from "./components/ProjectCarousel/ProjectsCarousel";
 import { ContainerDashboard } from "../../components/ContainerDashboard/ContainerDashboard";
 
-const DashBoardUser = () => {
+const DashBoardDev = () => {
   return (
     <>
       <NavbarDashboard />
@@ -15,7 +15,7 @@ const DashBoardUser = () => {
             <ProjectsCarousel />
           </div>
           <div className="dashboard__right">
-            <HistoricDashboard />
+            <HistoricDashboard emptyListMessage="Para iniciar um novo, basta aceitar um projeto da lista ao lado."/>
           </div>
         </ContainerDashboard>
       </MainDashboard>
@@ -23,4 +23,4 @@ const DashBoardUser = () => {
   );
 };
 
-export default DashBoardUser;
+export default DashBoardDev;
