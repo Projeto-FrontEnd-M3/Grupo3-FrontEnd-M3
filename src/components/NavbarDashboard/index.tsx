@@ -58,7 +58,10 @@ export const NavbarDashboard = () => {
               DevOngUs
             </Typography>
   
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', fontFamily: 'poppins' } }}>
+            <Box sx={{ 
+              flexGrow: 1, 
+              display: { xs: 'flex', md: 'none', fontFamily: 'poppins' } 
+            }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -113,23 +116,33 @@ export const NavbarDashboard = () => {
             >
              DevOngUs
             </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              
+            <Box sx={{ 
+              flexGrow: 1, 
+              display: { xs: 'none', md: 'flex' } 
+            }}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'flex', marginLeft: 5, fontFamily: 'poppins' }}
+                  sx={{ 
+                    my: 2, 
+                    color: 'white', 
+                    display: 'flex', 
+                    marginLeft: 5, 
+                    fontFamily: 'poppins' }}
                 >
                   <Typography textAlign="center">Projetos</Typography>
                 </Button>
 
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'flex', marginLeft: 5, fontFamily: 'poppins' }}
+                  sx={{
+                     my: 2, 
+                     color: 'white', 
+                     display: 'flex', 
+                     marginLeft: 5, 
+                     fontFamily: 'poppins' }}
                 >
                   <Typography textAlign="center">Projeto Atual</Typography>
                 </Button>
-                
-             
             </Box>
   
          <Box sx={{ flexGrow: 0 }}>
@@ -154,26 +167,22 @@ export const NavbarDashboard = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                
                   <MenuItem  onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">Olá, cremosa(o)!</Typography>
                   </MenuItem>
                   <MenuItem  onClick={handleCloseUserMenu}>
-                    <Typography className='exit' textAlign="center" sx={{display:{xs: "flex"}, gap: 1}}>Editar Perfil <SettingsIcon/></Typography>
+                    <Typography textAlign="center" sx={{display:{xs: "flex"}, gap: 1}}>Editar Perfil <SettingsIcon/></Typography>
                   </MenuItem>
                   <MenuItem  onClick={handleCloseUserMenu}>
                     <Typography textAlign="center" sx={{display:{xs: "flex"}, gap: 1}}>Criar Projeto<AddIcon/></Typography>
                   </MenuItem>
                   <MenuItem  onClick={handleCloseUserMenu}>
-                    <Typography className='exit' textAlign="center" sx={{display:{xs: "flex"}, gap: 1}}>Sair <ExitToAppIcon/></Typography>
+                    <Typography  textAlign="center" sx={{display:{xs: "flex"}, gap: 1}}>Sair <ExitToAppIcon/></Typography>
                   </MenuItem>
-                 
-              
             </Menu>
           </Box>
        </Toolbar>
     </Container>
  </AppBar>
-    );
-
+  );
 };
