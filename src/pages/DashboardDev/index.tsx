@@ -5,6 +5,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { ProjetoAtual } from "./components/ProjetoAtual";
+import ProjetosAnteriores from "./components/ProjetosAnteriores";
+import ProjetosDisponiveis from "./components/ProjetosDisponiveis";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -106,10 +108,10 @@ export default function DashboardDev() {
             <ProjetoAtual />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <ProjetoAtual />
+            <ProjetosAnteriores />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <ProjetoAtual />
+            <ProjetosDisponiveis />
           </TabPanel>
         </ContainerDevWindow>
       </div>
