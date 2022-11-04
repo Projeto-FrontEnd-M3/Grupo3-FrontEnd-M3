@@ -12,7 +12,7 @@ export const MainStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 0 50px 0 50px;
+    margin: 0 50px;
   }
 
   .containerDivText {
@@ -27,10 +27,13 @@ export const MainStyled = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    max-width: 420px;
     width: 100%;
     gap: 10px;
     margin-bottom: 3rem;
+  }
+
+  .containerImg {
+    display: flex;
   }
 
   img {
@@ -40,12 +43,21 @@ export const MainStyled = styled.div`
     object-position: center;
   }
 
-  @media (max-width: 791px) {
-    height: 100vh;
+  @media (max-width: 500px) {
+    .container {
+      margin: 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .containerImg {
+      display: none;
+    }
   }
 
   @media (max-width: 800px) {
     .containerDivBtn {
+      justify-content: center;
       flex-wrap: wrap;
     }
   }

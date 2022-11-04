@@ -5,8 +5,12 @@ export const HeaderStyle = styled.div`
     width: 100%;
     height: 5rem;
     background-color: var(--color-primary-negative);
-    padding: 0 50px 0 50px;
+    padding: 0 50px;
     justify-content: center;
+  }
+
+  .header > div > button {
+    margin: 0;
   }
 
   .divLogo {
@@ -33,9 +37,9 @@ export const HeaderStyle = styled.div`
     border-radius: 50%;
   }
 
-  @media (max-width: 450px) {
-    .logoName {
-      display: none;
+  @media (max-width: 500px) {
+    .header {
+      padding: 0 18px
     }
   }
 `;
