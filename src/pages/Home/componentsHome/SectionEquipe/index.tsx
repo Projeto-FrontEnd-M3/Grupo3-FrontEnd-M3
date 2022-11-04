@@ -18,7 +18,7 @@ export const SectionEquipe = () => {
               return (
                 <li key={index}>
                   <div className="left__div">
-                    <Text color="primary">{name}</Text>
+                    <Text fontSize="text1" color="primary">{name}</Text>
                     <Text color="primary">{email}</Text>
                   </div>
 

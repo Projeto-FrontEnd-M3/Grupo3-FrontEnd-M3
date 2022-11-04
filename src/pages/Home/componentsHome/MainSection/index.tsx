@@ -1,10 +1,12 @@
 import { Text } from "../../../../styles/TypograpyText";
-import Button from "@mui/material/Button";
-import { MainStyled } from "./styel";
+import { MainStyled } from "./style";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
+import { useNavigate } from "react-router-dom";
 import img1 from "../../../../assets/imagem1.png";
 
 export const MainSection = () => {
+  const navigate = useNavigate();
+
   return (
     <MainStyled>
       <div className="container">
@@ -18,17 +20,13 @@ export const MainSection = () => {
         </div>
         <div className="containerDivBtn">
           <ButtonDefault
-            className="btnAbout"
-            bgColor="primary"
+            onClick={() => navigate("/sobre")}
+            bgColor="negative"
             color="negative"
           >
             SAIBA MAIS
           </ButtonDefault>
-          <ButtonDefault
-            className="btnRegister"
-            bgColor="primary"
-            color="negative"
-          >
+          <ButtonDefault bgColor="white" color="white">
             CADASTRE-SE
           </ButtonDefault>
         </div>

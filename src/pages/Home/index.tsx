@@ -1,16 +1,11 @@
-import { Text } from "../../styles/TypograpyText";
 import { Header } from "./componentsHome/Header";
-import { MainSection } from "./componentsHome/MainSection";
-import HowToUse from "./componentsHome/SectionHowToUse";
-import { SectionEquipe } from "./componentsHome/SectionEquipe";
+import { Outlet } from "react-router-dom";
 
 const HomePage = () => {
   return (
     <>
       <Header />
-      {/* <MainSection /> */}
-      {/* <SectionEquipe /> */}
-      <HowToUse />
+      <Outlet />
     </>
   );
 };
