@@ -17,14 +17,14 @@ export interface ILoginHookForm {
 }
 
 const ModalLogin = () => {
-  const { loginUser, actualSectionHome, setActualSectionHome } =
-    useUserContext();
+  const { loginUser, setActualSectionHome } = useUserContext();
+  const formOptions = { resolver: yupResolver(loginValidate) };
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<ILoginHookForm>({ resolver: yupResolver(loginValidate) });
+  } = useForm<ILoginHookForm>(formOptions);
 
   return (
     <ContainerModal>

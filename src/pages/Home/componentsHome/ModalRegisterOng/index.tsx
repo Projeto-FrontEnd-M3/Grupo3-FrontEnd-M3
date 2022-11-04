@@ -43,17 +43,6 @@ const ModalRegisterOng = () => {
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <CallTwoToneIcon
-              sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
-            />
-            <TextField
-              id="input-with-sx"
-              label="Forma de contato"
-              variant="standard"
-            />
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
             <LockTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
