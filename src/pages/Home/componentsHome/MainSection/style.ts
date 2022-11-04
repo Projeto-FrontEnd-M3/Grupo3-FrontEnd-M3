@@ -30,6 +30,7 @@ export const MainStyled = styled.div`
     width: 100%;
     gap: 10px;
     margin-bottom: 3rem;
+    max-width: 600px;
   }
 
   .containerImg {
@@ -55,7 +56,7 @@ export const MainStyled = styled.div`
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 820px) {
     .containerDivBtn {
       justify-content: center;
       flex-wrap: wrap;
