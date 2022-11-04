@@ -3,17 +3,18 @@ import { ContainerModalLogin, FormModalLogin } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import TextField from "@mui/material/TextField";
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
+import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
+import LockTwoToneIcon from "@mui/icons-material/LockTwoTone";
 import AlternateEmailTwoToneIcon from "@mui/icons-material/AlternateEmailTwoTone";
 import CallTwoToneIcon from "@mui/icons-material/CallTwoTone";
 import Box from "@mui/material/Box";
+import { useUserContext } from "../../../../context/UserContext";
 
-const ModalLogin = () => {
+const ModalRegisterDev = () => {
+  const { setActualSectionHome } = useUserContext();
   return (
     <ContainerModal>
       <ContainerModalLogin>
-
         <FormModalLogin>
           <Text tag="h2" fontSize="title1" color="primary">
             DEV
@@ -52,20 +53,27 @@ const ModalLogin = () => {
           </Box>
 
           <ButtonDefault bgColor="primary" color="primary">
-          CADASTRAR
+            CADASTRAR
           </ButtonDefault>
 
           <div className="horizontalBar"></div>
 
           <Text color="primary" fontSize="text3">
-            Não tem uma conta? <span>Cadastre-se</span>
+            Já tem uma conta?{" "}
+            <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
 
-          <button className="buttonClosed">X</button>
+          <button
+            type="button"
+            onClick={() => setActualSectionHome("none")}
+            className="buttonClosed"
+          >
+            X
+          </button>
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>
   );
 };
 
-export default ModalLogin;
+export default ModalRegisterDev;

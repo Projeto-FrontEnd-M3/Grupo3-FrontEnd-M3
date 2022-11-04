@@ -21,9 +21,9 @@ export const ContainerHowToUse = styled.div`
 
 export const ContainerAboutSite = styled.div`
   overflow-y: auto;
-  /* max-height: 500px; */
-  /* background-color: black; */
-  /* margin-top: 3rem;
+  max-height: 500px;
+  background-color: black;
+  margin-top: 3rem;
   background-color: var(--color-primary);
   color: var(--color-grey-1);
 
@@ -36,7 +36,7 @@ export const ContainerAboutSite = styled.div`
       text-align: center;
       font-size: 16px;
     }
-  } */
+  }
 `;
 
 export const ContainerAboutList = styled.ul`
@@ -51,7 +51,7 @@ export const ContainerAboutList = styled.ul`
     margin-top: 1rem;
     display: block;
     overflow-y: auto;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     height: 45vh;
     .ArrowRightAltIcon {
       display: none;

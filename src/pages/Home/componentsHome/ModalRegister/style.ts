@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+interface ISelector {
+  selector?: string;
+}
 
 export const ContainerModalRegister = styled.div`
   max-width: 380px;
@@ -71,11 +75,23 @@ export const OngOrDevBox = styled.div`
     cursor: pointer;
     opacity: 25%;
     transition: 0.5s;
-
-    :active {
-      opacity: 100%;
-
-      
-    }
   }
+
+  ${({ selector }: ISelector) => {
+    switch (selector) {
+      case "registerOng":
+        return css`
+          & :nth-child(1) {
+            opacity: 100%;
+          }
+        `;
+
+      case "registerDev":
+        return css`
+          & :nth-child(2) {
+            opacity: 100%;
+          }
+        `;
+    }
+  }}
 `;

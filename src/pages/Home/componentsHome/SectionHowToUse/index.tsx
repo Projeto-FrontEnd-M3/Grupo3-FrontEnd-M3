@@ -85,13 +85,13 @@ export default function HowToUse() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <AboutSite />
+          {/* <AboutSite /> */}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <HowToUseDev />
+          {/* <HowToUseDev /> */} 
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <HowToUseOng />
+          {/* <HowToUseOng /> */}
         </TabPanel>
       </Box>
     </ContainerHowToUse>

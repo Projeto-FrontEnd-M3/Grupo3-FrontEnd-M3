@@ -9,8 +9,10 @@ import BusinessTwoToneIcon from "@mui/icons-material/BusinessTwoTone";
 import AlternateEmailTwoToneIcon from "@mui/icons-material/AlternateEmailTwoTone";
 import CallTwoToneIcon from "@mui/icons-material/CallTwoTone";
 import Box from "@mui/material/Box";
+import { useUserContext } from "../../../../context/UserContext";
 
-const ModalLogin = () => {
+const ModalRegisterOng = () => {
+  const { setActualSectionHome } = useUserContext();
   return (
     <ContainerModal>
       <ContainerModalLogin>
@@ -63,13 +65,20 @@ const ModalLogin = () => {
           </ButtonDefault>
           <div className="horizontalBar"></div>
           <Text color="primary" fontSize="text3">
-            Não tem uma conta? <span>Cadastre-se</span>
+            Já tem uma conta?{" "}
+            <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
-          <button className="buttonClosed">X</button>
+          <button
+            type="button"
+            onClick={() => setActualSectionHome("none")}
+            className="buttonClosed"
+          >
+            X
+          </button>
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>
   );
 };
 
-export default ModalLogin;
+export default ModalRegisterOng;

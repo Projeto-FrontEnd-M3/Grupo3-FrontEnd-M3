@@ -9,5 +9,5 @@ export const ContainerModal = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 0.5rem;
-  z-index: 9999999;
+  z-index: 1;
 `;
