@@ -30,14 +30,14 @@ export const productCreators = [
     name: "Felipe Grondek",
     email: "felipegrondek00@gmail.com",
     linkedin: "https://www.linkedin.com/in/felipegrondek",
-    github: "https://github.com/Felipe-Grondek",
+    gitHub: "https://github.com/Felipe-Grondek",
     instagram: "https://www.instagram.com/felps.gk",
   },
   {
     name: "João Teixeira",
     email: "teixeirajoaovitor0@gmail.com",
     linkedin: "https://www.linkedin.com/in/joaoteixeira13/",
-    github: "https://github.com/jotave8119",
+    gitHub: "https://github.com/jotave8119",
     instagram: "https://www.instagram.com/joaovitor_ts13/",
   },
   {
