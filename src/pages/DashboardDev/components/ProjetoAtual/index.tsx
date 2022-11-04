@@ -11,7 +11,7 @@ import {
   ContainerProjectLeftResume,
   ContainerProjectLeftTitle,
 } from "./style";
-import IconImage from "../../../../../src/IconImage.png";
+import IconImage from "../../../../assets/IconImage.png";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";

@@ -11,6 +11,7 @@ import { useUserContext } from "../../../../context/UserContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerValidateDev } from "../../../../services/validations/validation";
 import { useForm } from "react-hook-form";
+import { CssTextField } from "../ModalRegisterOng";
 
 export interface IRegisterHookForm {
   email: string;
@@ -51,7 +52,7 @@ const ModalRegisterDev = () => {
             <AccountCircleTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField
+            <CssTextField
               error={!!errors.name}
               {...register("name")}
               helperText={errors.name?.message}
@@ -70,7 +71,7 @@ const ModalRegisterDev = () => {
             <AlternateEmailTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField
+            <CssTextField
               error={!!errors.email}
               {...register("email")}
               helperText={errors.email?.message}
@@ -89,13 +90,14 @@ const ModalRegisterDev = () => {
             <LockTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField
+            <CssTextField
               error={!!errors.password}
               {...register("password")}
               helperText={errors.password?.message}
               id="input-with-sx"
               label="Senha"
               variant="standard"
+              type={"password"}
             />
           </Box>
 
