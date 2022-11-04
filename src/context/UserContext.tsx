@@ -23,6 +23,32 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       .catch((err) => console.log(err));
   };
 
+  // Depois revisar pra saber se está faltando algo (achei qeu fossémos fazer com try catch)
+  //
+  // const createDemandRequest = (data) => { 
+  //   Api.post("/jobs", data)
+  //      .then((res) => console.log(res.data))
+  //      .catch((err)=> console.log(err));
+  // };
+
+  // const editDemandRequest = (id:string) => {
+  //   Api.patch(`/jobs/${id}`)
+  //      .then((res) => console.log(res))
+  //      .catch((err) => console.log(err))
+  // }
+
+  // const deleteDemandRequest = (id:string) => {
+  //   Api.delete(`/jobs/${id}`)
+  //      .then((res) => console.log(res))
+  //      .catch((err) => console.log(err))
+  // }
+
+  // const editProfileRequest = (id:string) => {
+  //   Api.patch(`/users/${id}`)
+  //      .then((res) => console.log(res))
+  //      .catch((err) => console.log(err))
+  // }
+
   return (
     <userContext.Provider
       value={{ loginUser, actualSectionHome, setActualSectionHome }}
