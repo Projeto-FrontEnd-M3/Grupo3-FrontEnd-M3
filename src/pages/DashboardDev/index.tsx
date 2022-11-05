@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import { ProjetoAtual } from "./components/ProjetoAtual";
 import ProjetosAnteriores from "./components/ProjetosAnteriores";
 import ProjetosDisponiveis from "./components/ProjetosDisponiveis";
+import { NavbarDashboard } from "../../components/NavbarDashboard";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -88,33 +89,36 @@ export default function DashboardDev() {
   };
 
   return (
-    <ContainerDev>
-      <div>
-        <ContainerDevNav>
-          <AntTabs
-            value={value}
-            onChange={handleChange}
-            aria-label="ant example"
-            variant="fullWidth"
-            centered
-          >
-            <AntTab label="PROJETO ATUAL" />
-            <AntTab label="PROJETOS ANTERIORES" />
-            <AntTab label="PROJETOS DISPONÍVEIS" />
-          </AntTabs>
-        </ContainerDevNav>
-        <ContainerDevWindow>
-          <TabPanel value={value} index={0}>
-            <ProjetoAtual />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <ProjetosAnteriores />
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            <ProjetosDisponiveis />
-          </TabPanel>
-        </ContainerDevWindow>
-      </div>
-    </ContainerDev>
+    <>
+      <NavbarDashboard />
+      <ContainerDev>
+        <div>
+          <ContainerDevNav>
+            <AntTabs
+              value={value}
+              onChange={handleChange}
+              aria-label="ant example"
+              variant="fullWidth"
+              centered
+            >
+              <AntTab label="PROJETO ATUAL" />
+              <AntTab label="PROJETOS ANTERIORES" />
+              <AntTab label="PROJETOS DISPONÍVEIS" />
+            </AntTabs>
+          </ContainerDevNav>
+          <ContainerDevWindow>
+            <TabPanel value={value} index={0}>
+              <ProjetoAtual />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <ProjetosAnteriores />
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <ProjetosDisponiveis />
+            </TabPanel>
+          </ContainerDevWindow>
+        </div>
+      </ContainerDev>
+    </>
   );
 }
