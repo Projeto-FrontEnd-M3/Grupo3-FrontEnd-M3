@@ -18,7 +18,7 @@ import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { Text } from "../../../../styles/TypograpyText";
 
-export const ProjetoAtual = () => {
+export const ProjetoAtual = ({ obj }) => {
   return (
     <ContainerProject>
       <ContainerProjectLeft>
@@ -28,18 +28,16 @@ export const ProjetoAtual = () => {
               P E D I D O
             </Text>
             <Text fontSize="text2" color="success">
-              Entregar até <span>09/09/1999</span>
+              Entregar até <span>{obj.estimated_time}</span>
             </Text>
           </ContainerProjectLeftTitle>
           <Text fontSize="text4" color="grey1">
-            Preciso de um site que nossos doadores possam ver os eventos da ONG
-            e conﬁrmar presença. E que os eventos tenham um número máximo de
-            pessoas que possam comparerecer
+            {obj.description}
           </Text>
         </ContainerProjectLeftResume>
         <ContainerProjectLefButton>
           <ButtonDefault color="primary" bgColor="primary">
-            CONCLUIR PROJETO
+            {obj.status == "Pendente" ? "PEGAR PROJETO" : "CONCLUIR PROJETO"}
           </ButtonDefault>
         </ContainerProjectLefButton>
       </ContainerProjectLeft>
@@ -48,10 +46,10 @@ export const ProjetoAtual = () => {
         <ContainerProjecRightInfo>
           <ContainerProjecRightTitle>
             <Text fontSize="text2" color="success" className="titlespace">
-              <span>NOME DA ONG</span>
+              <span>{obj.user.name}</span>
             </Text>
             <Text fontSize="text2" color="success">
-              aguarda o projeto
+              {obj.status}
             </Text>
           </ContainerProjecRightTitle>
           <figure>
@@ -62,25 +60,29 @@ export const ProjetoAtual = () => {
           <li>
             <MailOutlineIcon />
             <Text fontSize="text4" color="success">
-              algumnome@gmail.com
+              {obj.user.email}
             </Text>
           </li>
-          <li>
-            <WhatsAppIcon />
-            <Text fontSize="text4" color="success">
-              (11) 99999-9999
-            </Text>
-          </li>
-          <li>
-            <PhoneInTalkIcon />
-            <Text fontSize="text4" color="success">
-              (11) 9999-9999
-            </Text>
-          </li>
+          {obj.user.whatsapp && (
+            <li>
+              <WhatsAppIcon />
+              <Text fontSize="text4" color="success">
+                {obj.user.whatsapp}
+              </Text>
+            </li>
+          )}
+          {obj.user.phone && (
+            <li>
+              <PhoneInTalkIcon />
+              <Text fontSize="text4" color="success">
+                {obj.user.phone}
+              </Text>
+            </li>
+          )}
         </ContainerProjecRightContacts>
         <ContainerProjecRightText>
           <Text fontSize="text4" color="success">
-            Você pode entrar em contato com o dev responsável pelos meios acima{" "}
+            Você pode entrar em contato com ONG pelos meios acima
           </Text>
         </ContainerProjecRightText>
       </ContainerProjecRight>
