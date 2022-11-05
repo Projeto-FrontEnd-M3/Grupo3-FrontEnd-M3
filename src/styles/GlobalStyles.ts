@@ -77,6 +77,7 @@ export const GlobalStyles = createGlobalStyle`
 
     button, select{
         cursor: pointer;
+        border-radius: 4px;
     }
     
     a {
