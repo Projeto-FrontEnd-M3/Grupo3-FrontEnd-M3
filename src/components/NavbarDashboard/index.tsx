@@ -55,8 +55,10 @@ export const NavbarDashboard = () => {
               fontWeight: 700,
               marginRight: 10,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "var(--color-white)",
               textDecoration: "none",
+              height: "80px",
+              alignItems: "center",
             }}
           >
             DevOngUs
@@ -116,7 +118,7 @@ export const NavbarDashboard = () => {
               fontFamily: "poppins",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "var(--color-white)",
               textDecoration: "none",
             }}
           >
@@ -132,7 +134,7 @@ export const NavbarDashboard = () => {
               onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
-                color: "white",
+                color: "var(--color-white)",
                 display: "flex",
                 marginLeft: 5,
                 fontFamily: "poppins",
@@ -145,7 +147,7 @@ export const NavbarDashboard = () => {
               onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
-                color: "white",
+                color: "var(--color-white)",
                 display: "flex",
                 marginLeft: 5,
                 fontFamily: "poppins",
