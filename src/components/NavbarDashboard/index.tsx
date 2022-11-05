@@ -53,7 +53,6 @@ export const NavbarDashboard = () => {
               display: { xs: "none", md: "flex" },
               fontFamily: "poppins",
               fontWeight: 700,
-              marginRight: 10,
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
@@ -97,10 +96,13 @@ export const NavbarDashboard = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Projetos</Typography>
+                <Typography textAlign="center">Projeto Atual</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Projeto Atual</Typography>
+                <Typography textAlign="center">Projetos Anteriores</Typography>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Projetos Disponíveis</Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -126,6 +128,7 @@ export const NavbarDashboard = () => {
             sx={{
               flexGrow: 1,
               display: { xs: "none", md: "flex" },
+              justifyContent: "space-evenly",
             }}
           >
             <Button
@@ -134,11 +137,13 @@ export const NavbarDashboard = () => {
                 my: 2,
                 color: "white",
                 display: "flex",
-                marginLeft: 5,
                 fontFamily: "poppins",
+                "&:hover": {
+                  backgroundColor: "#393E46",
+                },
               }}
             >
-              <Typography textAlign="center">Projetos</Typography>
+              <Typography textAlign="center">Projeto Atual</Typography>
             </Button>
 
             <Button
@@ -147,11 +152,28 @@ export const NavbarDashboard = () => {
                 my: 2,
                 color: "white",
                 display: "flex",
-                marginLeft: 5,
                 fontFamily: "poppins",
+                "&:hover": {
+                  backgroundColor: "#393E46",
+                },
               }}
             >
-              <Typography textAlign="center">Projeto Atual</Typography>
+              <Typography textAlign="center">Projetos Anteriores</Typography>
+            </Button>
+
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "white",
+                display: "flex",
+                fontFamily: "poppins",
+                "&:hover": {
+                  backgroundColor: "#393E46",
+                },
+              }}
+            >
+              <Typography textAlign="center">Projetos Disponíveis</Typography>
             </Button>
           </Box>
 
