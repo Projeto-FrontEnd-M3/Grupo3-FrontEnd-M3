@@ -1,7 +1,7 @@
-import { ContainerModal } from "../../../components/ContainerModal/style";
+import { ContainerModal } from "../../../../components/ContainerModal/style";
 import { ContainerModalEditProfile, ModalContent } from "./style";
-import { Text } from "../../../styles/TypograpyText";
-import { ButtonDefault } from "../../../components/ButtonDefault/style";
+import { Text } from "../../../../styles/TypograpyText";
+import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import TextField from "@mui/material/TextField";
 import DevicesTwoToneIcon from "@mui/icons-material/DevicesTwoTone";
 import DescriptionTwoToneIcon from "@mui/icons-material/DescriptionTwoTone";
@@ -72,7 +72,6 @@ const ModalEditResquest = () => {
                 label="Tipo de projeto"
                 defaultValue="Selecione um tipo"
               >
-                
                 <MenuItem value="Web">Web</MenuItem>
                 <MenuItem value="Mobile">Mobile </MenuItem>
                 <MenuItem value="Desktop">Desktop</MenuItem>

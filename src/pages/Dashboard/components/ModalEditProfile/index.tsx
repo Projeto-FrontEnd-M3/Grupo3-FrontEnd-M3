@@ -1,13 +1,13 @@
-import { ContainerModal } from "../../../components/ContainerModal/style";
+import { ContainerModal } from "../../../../components/ContainerModal/style";
 import { ContainerModalEditProfile, ModalContent } from "./style";
-import { Text } from "../../../styles/TypograpyText";
-import { ButtonDefault } from "../../../components/ButtonDefault/style";
+import { Text } from "../../../../styles/TypograpyText";
+import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import TextField from "@mui/material/TextField";
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import DescriptionTwoToneIcon from "@mui/icons-material/DescriptionTwoTone";
-import AlternateEmailTwoToneIcon from '@mui/icons-material/AlternateEmailTwoTone';
-import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
-import CameraAltTwoToneIcon from '@mui/icons-material/CameraAltTwoTone';
+import AlternateEmailTwoToneIcon from "@mui/icons-material/AlternateEmailTwoTone";
+import LockTwoToneIcon from "@mui/icons-material/LockTwoTone";
+import CameraAltTwoToneIcon from "@mui/icons-material/CameraAltTwoTone";
 import Box from "@mui/material/Box";
 
 const ModalEditProfile = () => {
@@ -58,7 +58,11 @@ const ModalEditProfile = () => {
             <CameraAltTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField id="input-with-sx" label="Imagem(URL)" variant="standard" />
+            <TextField
+              id="input-with-sx"
+              label="Imagem(URL)"
+              variant="standard"
+            />
           </Box>
 
           <ButtonDefault bgColor="primary" color="primary">
