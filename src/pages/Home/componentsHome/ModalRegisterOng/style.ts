@@ -38,14 +38,6 @@ export const FormModalLogin = styled.form`
     height: 2px;
     background-color: var(--color-primary);
   }
-
-  .buttonClosed {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    font-size: 22px;
-    color: var(--color-grey-3);
-  }
 `;
 
 export const BackButton = styled(ArrowBackIcon)`
@@ -53,7 +45,7 @@ export const BackButton = styled(ArrowBackIcon)`
   top: 5px;
   left: 5px;
   font-size: 20px;
-  color: var(--color-grey-3);
+  color: var(--color-grey-2);
   cursor: pointer;
 `;
 
@@ -62,6 +54,6 @@ export const CloseButton = styled(CloseIcon)`
   top: 5px;
   right: 5px;
   font-size: 20px;
-  color: var(--color-grey-3);
+  color: var(--color-grey-2);
   cursor: pointer;
 `;
