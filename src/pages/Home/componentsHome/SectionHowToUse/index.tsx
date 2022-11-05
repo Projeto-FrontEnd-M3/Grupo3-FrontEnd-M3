@@ -55,6 +55,9 @@ const AntTab = styled((props: StyledTabProps) => (
   },
   fontWeight: theme.typography.fontWeightRegular,
   marginRight: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    marginRight: theme.spacing(0),
+  },
   color: " #00ADB5",
   fontFamily: ["Poppins"].join(","),
   "&:hover": {
