@@ -55,6 +55,7 @@ export const ContainerProjectUl = styled.ul`
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border: 0.2rem var(--color-primary-focus) solid;
+    border-top-width: 0px;
     text-align: justify;
     display: flex;
     justify-content: space-between;

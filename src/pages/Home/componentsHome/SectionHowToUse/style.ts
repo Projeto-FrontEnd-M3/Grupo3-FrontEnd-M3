@@ -4,42 +4,37 @@ export const ContainerHowToUse = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: calc(100vh - 80px);
   width: 100%;
   background-color: var(--color-primary-focus);
-  height: calc(100vh - 80px);
-
-  button {
-    padding: 1rem;
-  }
 `;
 
 export const ContainerHowToUseNav = styled.div`
-  width: 86%;
-  margin: auto;
-  padding: 1rem;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 0.3rem;
-  }
+  height: 1vh;
 `;
 
 export const ContainerAboutSite = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 90%;
+  width: 100%;
   height: 100%;
   margin: auto;
   background-color: var(--color-primary);
   color: var(--color-grey-1);
+  box-shadow: rgba(53, 87, 100, 0.5) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 2rem;
   overflow-y: auto;
   min-height: 300px;
   max-height: 450px;
-  border-radius: 50px;
+  border-radius: 8px;
 
   p {
+    text-align: justify;
+  }
+
+  .ContainerAboutCenter {
     text-align: center;
   }
 

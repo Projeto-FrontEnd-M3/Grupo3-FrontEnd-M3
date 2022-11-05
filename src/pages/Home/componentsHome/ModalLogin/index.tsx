@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidate } from "../../../../services/validations/validation";
 import { CssTextField } from "../ModalRegisterOng";
+import { CloseButton } from "../ModalRegisterOng/style";
 
 export interface ILoginHookForm {
   email: string;
@@ -87,13 +88,7 @@ const ModalLogin = () => {
             </span>
           </Text>
 
-          <button
-            type="button"
-            onClick={() => setActualSectionHome("none")}
-            className="buttonClosed"
-          >
-            X
-          </button>
+          <CloseButton onClick={() => setActualSectionHome("none")} />
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>

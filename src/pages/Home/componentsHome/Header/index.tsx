@@ -89,7 +89,8 @@ export const Header = (props: Props) => {
               width: "100%",
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "center"
+              alignItems: "center",
+              margin: "auto",
             }}
           >
             <Box

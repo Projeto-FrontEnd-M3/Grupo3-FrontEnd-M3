@@ -83,12 +83,8 @@ const filteredArray = fakedb.filter((elem) => elem.status == "Em Andamento");
 
 const StyledBox = styled(Box)({});
 
-export default function DashboardDev() {
-  const [dashboardItem, setdashboardItem] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setdashboardItem(newValue);
-  };
+const Dashboard = () => {
+  const [dashboardItem, setDashboardItem] = React.useState(0);
 
   return (
     <>
@@ -110,4 +106,6 @@ export default function DashboardDev() {
       </ContainerDev>
     </>
   );
-}
+};
+
+export default Dashboard;

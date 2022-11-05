@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CloseIcon from "@mui/icons-material/Close";
 
 export const ContainerModalLogin = styled.div`
   max-width: 380px;
@@ -36,12 +38,22 @@ export const FormModalLogin = styled.form`
     height: 2px;
     background-color: var(--color-primary);
   }
+`;
 
-  .buttonClosed {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 18px;
-    color: var(--color-grey-2);
-  }
+export const BackButton = styled(ArrowBackIcon)`
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 20px;
+  color: var(--color-grey-2);
+  cursor: pointer;
+`;
+
+export const CloseButton = styled(CloseIcon)`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  color: var(--color-grey-2);
+  cursor: pointer;
 `;

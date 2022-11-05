@@ -51,23 +51,6 @@ export const GlobalStyles = createGlobalStyle`
         height: 100vh;
     }
 
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
-    }
- 
-    ::-webkit-scrollbar-thumb {
-        background: #888; 
-    }
-
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555; 
-    }
-
     ol, ul, li {
         list-style: none;
     }
@@ -94,6 +77,7 @@ export const GlobalStyles = createGlobalStyle`
 
     button, select{
         cursor: pointer;
+        border-radius: 4px;
     }
     
     a {
@@ -111,6 +95,5 @@ export const GlobalStyles = createGlobalStyle`
 
     .App {
         height: 100vh;
-      
     }
 `;

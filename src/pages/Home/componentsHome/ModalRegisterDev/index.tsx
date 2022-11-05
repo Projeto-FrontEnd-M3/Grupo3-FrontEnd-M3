@@ -2,7 +2,6 @@ import { ContainerModal } from "../../../../components/ContainerModal/style";
 import { ContainerModalLogin, FormModalLogin } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
-import TextField from "@mui/material/TextField";
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import LockTwoToneIcon from "@mui/icons-material/LockTwoTone";
 import AlternateEmailTwoToneIcon from "@mui/icons-material/AlternateEmailTwoTone";
@@ -12,6 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registerValidateDev } from "../../../../services/validations/validation";
 import { useForm } from "react-hook-form";
 import { CssTextField } from "../ModalRegisterOng";
+import { BackButton, CloseButton } from "../ModalRegisterOng/style";
 
 export interface IRegisterHookForm {
   email: string;
@@ -111,14 +111,8 @@ const ModalRegisterDev = () => {
             Já tem uma conta?{" "}
             <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
-
-          <button
-            type="button"
-            onClick={() => setActualSectionHome("none")}
-            className="buttonClosed"
-          >
-            X
-          </button>
+          <CloseButton onClick={() => setActualSectionHome("none")} />
+          <BackButton onClick={() => setActualSectionHome("register")} />
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>

@@ -1,6 +1,8 @@
 {
   "rewrites": [
-    { "source": "/dashboard", "destination": "/" },
-    { "source": "/projects", "destination": "/" }
+    { "source": "/home", "destination": "/" },
+    { "source": "/sobre", "destination": "/" },
+    { "source": "/equipe", "destination": "/" },
+    { "source": "/dashboard", "destination": "/" }
   ]
 }
