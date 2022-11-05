@@ -8,6 +8,6 @@ export interface IChildrenNode {
 export interface IUserContextProvider {
   actualSectionHome: string;
   setActualSectionHome: React.Dispatch<React.SetStateAction<string>>;
-  loginUser: (data: ILoginHookForm) => void;
-  registerUser: (data: IRegisterHookForm) => void;
+  loginUser: (data: ILoginHookForm) => Promise<void>;
+  registerUser: (data: IRegisterHookForm) => Promise<void>;
 }

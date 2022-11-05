@@ -1,4 +1,4 @@
-import { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IChildrenNode, IUserContextProvider } from "../interface/TypesGlobal";
@@ -25,63 +25,72 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   const [actualSectionHome, setActualSectionHome] = useState("home");
   const navigate = useNavigate();
 
-  const loginUser = (data: ILoginHookForm) => {
-    Api.post("/login", data)
-      .then((res: AxiosResponse<IUserLogged>) => {
-        const response = res.data;
-        toastSuccess("Bem-vindo ao Dev's Help");
-        if (response.user.type == "ong") {
-          //redirecionar pra dash ong
-        }
+  const loginUser = async (data: ILoginHookForm) => {
+    try {
+      const request = await Api.post("/login", data);
+      const response: IUserLogged = request.data;
 
-        if (response.user.type == "dev") {
-          //redirecionar pra dash dev
-        }
-      })
-      .catch((err) => {
-        toastError("Dados inválidos!");
-      });
+      toastSuccess("Bem-vindo ao Dev's Help");
+
+      if (response.user.type == "ong") {
+        //redirecionar pra dash ong
+      }
+
+      if (response.user.type == "dev") {
+        //redirecionar pra dash dev
+      }
+    } catch {
+      toastError("Dados inválidos!");
+    }
   };
 
-  const registerUser = (data: IRegisterHookForm) => {
-    Api.post("/register", data)
-      .then((res) => {
-        toastSuccess("Cadastramos você, agora faça o login!");
-        setActualSectionHome("login");
-      })
-      .catch((err) => {
+  const registerUser = async (data: IRegisterHookForm) => {
+    try {
+      await Api.post("/register", data);
+      toastSuccess("Cadastramos você, agora faça o login!");
+      setActualSectionHome("login");
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response) {
         const error = err.response.data;
-        if (error.includes("already")) {
-          toastError("Email já existe!");
-        } else {
-          toastError("Dados inválidos!");
-        }
-      });
+
+        toastError(
+          error.includes("already") ? "Email já existe!" : "Dados inválidos!"
+        );
+      }
+    }
   };
 
   // Funções a serem utilizadas ainda
-  const createDemandRequest = (data: any) => {
-    Api.post("/jobs", data)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+  const createDemandRequest = async (data: any) => {
+    try {
+      const request = await Api.post("/jobs", data);
+    } catch (err) {
+      // Error
+    }
   };
 
-  const editDemandRequest = (id: string) => {
-    Api.patch(`/jobs/${id}`)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  const editDemandRequest = async (id: string) => {
+    try {
+      const request = await Api.patch(`/jobs/${id}`);
+    } catch (err) {
+      //Error
+    }
   };
 
-  const deleteDemandRequest = (id: string) => {
-    Api.delete(`/jobs/${id}`)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  const deleteDemandRequest = async (id: string) => {
+    try {
+      const request = await Api.delete(`/jobs/${id}`);
+    } catch (err) {
+      //Error
+    }
   };
 
-  const editProfileRequest = (id: string) => {
-    Api.patch(`/users/${id}`)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  const editProfileRequest = async (id: string) => {
+    try {
+      const request = await Api.patch(`/users/${id}`);
+    } catch (err) {
+      //Error
+    }
   };
 
   return (
