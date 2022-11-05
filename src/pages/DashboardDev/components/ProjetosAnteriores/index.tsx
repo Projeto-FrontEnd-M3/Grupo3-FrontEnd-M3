@@ -4,7 +4,7 @@ import {
   ContainerProjectLi,
   ContainerProjectUl,
 } from "./style";
-import IconImage from "../../../../../src/IconImage.png";
+import IconImage from "../../../../assets/IconImage.png";
 import { Text } from "../../../../styles/TypograpyText";
 
 const ProjetosAnteriores = () => {

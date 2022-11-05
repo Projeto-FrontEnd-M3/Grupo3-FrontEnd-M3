@@ -5,7 +5,6 @@ import HomePage from "../pages/Home";
 import { MainSection } from "../pages/Home/componentsHome/MainSection";
 import { SectionEquipe } from "../pages/Home/componentsHome/SectionEquipe";
 import HowToUse from "../pages/Home/componentsHome/SectionHowToUse";
-import ProjectsPage from "../pages/Projects";
 
 const RoutesMain = () => {
   return (
@@ -18,7 +17,6 @@ const RoutesMain = () => {
       </Route>
       <Route path="/dashboard/dev" element={<DashBoardDev />} />
       <Route path="/dashboard/ong" element={<DashBoardOng />} />
-      <Route path="/projects" element={<ProjectsPage />} />
       <Route path="*" element={<Navigate to={"home"} />} />
     </Routes>
   );
