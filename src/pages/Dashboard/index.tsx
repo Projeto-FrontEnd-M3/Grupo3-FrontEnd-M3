@@ -81,7 +81,7 @@ interface StyledTabProps {
   label: string;
 }
 
-export default function DashboardDev() {
+const Dashboard = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -121,4 +121,6 @@ export default function DashboardDev() {
       </ContainerDev>
     </>
   );
-}
+};
+
+export default Dashboard;

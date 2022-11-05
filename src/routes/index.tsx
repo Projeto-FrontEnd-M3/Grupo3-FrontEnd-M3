@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import DashBoardOng from "../pages/DashboardOng";
-import DashBoardDev from "../pages/DashboardDev";
+import Dashboard from "../pages/Dashboard";
 import HomePage from "../pages/Home";
 import { MainSection } from "../pages/Home/componentsHome/MainSection";
 import { SectionEquipe } from "../pages/Home/componentsHome/SectionEquipe";
@@ -15,8 +14,7 @@ const RoutesMain = () => {
         <Route path="sobre" element={<HowToUse />} />
         <Route path="equipe" element={<SectionEquipe />} />
       </Route>
-      <Route path="/dashboard/dev" element={<DashBoardDev />} />
-      <Route path="/dashboard/ong" element={<DashBoardOng />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="*" element={<Navigate to={"home"} />} />
     </Routes>
   );
