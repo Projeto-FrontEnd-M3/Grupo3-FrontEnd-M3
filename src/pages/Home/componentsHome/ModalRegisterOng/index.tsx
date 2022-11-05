@@ -1,5 +1,5 @@
 import { ContainerModal } from "../../../../components/ContainerModal/style";
-import { ContainerModalLogin, FormModalLogin } from "./style";
+import { ContainerModalLogin, FormModalLogin, BackButton, CloseButton } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import TextField from "@mui/material/TextField";
@@ -65,6 +65,7 @@ const ModalRegisterOng = () => {
               id="input-with-sx"
               label="CNPJ"
               variant="standard"
+              type={"number"}
             />
           </Box>
 
@@ -134,13 +135,8 @@ const ModalRegisterOng = () => {
             Já tem uma conta?{" "}
             <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
-          <button
-            type="button"
-            onClick={() => setActualSectionHome("none")}
-            className="buttonClosed"
-          >
-            X
-          </button>
+          <CloseButton onClick={() => setActualSectionHome("none")} />
+          <BackButton onClick={() => setActualSectionHome("register")}/>
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>

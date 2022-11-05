@@ -11,6 +11,7 @@ import ComputerTwoToneIcon from "@mui/icons-material/ComputerTwoTone";
 import { useUserContext } from "../../../../context/UserContext";
 import { useState } from "react";
 import { toastError } from "../../../../styles/components/Toastify/toast";
+import { BackButton, CloseButton } from "../ModalRegisterOng/style";
 
 const ModalRegister = () => {
   const [selectOngOrDev, setSelectOngOrDev] = useState("");
@@ -66,13 +67,8 @@ const ModalRegister = () => {
             <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
 
-          <button
-            type="button"
-            onClick={() => setActualSectionHome("none")}
-            className="buttonClosed"
-          >
-            X
-          </button>
+          <CloseButton onClick={() => setActualSectionHome("none")} />
+          <BackButton onClick={() => setActualSectionHome("login")} />
         </AlignModalRegister>
       </ContainerModalRegister>
     </ContainerModal>

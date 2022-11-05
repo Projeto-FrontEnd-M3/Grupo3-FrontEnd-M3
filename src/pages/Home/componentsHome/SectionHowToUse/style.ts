@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const ContainerHowToUse = styled.div`
-  height: 100vh;
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+  width: 100%;
   background-color: var(--color-primary-focus);
 `;
 
