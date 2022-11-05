@@ -9,11 +9,11 @@ export const ContainerEquipe = styled.div`
 `;
 
 export const ContainerSquadIntern = styled.div`
-  padding: 8rem 0 2rem 0;
   display: flex;
   flex-direction: column;
   margin: auto;
-  gap: 5rem;
+  height: calc(100vh - 80px);
+  padding: 2rem 0;
 
   svg {
     color: var(--color-primary);
@@ -25,6 +25,7 @@ export const ContainerSquadIntern = styled.div`
 
   h1 {
     text-align: center;
+    margin-bottom: 2rem;
   }
 
   ul {

@@ -1,28 +1,54 @@
 import styled from "styled-components";
 
 export const ContainerHowToUse = styled.div`
-  padding-top: 4rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   background-color: var(--color-primary-focus);
+  height: calc(100vh - 80px);
+
+  button {
+    padding: 1rem;
+  }
 `;
 
 export const ContainerHowToUseNav = styled.div`
   width: 86%;
   margin: auto;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.3rem;
+  }
 `;
 
 export const ContainerAboutSite = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   width: 90%;
+  height: 100%;
   margin: auto;
   background-color: var(--color-primary);
   color: var(--color-grey-1);
-  padding: 3rem;
+  padding: 2rem;
+  overflow-y: auto;
+  min-height: 300px;
+  max-height: 450px;
   border-radius: 50px;
+
+  p {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerAboutList = styled.ul`
-  margin-top: 5rem;
   display: flex;
 
   .ArrowRightAltIcon {
@@ -32,15 +58,12 @@ export const ContainerAboutList = styled.ul`
   @media (max-width: 800px) {
     margin-top: 1rem;
     display: block;
-    overflow-y: auto;
-    /* overflow-x: hidden; */
-    height: 45vh;
     .ArrowRightAltIcon {
       display: none;
     }
   }
+
   @media (max-width: 400px) {
-    height: 30vh;
     .ArrowRightAltIcon {
       display: none;
     }
@@ -52,18 +75,21 @@ export const StepList = styled.li`
   flex-direction: column;
 `;
 
-export const StepListArrow = styled.li``;
+export const StepListArrow = styled.li`
+  background-color: black;
+`;
 
 export const StepListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
   width: 16%;
 
   @media (max-width: 800px) {
-    flex-direction: row;
+    justify-content: flex-start;
     width: 100%;
-    margin: 5px 20px 20px 5px;
     align-items: center;
   }
 `;
