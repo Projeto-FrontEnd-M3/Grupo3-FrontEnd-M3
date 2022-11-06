@@ -15,8 +15,12 @@ import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
 export const NavbarDashboard = () => {
+
+  const navigate = useNavigate()
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -31,7 +35,8 @@ export const NavbarDashboard = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (path: string) => {
+    navigate(path)
     setAnchorElNav(null);
   };
 
@@ -97,13 +102,13 @@ export const NavbarDashboard = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu}>
+              <MenuItem onClick={() => handleCloseNavMenu("atual")}>
                 <Typography textAlign="center">Projeto Atual</Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
+              <MenuItem onClick={() => handleCloseNavMenu("historico")}>
                 <Typography textAlign="center">Projetos Anteriores</Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
+              <MenuItem onClick={() => handleCloseNavMenu("projetos")}>
                 <Typography textAlign="center">Projetos Disponíveis</Typography>
               </MenuItem>
             </Menu>
@@ -134,7 +139,7 @@ export const NavbarDashboard = () => {
             }}
           >
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={() => handleCloseNavMenu("atual")}
               sx={{
                 my: 2,
                 color: "var(--color-white)",
@@ -149,7 +154,7 @@ export const NavbarDashboard = () => {
             </Button>
 
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={() => handleCloseNavMenu("historico")}
               sx={{
                 my: 2,
                 color: "var(--color-white)",
@@ -164,7 +169,7 @@ export const NavbarDashboard = () => {
             </Button>
 
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={() => handleCloseNavMenu("projetos")}
               sx={{
                 my: 2,
                 color: "white",
