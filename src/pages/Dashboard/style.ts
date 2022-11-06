@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerDev = styled.div`
   width: 100%;
-  height: calc(100vh - 68px);
+  height: calc(100vh - 80px);
   background-color: var(--color-primary);
 
   @media (max-width: 900px) {
@@ -37,4 +37,12 @@ export const ContainerTabsNav = styled.ul`
   padding-top: 5rem;
   display: flex;
   justify-content: space-between;
+`;
+
+export const ContainerOutlet = styled.div`
+  width: 100%;
+  padding: 24px 16px;
+  margin: 0 auto;
+  max-width: 1536px;
+  background-color: var(--color-primary);
 `;
