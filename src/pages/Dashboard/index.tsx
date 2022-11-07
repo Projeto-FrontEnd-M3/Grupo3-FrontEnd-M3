@@ -1,34 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import { NavbarDashboard } from "../../components/NavbarDashboard";
 import { ContainerDev, ContainerOutlet } from "./style";
+import { useUserContext } from "../../context/UserContext";
+import ModalEditProfile from "./components/ModalEditProfile";
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
-}
-
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <div>{children}</div>
-        </Box>
-      )}
-    </div>
-  );
 }
 
 const fakedb = [
@@ -80,11 +60,12 @@ const fakedb = [
 ];
 const filteredArray = fakedb.filter((elem) => elem.status == "Em Andamento");
 
-const StyledBox = styled(Box)({});
-
 const Dashboard = () => {
+  const { actualModalDashboard } = useUserContext();
+
   return (
     <>
+      {actualModalDashboard == "editProfile" && <ModalEditProfile />}
       <NavbarDashboard />
       <ContainerDev>
         <ContainerOutlet>

@@ -1,7 +1,8 @@
-import axios, { AxiosResponse } from "axios";
-import { createContext, useContext, useState } from "react";
+import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IChildrenNode, IUserContextProvider } from "../interface/TypesGlobal";
+import { IChildrenNode,IUserContextProvider,IUserLogged } from "../interface/TypesGlobal";
+import { IEditProfile } from "../pages/Dashboard/components/ModalEditProfile";
 import { ILoginHookForm } from "../pages/Home/componentsHome/ModalLogin";
 import { IRegisterHookForm } from "../pages/Home/componentsHome/ModalRegisterDev";
 import { Api } from "../services/api/api";
@@ -11,33 +12,24 @@ export const userContext = createContext<IUserContextProvider>(
   {} as IUserContextProvider
 );
 
-interface IUserLogged {
-  accessToken: string;
-  user: {
-    email: string;
-    name: string;
-    type: string;
-    id: number;
-  };
-}
-
 export const UserContextProvider = ({ children }: IChildrenNode) => {
   const [actualSectionHome, setActualSectionHome] = useState("home");
+  const [actualModalDashboard, setactualModalDashboard] = useState("");
+  const [user, setUser] = useState<IUserLogged>({} as IUserLogged);
   const navigate = useNavigate();
 
   const loginUser = async (data: ILoginHookForm) => {
     try {
       const request = await Api.post("/login", data);
       const response: IUserLogged = request.data;
+      setActualSectionHome("none");
 
       toastSuccess("Bem-vindo ao Dev's Help");
 
-      if (response.user.type == "ong") {
-        //redirecionar pra dash ong
-      }
-
-      if (response.user.type == "dev") {
-        //redirecionar pra dash dev
+      if (response.user.type) {
+        setUser(response);
+        sessionStorage.setItem("@DevsHubUser", JSON.stringify(response));
+        navigate("/dashboard");
       }
     } catch {
       toastError("Dados inválidos!");
@@ -85,13 +77,32 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
     }
   };
 
-  const editProfileRequest = async (id: string) => {
+  const editProfileRequest = async (data: IEditProfile) => {
+    !data.email && delete data.email;
+    !data.bio && delete data.bio;
+    !data.image && delete data.image;
+    !data.password && delete data.password;
+    !data.phone && delete data.phone;
+
+    Api.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
+
     try {
-      const request = await Api.patch(`/users/${id}`);
+      const request = await Api.patch(`/users/${user.user.id}`, data);
+      setUser({ ...user, user: request.data });
+      setactualModalDashboard("none");
+      toastSuccess("Perfil Editado!");
+      console.log(request.data, user);
     } catch (err) {
-      //Error
+      toastError("Ocorreu algum erro!");
     }
   };
+
+  useEffect(() => {
+    const objectUser = sessionStorage.getItem("@DevsHubUser");
+    const objectUserParse = objectUser && JSON.parse(objectUser);
+
+    setUser(objectUserParse);
+  }, []);
 
   return (
     <userContext.Provider
@@ -100,6 +111,10 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         actualSectionHome,
         setActualSectionHome,
         registerUser,
+        user,
+        actualModalDashboard,
+        setactualModalDashboard,
+        editProfileRequest,
       }}
     >
       {children}

@@ -16,14 +16,16 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../context/UserContext";
 
 export const NavbarDashboard = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { user, setactualModalDashboard } = useUserContext();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -31,12 +33,13 @@ export const NavbarDashboard = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = (path: string) => {
-    navigate(path)
+    navigate(path);
     setAnchorElNav(null);
   };
 
@@ -209,9 +212,16 @@ export const NavbarDashboard = () => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">Olá, cremosa(o)!</Typography>
+                <Typography textAlign="center">
+                  {user.user && user.user.name}
+                </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem
+                onClick={() => {
+                  handleCloseUserMenu();
+                  setactualModalDashboard("editProfile");
+                }}
+              >
                 <Typography
                   textAlign="center"
                   sx={{ display: { xs: "flex" }, gap: 1 }}
@@ -228,7 +238,12 @@ export const NavbarDashboard = () => {
                   <AddIcon />
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem
+                onClick={() => {
+                  navigate("/");
+                  sessionStorage.clear();
+                }}
+              >
                 <Typography
                   textAlign="center"
                   sx={{ display: { xs: "flex" }, gap: 1 }}
