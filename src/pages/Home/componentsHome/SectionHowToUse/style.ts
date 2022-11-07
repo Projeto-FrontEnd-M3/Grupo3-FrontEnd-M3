@@ -4,7 +4,8 @@ export const ContainerHowToUse = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
+  height: auto;
   width: 100%;
   background-color: var(--color-primary-focus);
 `;
@@ -18,7 +19,7 @@ export const ContainerAboutSite = styled.div`
   flex-direction: column;
   gap: 2rem;
   width: 100%;
-  height: 100%;
+  height: auto;
   margin: auto;
   background-color: var(--color-primary);
   color: var(--color-grey-1);
@@ -40,6 +41,9 @@ export const ContainerAboutSite = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+  }
+  @media (max-width: 500px) {
+    margin-bottom: 20px;
   }
 `;
 
