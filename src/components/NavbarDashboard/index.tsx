@@ -54,8 +54,6 @@ export const NavbarDashboard = () => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -190,9 +188,10 @@ export const NavbarDashboard = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar sx={{ background: "#7E8894" }}>
-                  <InsertEmoticonIcon />
-                </Avatar>
+                <Avatar
+                  src={user?.user.image}
+                  sx={{ background: "#7E8894", width: "55px", height: "55px" }}
+                />
               </IconButton>
             </Tooltip>
             <Menu
