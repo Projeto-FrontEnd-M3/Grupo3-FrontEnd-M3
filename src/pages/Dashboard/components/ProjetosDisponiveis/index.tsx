@@ -9,7 +9,6 @@ import { Api } from "../../../../services/api/api";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 import { Text } from "../../../../styles/TypograpyText";
-import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 
 const ProjetosDisponiveis = () => {
   const theme = useTheme();
@@ -37,7 +36,7 @@ const ProjetosDisponiveis = () => {
       }
     };
     listAllDemands();
-  }, []);
+  }, [filteredList]);
 
   return filteredList.length > 0 ? (
     <CarouselContainer>

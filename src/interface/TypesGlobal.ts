@@ -48,10 +48,10 @@ export interface IUserContextProvider {
   setactualModalDashboard: React.Dispatch<React.SetStateAction<string>>;
   editProfileRequest: (data: IEditProfile) => Promise<void>;
   createDemandRequest: (data: ICreateDemandRequest) => Promise<void>;
-  filteredList: IDemandsResponse[];
-  setFilteredList: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  filteredListAux: IDemandsResponse[];
+  setFilteredListAux: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
 }
 
 export interface IDemandContextProvider {}

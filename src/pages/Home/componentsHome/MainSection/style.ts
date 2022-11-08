@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const MainStyled = styled.div`
   background-color: var(--color-primary);
   display: flex;
-  flex-direction: row;
-  height: calc(100vh);
+  height: calc(100vh - 80px);
 
   .container {
     width: 100%;
@@ -23,13 +22,16 @@ export const MainStyled = styled.div`
     margin-bottom: 2rem;
   }
 
+  .containerDivText p {
+    font-size: 1.2rem;
+  }
+
   .containerDivBtn {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
     gap: 10px;
-    margin-bottom: 3rem;
     max-width: 600px;
   }
 
@@ -50,9 +52,13 @@ export const MainStyled = styled.div`
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 660px) {
     .containerImg {
       display: none;
+    }
+
+    .containerDivText h1 {
+      font-size: 26px;
     }
   }
 

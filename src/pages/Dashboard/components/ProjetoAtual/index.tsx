@@ -10,7 +10,9 @@ import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 
 export const ProjetoAtual = () => {
   const navigate = useNavigate();
-  const { filteredList, setFilteredList } = useUserContext();
+  const [ filteredList, setFilteredList ] = useState([] as IDemandsResponse[]);
+
+  const {setFilteredListAux} = useUserContext()
 
   useEffect(() => {
     const sessionUser = sessionStorage.getItem("@DevsHubUser");
@@ -28,12 +30,13 @@ export const ProjetoAtual = () => {
         );
 
         setFilteredList(filtered);
+        setFilteredListAux(filtered);
       } catch (error) {
         console.log(error);
       }
     };
     listAllDemands();
-  }, []);
+  }, [filteredList]);
 
   return filteredList.length > 0 ? (
     <ProjetoAtualCard obj={filteredList[0]} />
