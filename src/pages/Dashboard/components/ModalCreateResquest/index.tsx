@@ -36,7 +36,7 @@ export interface ICreateDemandRequest {
 }
 
 const ModalCreateResquest = () => {
-  const { setactualModalDashboard, user, createDemandRequest } =
+  const { setactualModalDashboard, user, createDemandRequest, exit, setExit } =
     useUserContext();
 
 const formatDate = () => {
@@ -70,7 +70,7 @@ const formatDate = () => {
 
   return (
     <ContainerModal>
-      <ContainerModalEditProfile>
+      <ContainerModalEditProfile className={exit ? "exit" : ""}>
         <ModalContent onSubmit={handleSubmit(createDemandRequest)}>
           <Text tag="h1" fontSize="title1" color="primary">
             Criar Pedido
@@ -169,7 +169,13 @@ const formatDate = () => {
             Criar
           </ButtonDefault>
 
-          <CloseButton onClick={() => setactualModalDashboard("none")} />
+          <CloseButton onClick={() => { 
+            setExit(true)
+            setTimeout(() => {
+              setactualModalDashboard("none")
+              setExit(false)
+            }, 500);
+        }} />
         </ModalContent>
       </ContainerModalEditProfile>
     </ContainerModal>

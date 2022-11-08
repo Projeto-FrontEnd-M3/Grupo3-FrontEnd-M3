@@ -7,7 +7,11 @@ export const ContainerHowToUse = styled.div`
   min-height: calc(100vh - 80px);
   height: auto;
   width: 100%;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-focus);
+
+  .optionHowToUse{
+    animation: fadeIn 1s;
+  }
 `;
 
 export const ContainerHowToUseNav = styled.div`
@@ -30,6 +34,7 @@ export const ContainerAboutSite = styled.div`
   min-height: 300px;
   max-height: 450px;
   border-radius: 8px;
+  animation: fadeIn 1s;
 
   .AboutCenterText {
     text-align: justify;

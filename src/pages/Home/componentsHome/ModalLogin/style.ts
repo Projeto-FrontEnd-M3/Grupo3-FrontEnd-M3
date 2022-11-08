@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const ContainerModalLogin = styled.div`
   max-width: 380px;
@@ -7,6 +7,9 @@ export const ContainerModalLogin = styled.div`
   padding: 1.5rem;
   background-color: var(--color-grey-1);
   position: relative;
+  animation: fadeInDown 1s; 
+
+  
 `;
 
 export const FormModalLogin = styled.form`
@@ -19,6 +22,7 @@ export const FormModalLogin = styled.form`
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  
 
   h2 {
     letter-spacing: 2rem;
@@ -36,6 +40,7 @@ export const FormModalLogin = styled.form`
     height: 2px;
     background-color: var(--color-primary);
   }
+
 
   .buttonClosed {
     position: absolute;
