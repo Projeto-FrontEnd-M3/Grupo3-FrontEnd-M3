@@ -20,7 +20,7 @@ import { Text } from "../../../../styles/TypograpyText";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 
 interface IProjetoAtualCard {
-  obj: IDemandsResponse
+  obj: IDemandsResponse;
 }
 
 export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
@@ -36,13 +36,13 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
               Entregar até <span>{obj.estimated_time}</span>
             </Text>
           </ContainerProjectLeftTitle>
-          <Text fontSize="text4" color="grey1">
+          <Text fontSize="text4" color="grey1" className="resumesize">
             {obj.description}
           </Text>
         </ContainerProjectLeftResume>
         <ContainerProjectLefButton>
-          <ButtonDefault color="primary" bgColor="primary">
-            {obj.status == "Pendente" ? "PEGAR PROJETO" : "CONCLUIR PROJETO"}
+          <ButtonDefault color="success" bgColor="success">
+            {obj.status == "Pendente" ? "ACEITAR PROJETO" : "CONCLUIR PROJETO"}
           </ButtonDefault>
         </ContainerProjectLefButton>
       </ContainerProjectLeft>
@@ -79,7 +79,7 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
         </ContainerProjecRightContacts>
         <ContainerProjecRightText>
           <Text fontSize="text4" color="success">
-            Você pode entrar em contato com ONG pelos meios acima
+            Ultilize esses meios de contato para conversar com a ONG
           </Text>
         </ContainerProjecRightText>
       </ContainerProjecRight>
