@@ -20,7 +20,7 @@ import { Text } from "../../../../styles/TypograpyText";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 
 interface IProjetoAtualCard {
-  obj: IDemandsResponse
+  obj: IDemandsResponse;
 }
 
 export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
@@ -41,8 +41,8 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
           </Text>
         </ContainerProjectLeftResume>
         <ContainerProjectLefButton>
-          <ButtonDefault color="primary" bgColor="primary">
-            {obj.status == "Pendente" ? "PEGAR PROJETO" : "CONCLUIR PROJETO"}
+          <ButtonDefault color="grey1" bgColor="grey1">
+            {obj.status == "Pendente" ? "ACEITAR PROJETO" : "CONCLUIR PROJETO"}
           </ButtonDefault>
         </ContainerProjectLefButton>
       </ContainerProjectLeft>

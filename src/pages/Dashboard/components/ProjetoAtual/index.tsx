@@ -46,11 +46,11 @@ export const ProjetoAtual = () => {
         Você ainda não iniciou nenhum projeto
       </Text>
       <ButtonDefault
-        color="primary"
-        bgColor="primary"
+        color="grey1"
+        bgColor="grey1"
         onClick={() => navigate("/dashboard/projetos")}
       >
-        PEGAR UM PROJETO
+        ESCOLHER PROJETO
       </ButtonDefault>
     </ContainerProjectEmpty>
   );

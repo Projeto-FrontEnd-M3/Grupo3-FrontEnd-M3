@@ -8,6 +8,7 @@ export const MainStyled = styled.div`
 
   .container {
     width: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,11 +17,14 @@ export const MainStyled = styled.div`
   }
 
   .containerDivText {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .containerDivText h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .containerDivTitle {
   }
 
   .containerDivBtn {
