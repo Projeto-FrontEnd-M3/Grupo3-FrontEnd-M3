@@ -11,7 +11,7 @@ export interface IUser {
   name: string;
   type: "ong" | "dev";
   id: number;
-  cnpj?: string
+  cnpj?: string;
   bio?: string;
   image?: string;
   phone?: string;
@@ -23,18 +23,18 @@ export interface IUserLogged {
 }
 
 export interface IDemandsResponse {
-  title: string
-  description: string
-  status: "Pendente" | "Em Andamento" | "Finalizado"
-  userId: number | string
-  project_type: "WEB" | "MOBILE" | "DESKTOP"
-  created_at: string
-  estimated_time: string
-  id: number
-  work_in: [IUser]
-  dev_finished: boolean
-  finished_at: string
-  user: IUser
+  title: string;
+  description: string;
+  status: "Pendente" | "Em Andamento" | "Finalizado";
+  userId: number | string;
+  project_type: "Web" | "Mobile" | "Desktop";
+  created_at: string;
+  estimated_time: string;
+  id: number;
+  work_in: [IUser];
+  dev_finished: boolean;
+  finished_at: string;
+  user: IUser;
 }
 
 export interface IUserContextProvider {

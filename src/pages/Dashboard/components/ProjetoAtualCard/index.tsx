@@ -17,8 +17,13 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { Text } from "../../../../styles/TypograpyText";
+import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 
-export const ProjetoAtualCard = ({ obj }) => {
+interface IProjetoAtualCard {
+  obj: IDemandsResponse
+}
+
+export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
   return (
     <ContainerProject>
       <ContainerProjectLeft>
@@ -63,14 +68,6 @@ export const ProjetoAtualCard = ({ obj }) => {
               {obj.user.email}
             </Text>
           </li>
-          {obj.user.whatsapp && (
-            <li>
-              <WhatsAppIcon />
-              <Text fontSize="text4" color="success">
-                {obj.user.whatsapp}
-              </Text>
-            </li>
-          )}
           {obj.user.phone && (
             <li>
               <PhoneInTalkIcon />
