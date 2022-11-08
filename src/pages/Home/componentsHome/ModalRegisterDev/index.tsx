@@ -22,7 +22,7 @@ export interface IRegisterHookForm {
 }
 
 const ModalRegisterDev = () => {
-  const { setActualSectionHome, registerUser } = useUserContext();
+  const { setActualSectionHome, registerUser, exit, setExit } = useUserContext();
 
   const formOptions = {
     defaultValues: { type: "dev" },
@@ -37,7 +37,7 @@ const ModalRegisterDev = () => {
 
   return (
     <ContainerModal>
-      <ContainerModalLogin>
+      <ContainerModalLogin className={exit ? "exitRegister" : ""}>
         <FormModalLogin onSubmit={handleSubmit(registerUser)}>
           <Text tag="h2" fontSize="title1" color="primary">
             DEV
@@ -111,8 +111,20 @@ const ModalRegisterDev = () => {
             Já tem uma conta?{" "}
             <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
-          <CloseButton onClick={() => setActualSectionHome("none")} />
-          <BackButton onClick={() => setActualSectionHome("register")} />
+          <CloseButton onClick={() => { 
+            setExit(true)
+            setTimeout(() => {
+              setActualSectionHome("none")
+              setExit(false)
+            }, 500);
+        }} />
+          <BackButton onClick={() => {
+            setExit(true)
+            setTimeout(() => {
+              setActualSectionHome("register")
+              setExit(false)
+            }, 500); 
+        }} />
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>

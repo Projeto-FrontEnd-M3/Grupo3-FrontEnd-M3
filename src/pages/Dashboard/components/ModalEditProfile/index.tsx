@@ -22,7 +22,7 @@ export interface IEditProfile {
 }
 
 const ModalEditProfile = () => {
-  const { setactualModalDashboard, user, editProfileRequest } =
+  const { setactualModalDashboard, user, editProfileRequest, exit, setExit } =
     useUserContext();
 
   const {
@@ -33,7 +33,7 @@ const ModalEditProfile = () => {
 
   return (
     <ContainerModal>
-      <ContainerModalEditProfile>
+      <ContainerModalEditProfile className={exit ? "exit" : ""}>
         <ModalContent onSubmit={handleSubmit(editProfileRequest)}>
           <Text tag="h1" fontSize="title1" color="primary">
             Editar perfil
@@ -104,7 +104,13 @@ const ModalEditProfile = () => {
             Editar
           </ButtonDefault>
 
-          <CloseButton onClick={() => setactualModalDashboard("none")} />
+          <CloseButton onClick={() => { 
+            setExit(true)
+            setTimeout(() => {
+              setactualModalDashboard("none")
+              setExit(false)
+            }, 500);
+        }} />
         </ModalContent>
       </ContainerModalEditProfile>
     </ContainerModal>

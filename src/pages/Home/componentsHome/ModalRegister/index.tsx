@@ -16,6 +16,7 @@ import { BackButton, CloseButton } from "../ModalRegisterOng/style";
 const ModalRegister = () => {
   const [selectOngOrDev, setSelectOngOrDev] = useState("");
   const { setActualSectionHome } = useUserContext();
+  const {exit, setExit} = useUserContext();
 
   const continueVerify = () => {
     if (!selectOngOrDev) {
@@ -28,7 +29,7 @@ const ModalRegister = () => {
 
   return (
     <ContainerModal>
-      <ContainerModalRegister>
+      <ContainerModalRegister className={exit ? "exit" : ""}>
         <AlignModalRegister>
           <Text tag="h2" fontSize="title1" color="primary">
             CADASTRO
@@ -67,7 +68,13 @@ const ModalRegister = () => {
             <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
 
-          <CloseButton onClick={() => setActualSectionHome("none")} />
+          <CloseButton onClick={() => {
+              setExit(true)
+              setTimeout(() => {
+                setActualSectionHome("none")
+                setExit(false)
+              }, 500);
+             }} />
           <BackButton onClick={() => setActualSectionHome("login")} />
         </AlignModalRegister>
       </ContainerModalRegister>
