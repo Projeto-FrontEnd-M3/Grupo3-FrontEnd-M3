@@ -28,7 +28,7 @@ export interface IDemandsResponse {
   description: string;
   status: "Pendente" | "Em Andamento" | "Finalizado";
   userId: number | string;
-  project_type: "WEB" | "MOBILE" | "DESKTOP";
+  project_type: "Web" | "Mobile" | "Desktop";
   created_at: string;
   estimated_time: string;
   id: number;
