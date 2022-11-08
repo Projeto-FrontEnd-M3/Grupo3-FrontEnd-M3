@@ -48,8 +48,8 @@ export interface IUserContextProvider {
   setactualModalDashboard: React.Dispatch<React.SetStateAction<string>>;
   editProfileRequest: (data: IEditProfile) => Promise<void>;
   createDemandRequest: (data: ICreateDemandRequest) => Promise<void>;
-  filteredList: IDemandsResponse[];
-  setFilteredList: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
+  filteredListAux: IDemandsResponse[];
+  setFilteredListAux: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
   exit: boolean;
   setExit: React.Dispatch<React.SetStateAction<boolean>>;
 }

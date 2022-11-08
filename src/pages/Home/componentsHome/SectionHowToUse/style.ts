@@ -25,7 +25,7 @@ export const ContainerAboutSite = styled.div`
   width: 100%;
   height: auto;
   margin: auto;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-negative);
   color: var(--color-grey-1);
   box-shadow: rgba(53, 87, 100, 0.5) 0px 3px 6px,
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -36,8 +36,9 @@ export const ContainerAboutSite = styled.div`
   border-radius: 8px;
   animation: fadeIn 1s;
 
-  p {
+  .AboutCenterText {
     text-align: justify;
+    font-size: 1rem;
   }
 
   .ContainerAboutCenter {
@@ -49,6 +50,10 @@ export const ContainerAboutSite = styled.div`
   }
   @media (max-width: 500px) {
     margin-bottom: 20px;
+    .AboutCenterText {
+      text-align: center;
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -62,6 +67,7 @@ export const ContainerAboutList = styled.ul`
   @media (max-width: 800px) {
     margin-top: 1rem;
     display: block;
+
     .ArrowRightAltIcon {
       display: none;
     }
@@ -90,6 +96,7 @@ export const StepListContainer = styled.div`
   gap: 1rem;
   margin-bottom: 1rem;
   width: 16%;
+  text-align: center;
 
   @media (max-width: 800px) {
     justify-content: flex-start;
@@ -124,7 +131,6 @@ export const StepListText = styled.div`
   text-align: center;
 
   @media (max-width: 800px) {
-    text-align: left;
     margin-left: 1rem;
     font-size: 14px;
   }

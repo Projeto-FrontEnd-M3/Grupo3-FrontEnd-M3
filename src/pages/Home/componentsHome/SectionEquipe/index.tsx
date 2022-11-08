@@ -9,8 +9,8 @@ export const SectionEquipe = () => {
   return (
     <ContainerEquipe>
       <ContainerSquadIntern>
-        <Text tag="h1" color="negative" fontSize="title1">
-          Equipe de Desenvolvedores
+        <Text tag="h1" color="primary" fontSize="title2">
+          EQUIPE DE DESENVOLVEDORES
         </Text>
         <ul>
           {productCreators.map(
@@ -18,8 +18,10 @@ export const SectionEquipe = () => {
               return (
                 <li key={index}>
                   <div className="left__div">
-                    <Text fontSize="text1" color="primary">{name}</Text>
-                    <Text color="primary">{email}</Text>
+                    <Text fontSize="text1" color="negative">
+                      {name}
+                    </Text>
+                    <Text color="negative">{email}</Text>
                   </div>
 
                   <div className="right__div">

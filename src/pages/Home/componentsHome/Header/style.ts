@@ -21,7 +21,7 @@ export const HeaderStyle = styled.div`
   }
 
   .navBtn {
-    color: var(--color-primary-focus);
+    color: var(--color-grey-1);
     font-size: 18px;
     animation: fadeIn 1s;
   }
@@ -44,7 +44,7 @@ export const HeaderStyle = styled.div`
 
   @media (max-width: 500px) {
     .header {
-      padding: 0 18px
+      padding: 0 18px;
     }
   }
 `;

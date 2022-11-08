@@ -2,7 +2,6 @@ import { ContainerModal } from "../../../../components/ContainerModal/style";
 import { ContainerModalEditProfile, ModalContent } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
-import TextField from "@mui/material/TextField";
 import DevicesTwoToneIcon from "@mui/icons-material/DevicesTwoTone";
 import DescriptionTwoToneIcon from "@mui/icons-material/DescriptionTwoTone";
 import TitleTwoToneIcon from "@mui/icons-material/TitleTwoTone";
@@ -16,8 +15,10 @@ import { useUserContext } from "../../../../context/UserContext";
 import { CloseButton } from "../../../Home/componentsHome/ModalRegisterOng/style";
 import { CssTextField } from "../../../Home/componentsHome/ModalRegisterOng";
 import { useForm } from "react-hook-form";
+import { createDemandValidate } from "../../../../services/validations/validation";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-interface IMap {
+export interface IMap {
   dd: number;
   mm: number;
   aa: string;
@@ -38,7 +39,7 @@ const ModalCreateResquest = () => {
   const { setactualModalDashboard, user, createDemandRequest, exit, setExit } =
     useUserContext();
 
-  function formatDate() {
+const formatDate = () => {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
 
@@ -58,6 +59,7 @@ const ModalCreateResquest = () => {
       created_at: formatDate(),
       status: "Pendente",
     },
+    resolver: yupResolver(createDemandValidate),
   };
 
   const {
@@ -74,22 +76,36 @@ const ModalCreateResquest = () => {
             Criar Pedido
           </Text>
 
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: errors.title ? "center" : "flex-end",
+            }}
+          >
             <TitleTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
             <CssTextField
+              error={!!errors.title}
+              helperText={errors.title?.message}
               {...register("title")}
               label="Título"
               variant="standard"
             />
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: errors.description ? "center" : "flex-end",
+            }}
+          >
             <DescriptionTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
             <CssTextField
+              error={!!errors.description}
+              helperText={errors.description?.message}
               {...register("description")}
               label="Descrição"
               multiline
@@ -99,15 +115,33 @@ const ModalCreateResquest = () => {
             />
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: errors.estimated_time ? "center" : "flex-end",
+            }}
+          >
             <CalendarMonthTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <CssTextField
-              {...register("estimated_time")}
-              label="Data de entrega"
-              variant="standard"
-            />
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                flexDirection: "column",
+              }}
+            >
+              <InputLabel>Data de entrega</InputLabel>
+              <CssTextField
+                error={!!errors.estimated_time}
+                helperText={errors.estimated_time?.message}
+                className="inputDate"
+                {...register("estimated_time")}
+                type="date"
+                variant="standard"
+              />
+            </Box>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>

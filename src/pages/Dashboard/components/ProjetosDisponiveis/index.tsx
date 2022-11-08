@@ -7,6 +7,8 @@ import { CarouselContainer, StepperStyled } from "./styles";
 import { ProjetoAtualCard } from "../ProjetoAtualCard";
 import { Api } from "../../../../services/api/api";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
+import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
+import { Text } from "../../../../styles/TypograpyText";
 
 const ProjetosDisponiveis = () => {
   const theme = useTheme();
@@ -34,62 +36,69 @@ const ProjetosDisponiveis = () => {
       }
     };
     listAllDemands();
-  }, []);
+  }, [filteredList]);
 
-  return (
-    filteredList.length > 0 && (
-      <CarouselContainer>
-        <ProjetoAtualCard obj={filteredList[activeStep]} />
-        <StepperStyled
-          variant="dots"
-          steps={filteredList.length}
-          position="static"
-          activeStep={activeStep}
-          sx={{
-            flexGrow: 1,
-            borderRadius: "20px",
-            backgroundColor: "#f1f1f1",
-            marginTop: "8px",
-          }}
-          nextButton={
-            <Button
-              size="small"
-              sx={{
-                color: "#355764",
-                fontWeight: 500,
-              }}
-              onClick={handleNext}
-              disabled={activeStep === filteredList.length - 1}
-            >
-              Próximo
-              {theme.direction === "rtl" ? (
-                <KeyboardArrowLeft />
-              ) : (
-                <KeyboardArrowRight />
-              )}
-            </Button>
-          }
-          backButton={
-            <Button
-              size="small"
-              onClick={handleBack}
-              sx={{
-                color: "#355764",
-                fontWeight: 500,
-              }}
-              disabled={activeStep === 0}
-            >
-              {theme.direction === "rtl" ? (
-                <KeyboardArrowRight />
-              ) : (
-                <KeyboardArrowLeft />
-              )}
-              Voltar
-            </Button>
-          }
-        />
-      </CarouselContainer>
-    )
+  return filteredList.length > 0 ? (
+    <CarouselContainer>
+      <ProjetoAtualCard obj={filteredList[activeStep]} />
+      <StepperStyled
+        variant="dots"
+        steps={filteredList.length}
+        position="static"
+        activeStep={activeStep}
+        sx={{
+          flexGrow: 1,
+          borderRadius: "20px",
+          backgroundColor: "#467486",
+          marginTop: "8px",
+        }}
+        nextButton={
+          <Button
+            size="small"
+            sx={{
+              color: "#ffffff",
+              fontWeight: 600,
+              fontSize: 14,
+            }}
+            onClick={handleNext}
+            disabled={activeStep === filteredList.length - 1}
+          >
+            Próximo
+            {theme.direction === "rtl" ? (
+              <KeyboardArrowLeft />
+            ) : (
+              <KeyboardArrowRight />
+            )}
+          </Button>
+        }
+        backButton={
+          <Button
+            size="small"
+            onClick={handleBack}
+            sx={{
+              color: "#ffffff",
+              fontWeight: 600,
+              fontSize: 14,
+            }}
+            disabled={activeStep === 0}
+          >
+            {theme.direction === "rtl" ? (
+              <KeyboardArrowRight />
+            ) : (
+              <KeyboardArrowLeft />
+            )}
+            Voltar
+          </Button>
+        }
+      />
+    </CarouselContainer>
+  ) : (
+    <ContainerProjectEmpty>
+      <Text fontSize="text3" color="success" className="message">
+        Não temos nenhum projeto disponivel no momento, verifique novamente mais
+        tarde!
+      </Text>
+    </ContainerProjectEmpty>
   );
 };
 

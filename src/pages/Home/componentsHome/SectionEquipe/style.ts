@@ -17,7 +17,7 @@ export const ContainerSquadIntern = styled.div`
   animation: fadeIn 1s;
 
   svg {
-    color: var(--color-primary);
+    color: var(--color-primary-negative);
 
     :hover {
       transform: scale(1.15);

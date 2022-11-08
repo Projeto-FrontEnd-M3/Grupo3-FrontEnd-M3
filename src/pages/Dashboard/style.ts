@@ -6,13 +6,6 @@ export const ContainerDev = styled.div`
   background-color: var(--color-primary);
   animation: fadeIn 1s;
 
-  @media (max-width: 900px) {
-    height: calc(100vh - 64px);
-  }
-
-  @media (max-width: 600px) {
-    height: calc(100vh - 56px);
-  }
 `;
 export const ContainerDevNav = styled.div`
   padding-top: 4rem;

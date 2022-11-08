@@ -4,7 +4,7 @@ import { ContainerAboutSite } from "../style";
 const AboutSite = () => {
   return (
     <ContainerAboutSite>
-      <Text fontSize="text4">
+      <Text className="AboutCenterText">
         No brasil e no mundo, existem diversas instituições de caridades que tem
         inúmeras necessidades financeiras, e as vezes não pode bancar o
         desenvolvimento de um website por exemplo. A ideia seria criar uma
@@ -14,7 +14,7 @@ const AboutSite = () => {
         dev sênior que estivesse afim de ajudar.
       </Text>
 
-      <Text fontSize="text4">
+      <Text className="AboutCenterText">
         A ideia da plataforma, seria juntar esses dois lados de forma
         profissional pra que um time de devs trabalhassem em conjunto pra isso!
         e seria o papel da plataforma, viabilizar isso.

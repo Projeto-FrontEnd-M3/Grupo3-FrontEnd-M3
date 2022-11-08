@@ -58,7 +58,7 @@ export const NavbarDashboard = () => {
               fontFamily: "poppins",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "var(--color-white)",
+              color: "var(--color-grey-1)",
               textDecoration: "none",
               alignItems: "center",
             }}
@@ -143,7 +143,7 @@ export const NavbarDashboard = () => {
               fontFamily: "poppins",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "var(--color-white)",
+              color: "var(--color-grey-1)",
               textDecoration: "none",
             }}
           >
@@ -163,11 +163,11 @@ export const NavbarDashboard = () => {
               }}
               sx={{
                 my: 2,
-                color: "var(--color-white)",
+                color: "var(--color-grey-1)",
                 display: "flex",
                 fontFamily: "poppins",
                 "&:hover": {
-                  backgroundColor: "#393E46",
+                  backgroundColor: "var(--color-primary-negative)",
                 },
               }}
             >
@@ -181,11 +181,11 @@ export const NavbarDashboard = () => {
               }}
               sx={{
                 my: 2,
-                color: "var(--color-white)",
+                color: "var(--color-grey-1)",
                 display: "flex",
                 fontFamily: "poppins",
                 "&:hover": {
-                  backgroundColor: "#393E46",
+                  backgroundColor: "var(--color-primary-negative)",
                 },
               }}
             >
@@ -200,11 +200,11 @@ export const NavbarDashboard = () => {
                 }}
                 sx={{
                   my: 2,
-                  color: "white",
+                  color: "var(--color-grey-1)",
                   display: "flex",
                   fontFamily: "poppins",
                   "&:hover": {
-                    backgroundColor: "#393E46",
+                    backgroundColor: "var(--color-primary-negative)",
                   },
                 }}
               >

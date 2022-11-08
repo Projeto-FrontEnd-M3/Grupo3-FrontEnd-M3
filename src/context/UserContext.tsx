@@ -23,7 +23,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   const [actualSectionHome, setActualSectionHome] = useState("home");
   const [actualModalDashboard, setactualModalDashboard] = useState("");
   const [user, setUser] = useState<IUserLogged>({} as IUserLogged);
-  const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
+  const [filteredListAux, setFilteredListAux] = useState([] as IDemandsResponse[])
   const navigate = useNavigate();
 
   const loginUser = async (data: ILoginHookForm) => {
@@ -34,7 +34,6 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       toastSuccess("Bem-vindo ao Dev's Help");
 
       setUser(response);
-      Api.defaults.headers.common["Authorization"] = `Bearer ${response.accessToken}`;
       sessionStorage.setItem("@DevsHubUser", JSON.stringify(response));
       navigate("/dashboard");
     } catch {
@@ -62,7 +61,6 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   const createDemandRequest = async (data: ICreateDemandRequest) => {
     try {
       const request = await Api.post("/jobs", data);
-      console.log(request.data);
       toastSuccess("Cadastramos seu Pedido!");
     } catch (err) {
       toastError("Ocorreu um erro!");
@@ -99,7 +97,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       setUser({ ...user, user: request.data });
       setactualModalDashboard("none");
       toastSuccess("Perfil Editado!");
-      console.log(request.data, user);
+
+      sessionStorage.setItem("@DevsHubUser", JSON.stringify(user));
     } catch (err) {
       toastError("Ocorreu algum erro!");
     }
@@ -108,9 +107,18 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   useEffect(() => {
     const objectUser = sessionStorage.getItem("@DevsHubUser");
     const objectUserParse = objectUser && JSON.parse(objectUser);
-    // Api.defaults.headers.common["Authorization"] = `Bearer ${objectUserParse.accessToken}`;
-    setUser(objectUserParse);
+
+    if (objectUserParse) {
+      setUser(objectUserParse);
+    }
   }, []);
+
+  useEffect(() => {
+    if (user.user) {
+      sessionStorage.setItem("@DevsHubUser", JSON.stringify(user));
+      Api.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
+    }
+  }, [user]);
 
   return (
     <userContext.Provider
@@ -124,8 +132,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         setactualModalDashboard,
         editProfileRequest,
         createDemandRequest,
-        filteredList,
-        setFilteredList,
+        filteredListAux,
+        setFilteredListAux,
         setExit, 
         exit,
       }}
