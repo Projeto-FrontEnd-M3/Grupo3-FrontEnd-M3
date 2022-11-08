@@ -7,6 +7,9 @@ import { CarouselContainer, StepperStyled } from "./styles";
 import { ProjetoAtualCard } from "../ProjetoAtualCard";
 import { Api } from "../../../../services/api/api";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
+import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
+import { Text } from "../../../../styles/TypograpyText";
+import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 
 const ProjetosDisponiveis = () => {
   const theme = useTheme();
@@ -37,7 +40,7 @@ const ProjetosDisponiveis = () => {
   }, []);
 
   return (
-    filteredList.length > 0 && (
+    filteredList.length > 0 ? (
       <CarouselContainer>
         <ProjetoAtualCard obj={filteredList[activeStep]} />
         <StepperStyled
@@ -89,6 +92,12 @@ const ProjetosDisponiveis = () => {
           }
         />
       </CarouselContainer>
+    ) : (
+      <ContainerProjectEmpty>
+      <Text fontSize="text3" color="success" className="message">
+        Não temos nenhum projeto disponivel no momento, verifique novamente mais tarde!
+      </Text>
+    </ContainerProjectEmpty>
     )
   );
 };
