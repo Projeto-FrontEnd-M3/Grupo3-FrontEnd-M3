@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
-import {
-  IDemandsResponse,
-  IUserLogged,
-} from "../../../../interface/TypesGlobal";
+import { IDemandsResponse,IUserLogged} from "../../../../interface/TypesGlobal";
 import { Api } from "../../../../services/api/api";
 import { Text } from "../../../../styles/TypograpyText";
 import { ProjetoAtualCard } from "../ProjetoAtualCard";

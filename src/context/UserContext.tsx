@@ -19,6 +19,7 @@ export const userContext = createContext<IUserContextProvider>(
 );
 
 export const UserContextProvider = ({ children }: IChildrenNode) => {
+  const [loading, setLoading] = useState(false);
   const [actualSectionHome, setActualSectionHome] = useState("home");
   const [actualModalDashboard, setactualModalDashboard] = useState("");
   const [user, setUser] = useState<IUserLogged>({} as IUserLogged);
@@ -27,6 +28,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
 
   const loginUser = async (data: ILoginHookForm) => {
     try {
+      setLoading(true);
       const request = await Api.post("/login", data);
       const response: IUserLogged = request.data;
       setActualSectionHome("none");
@@ -37,11 +39,14 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       navigate("/dashboard");
     } catch {
       toastError("Dados inválidos!");
+    } finally {
+      setLoading(false);
     }
   };
 
   const registerUser = async (data: IRegisterHookForm) => {
     try {
+      setLoading(true);
       await Api.post("/register", data);
       toastSuccess("Cadastramos você, agora faça o login!");
       setActualSectionHome("login");
@@ -53,18 +58,22 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
           error.includes("already") ? "Email já existe!" : "Dados inválidos!"
         );
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   // Funções a serem utilizadas ainda
   const createDemandRequest = async (data: ICreateDemandRequest) => {
     try {
+      setLoading(true);
       const request = await Api.post("/jobs", data);
       toastSuccess("Cadastramos seu Pedido!");
     } catch (err) {
       toastError("Ocorreu um erro!");
     } finally {
       setactualModalDashboard("none");
+      setLoading(false);
     }
   };
 
@@ -92,6 +101,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
     !data.phone && delete data.phone;
 
     try {
+      setLoading(true);
       const request = await Api.patch(`/users/${user.user.id}`, data);
       setUser({ ...user, user: request.data });
       setactualModalDashboard("none");
@@ -100,6 +110,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       sessionStorage.setItem("@DevsHubUser", JSON.stringify(user));
     } catch (err) {
       toastError("Ocorreu algum erro!");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -115,7 +127,9 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   useEffect(() => {
     if (user.user) {
       sessionStorage.setItem("@DevsHubUser", JSON.stringify(user));
-      Api.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
+      Api.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${user.accessToken}`;
     }
   }, [user]);
 
@@ -133,6 +147,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         createDemandRequest,
         filteredList,
         setFilteredList,
+        loading,
+        setLoading,
       }}
     >
       {children}

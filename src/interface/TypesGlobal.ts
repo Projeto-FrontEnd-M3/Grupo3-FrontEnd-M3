@@ -50,6 +50,8 @@ export interface IUserContextProvider {
   createDemandRequest: (data: ICreateDemandRequest) => Promise<void>;
   filteredList: IDemandsResponse[];
   setFilteredList: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IDemandContextProvider {}
