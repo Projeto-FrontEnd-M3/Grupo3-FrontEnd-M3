@@ -4,7 +4,7 @@ export const MainStyled = styled.div`
   background-color: var(--color-primary);
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 5rem);
+  height: calc(100vh);
 
   .container {
     width: 100%;
@@ -20,7 +20,7 @@ export const MainStyled = styled.div`
   }
 
   .containerDivText h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
   }
 
   .containerDivBtn {

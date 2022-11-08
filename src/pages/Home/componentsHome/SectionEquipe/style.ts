@@ -16,7 +16,7 @@ export const ContainerSquadIntern = styled.div`
   padding: 2rem 0;
 
   svg {
-    color: var(--color-primary);
+    color: var(--color-primary-negative);
 
     :hover {
       transform: scale(1.15);
