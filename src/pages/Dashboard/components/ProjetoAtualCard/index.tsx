@@ -82,11 +82,16 @@ const finishProject = async (id: number) => {
 
 export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
   const navigate = useNavigate();
+  const {setactualModalDashboard} = useUserContext()
 
   const { filteredListAux } = useUserContext();
   const { pathname } = useLocation();
 
   const handleButton = (projectId: number) => {
+    if(pathname == "/dashboard/atual" && user.user.type == "ong") {
+      return setactualModalDashboard("editDemand")
+    }
+
     if (pathname == "/dashboard/atual") {
       return finishProject(projectId);
     }
@@ -124,7 +129,7 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
             color="success"
             bgColor="success"
           >
-            {obj.status == "Pendente" ? "PEGAR PROJETO" : "CONCLUIR PROJETO"}
+            {user.user.type == "dev" ? obj.status == "Pendente" ? "PEGAR PROJETO" : "CONCLUIR PROJETO" : "EDITAR PEDIDO"}
           </ButtonDefault>
         </ContainerProjectLefButton>
       </ContainerProjectLeft>
