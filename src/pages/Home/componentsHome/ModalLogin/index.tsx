@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidate } from "../../../../services/validations/validation";
 import { CssTextField } from "../ModalRegisterOng";
 import { CloseButton } from "../ModalRegisterOng/style";
+import { useState } from "react";
 
 export interface ILoginHookForm {
   email: string;
@@ -19,8 +20,9 @@ export interface ILoginHookForm {
 }
 
 const ModalLogin = () => {
-  const { loginUser, setActualSectionHome } = useUserContext();
+  const { loginUser, setActualSectionHome, exit, setExit } = useUserContext();
   const formOptions = { resolver: yupResolver(loginValidate) };
+ 
 
   const {
     register,
@@ -30,7 +32,7 @@ const ModalLogin = () => {
 
   return (
     <ContainerModal>
-      <ContainerModalLogin>
+      <ContainerModalLogin className={exit ? "exit" : ""}>
         <FormModalLogin onSubmit={handleSubmit(loginUser)}>
           <Text tag="h2" fontSize="title1" color="primary">
             LOGIN
@@ -88,7 +90,13 @@ const ModalLogin = () => {
             </span>
           </Text>
 
-          <CloseButton onClick={() => setActualSectionHome("none")} />
+          <CloseButton className="close" onClick={() => { 
+            setExit(true) 
+            setTimeout(() => {
+              setActualSectionHome("none")
+              setExit(false)
+            }, 500);
+            }}  />
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>

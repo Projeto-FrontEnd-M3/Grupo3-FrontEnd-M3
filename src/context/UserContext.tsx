@@ -19,6 +19,7 @@ export const userContext = createContext<IUserContextProvider>(
 );
 
 export const UserContextProvider = ({ children }: IChildrenNode) => {
+  const [exit, setExit] = useState(false);
   const [actualSectionHome, setActualSectionHome] = useState("home");
   const [actualModalDashboard, setactualModalDashboard] = useState("");
   const [user, setUser] = useState<IUserLogged>({} as IUserLogged);
@@ -125,6 +126,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         createDemandRequest,
         filteredList,
         setFilteredList,
+        setExit, 
+        exit,
       }}
     >
       {children}

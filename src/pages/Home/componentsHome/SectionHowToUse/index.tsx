@@ -12,9 +12,9 @@ export default function HowToUse() {
       <ContainerHowToUseNav></ContainerHowToUseNav>
       <TabsUnstyled defaultValue={0}>
         <TabsList>
-          <Tab>Qual objetivo do site?</Tab>
-          <Tab>Sou Dev, como uso?</Tab>
-          <Tab>Sou ONG, como uso?</Tab>
+          <Tab className="optionHowToUse">Qual objetivo do site?</Tab>
+          <Tab className="optionHowToUse">Sou Dev, como uso?</Tab>
+          <Tab className="optionHowToUse">Sou ONG, como uso?</Tab>
         </TabsList>
         <TabPanel value={0}>
           <AboutSite />

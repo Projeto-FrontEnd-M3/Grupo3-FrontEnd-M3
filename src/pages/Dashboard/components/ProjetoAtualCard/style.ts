@@ -6,6 +6,7 @@ export const ContainerProject = styled.div`
   margin: auto;
   display: flex;
   background-color: var(--color-primary-negative);
+  animation: fadeIn 1.5s;
   span {
     font-weight: 700;
   }
@@ -20,6 +21,7 @@ export const ContainerProjectLeft = styled.div`
   gap: 1rem;
   margin: 3rem 4rem 3rem 2rem;
   max-width: 60%;
+  animation: fadeIn 1.5s;
   @media (max-width: 750px) {
     margin: auto;
     display: flex;

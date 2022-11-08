@@ -14,6 +14,7 @@ export const ContainerSquadIntern = styled.div`
   margin: auto;
   height: calc(100vh - 80px);
   padding: 2rem 0;
+  animation: fadeIn 1.5s;
 
   svg {
     color: var(--color-primary);
