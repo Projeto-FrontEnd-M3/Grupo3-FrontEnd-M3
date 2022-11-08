@@ -2,7 +2,6 @@ import { ContainerModal } from "../../../../components/ContainerModal/style";
 import { ContainerModalLogin, FormModalLogin } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
-import TextField from "@mui/material/TextField";
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import LockTwoToneIcon from "@mui/icons-material/LockTwoTone";
 import Box from "@mui/material/Box";
