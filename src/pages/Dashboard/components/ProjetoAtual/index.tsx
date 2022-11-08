@@ -15,6 +15,8 @@ export const ProjetoAtual = () => {
   const navigate = useNavigate();
   const [ filteredList, setFilteredList ] = useState([] as IDemandsResponse[]);
 
+  const {setFilteredListAux} = useUserContext()
+
   useEffect(() => {
     const sessionUser = sessionStorage.getItem("@DevsHubUser");
     const user: IUserLogged = JSON.parse(sessionUser as string);
@@ -23,8 +25,7 @@ export const ProjetoAtual = () => {
       try {
         const request = await Api.get("/jobs/?_expand=user");
         const response: IDemandsResponse[] = request.data;
-        console.log(filtered)
-        console.log(response)
+
         const filtered = response.filter(
           (elem) =>
             elem.status == "Em Andamento" &&
@@ -32,12 +33,13 @@ export const ProjetoAtual = () => {
         );
 
         setFilteredList(filtered);
+        setFilteredListAux(filtered);
       } catch (error) {
         console.log(error);
       }
     };
     listAllDemands();
-  }, []);
+  }, [filteredList]);
 
   return filteredList.length > 0 ? (
     <ProjetoAtualCard obj={filteredList[0]} />

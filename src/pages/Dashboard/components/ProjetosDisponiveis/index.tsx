@@ -36,7 +36,7 @@ const ProjetosDisponiveis = () => {
       }
     };
     listAllDemands();
-  }, []);
+  }, [filteredList]);
 
   return (
     filteredList.length > 0 ? (

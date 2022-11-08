@@ -18,7 +18,7 @@ import { useForm } from "react-hook-form";
 import { createDemandValidate } from "../../../../services/validations/validation";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-interface IMap {
+export interface IMap {
   dd: number;
   mm: number;
   aa: string;
@@ -39,7 +39,7 @@ const ModalCreateResquest = () => {
   const { setactualModalDashboard, user, createDemandRequest } =
     useUserContext();
 
-  function formatDate() {
+const formatDate = () => {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
 

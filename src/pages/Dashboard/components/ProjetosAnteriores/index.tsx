@@ -27,13 +27,12 @@ const ProjetosAnteriores = () => {
       try {
         const request = await Api.get("/jobs/?_expand=user");
         const response: IDemandsResponse[] = request.data;
-
+        
         const filtered = response.filter(
-          (elem) =>
-            elem.dev_finished == true &&
-            elem.work_in.find((dev) => dev.id == user.user.id)
+          (elem) => elem.dev_finished == true && elem.work_in?.find(elem => elem.id == user.user.id)
         );
         setFilteredList(filtered);
+
       } catch (error) {
         console.log(error);
       }
