@@ -5,18 +5,20 @@ import ModalLogin from "./componentsHome/ModalLogin";
 import ModalRegister from "./componentsHome/ModalRegister";
 import ModalRegisterOng from "./componentsHome/ModalRegisterOng";
 import ModalRegisterDev from "./componentsHome/ModalRegisterDev";
+import ModalGetRequests from "../../pages/Dashboard/components/ModalGetRequests"
 
 const HomePage = () => {
   const { actualSectionHome } = useUserContext();
 
   return (
     <>
-      {actualSectionHome == "login" && <ModalLogin />}
+    <ModalGetRequests/>
+      {/* {actualSectionHome == "login" && <ModalLogin />}
       {actualSectionHome == "register" && <ModalRegister />}
       {actualSectionHome == "registerDev" && <ModalRegisterDev />}
       {actualSectionHome == "registerOng" && <ModalRegisterOng />}
       <Header />
-      <Outlet />
+      <Outlet /> */}
     </>
   );
 };
