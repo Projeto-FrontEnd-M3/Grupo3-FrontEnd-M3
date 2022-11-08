@@ -124,13 +124,24 @@ const ModalCreateResquest = () => {
             <CalendarMonthTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <CssTextField
-              error={!!errors.estimated_time}
-              helperText={errors.estimated_time?.message}
-              {...register("estimated_time")}
-              label="Data de entrega"
-              variant="standard"
-            />
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                flexDirection: "column",
+              }}
+            >
+              <InputLabel>Data de entrega</InputLabel>
+              <CssTextField
+                error={!!errors.estimated_time}
+                helperText={errors.estimated_time?.message}
+                className="inputDate"
+                {...register("estimated_time")}
+                type="date"
+                variant="standard"
+              />
+            </Box>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>
