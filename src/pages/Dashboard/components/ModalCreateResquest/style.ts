@@ -31,12 +31,14 @@ export const ModalContent = styled.form`
     cursor: pointer;
   }
 
-
   .buttonClosed {
     position: absolute;
     right: 10px;
     top: 10px;
     font-size: 18px;
     color: var(--color-grey-2);
+  }
+  .inputDate {
+    width: 175px;
   }
 `;
