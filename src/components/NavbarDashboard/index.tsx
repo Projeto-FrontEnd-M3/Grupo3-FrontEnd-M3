@@ -11,7 +11,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddIcon from "@mui/icons-material/Add";
@@ -38,8 +37,7 @@ export const NavbarDashboard = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (path: string) => {
-    navigate(path);
+  const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
@@ -103,13 +101,28 @@ export const NavbarDashboard = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem onClick={() => handleCloseNavMenu("atual")}>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu();
+                  navigate("atual");
+                }}
+              >
                 <Typography textAlign="center">Projeto Atual</Typography>
               </MenuItem>
-              <MenuItem onClick={() => handleCloseNavMenu("historico")}>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu();
+                  navigate("historico");
+                }}
+              >
                 <Typography textAlign="center">Projetos Anteriores</Typography>
               </MenuItem>
-              <MenuItem onClick={() => handleCloseNavMenu("projetos")}>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu();
+                  navigate("projetos");
+                }}
+              >
                 <Typography textAlign="center">Projetos Disponíveis</Typography>
               </MenuItem>
             </Menu>
@@ -140,7 +153,10 @@ export const NavbarDashboard = () => {
             }}
           >
             <Button
-              onClick={() => handleCloseNavMenu("atual")}
+              onClick={() => {
+                handleCloseNavMenu();
+                navigate("atual");
+              }}
               sx={{
                 my: 2,
                 color: "var(--color-white)",
@@ -155,7 +171,10 @@ export const NavbarDashboard = () => {
             </Button>
 
             <Button
-              onClick={() => handleCloseNavMenu("historico")}
+              onClick={() => {
+                handleCloseNavMenu();
+                navigate("historico");
+              }}
               sx={{
                 my: 2,
                 color: "var(--color-white)",
@@ -170,7 +189,10 @@ export const NavbarDashboard = () => {
             </Button>
 
             <Button
-              onClick={() => handleCloseNavMenu("projetos")}
+              onClick={() => {
+                handleCloseNavMenu;
+                navigate("projetos");
+              }}
               sx={{
                 my: 2,
                 color: "white",
@@ -189,7 +211,7 @@ export const NavbarDashboard = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
-                  src={user?.user.image}
+                  src={user?.user?.image}
                   sx={{ background: "#7E8894", width: "55px", height: "55px" }}
                 />
               </IconButton>

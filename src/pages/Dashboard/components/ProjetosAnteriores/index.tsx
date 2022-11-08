@@ -1,41 +1,74 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import {
   ContainerProject,
-  ContainerProjectLi,
+  ContainerProjectEmpty,
   ContainerProjectUl,
 } from "./style";
-import IconImage from "../../../../assets/IconImage.png";
 import { Text } from "../../../../styles/TypograpyText";
+import { Api } from "../../../../services/api/api";
+import { ButtonDefault } from "../../../../components/ButtonDefault/style";
+import { useNavigate } from "react-router-dom";
+import ProjectsCard from "../ProjectsCard";
+import {
+  IDemandsResponse,
+  IUserLogged,
+} from "../../../../interface/TypesGlobal";
 
 const ProjetosAnteriores = () => {
-  return (
+  const navigate = useNavigate();
+
+  const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
+
+  useEffect(() => {
+    const sessionUser = sessionStorage.getItem("@DevsHubUser");
+    const user: IUserLogged = JSON.parse(sessionUser as string);
+
+    const listAllDemands = async () => {
+      try {
+        const request = await Api.get("/jobs/?_expand=user");
+        const response: IDemandsResponse[] = request.data;
+
+        const filtered = response.filter(
+          (elem) =>
+            elem.dev_finished == true &&
+            elem.work_in.find((dev) => dev.id == user.user.id)
+        );
+        setFilteredList(filtered);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    listAllDemands();
+  }, []);
+
+  return filteredList.length > 0 ? (
     <ContainerProject>
       <Text fontSize="text3" color="success" className="message">
-        Você já concluiu 12 projetos, as ONGs agradecem
+        Você já concluiu{" "}
+        {filteredList.length > 1
+          ? `${filteredList.length} projetos`
+          : "1 projeto"}
+        , as ONGs agradecem
       </Text>
       <ContainerProjectUl>
-        <ContainerProjectLi>
-          <div className="title">
-            <Text fontSize="text2" color="grey1">
-              ONG COLHEITA FELIZ
-            </Text>
-            <Text fontSize="text2" color="grey1">
-              ENTREGUE EM: <span>10/10/2020</span>
-            </Text>
-          </div>
-          <div className="resume">
-            <figure>
-              <img src={IconImage} alt="Imagem de teste" />
-            </figure>
-            <Text fontSize="text4" color="grey1">
-              Preciso de um site que nossos doadores possam ver os eventos da
-              ONG e conﬁrmar presença. E também verificar como foram gastas as
-              doações durantes os eventos.
-            </Text>
-          </div>
-        </ContainerProjectLi>
+        {filteredList.map((elem) => (
+          <ProjectsCard key={elem.id} obj={elem} />
+        ))}
       </ContainerProjectUl>
     </ContainerProject>
+  ) : (
+    <ContainerProjectEmpty>
+      <Text fontSize="text3" color="success" className="message">
+        Você ainda não finalizou nenhum projeto
+      </Text>
+      <ButtonDefault
+        color="primary"
+        bgColor="primary"
+        onClick={() => navigate("/dashboard/projetos")}
+      >
+        PEGAR UM PROJETO
+      </ButtonDefault>
+    </ContainerProjectEmpty>
   );
 };
 
