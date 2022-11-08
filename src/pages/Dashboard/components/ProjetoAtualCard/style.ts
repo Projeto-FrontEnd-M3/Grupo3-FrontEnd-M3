@@ -49,6 +49,9 @@ export const ContainerProjectLeftTitle = styled.div`
 `;
 
 export const ContainerProjectLefButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: right;
   margin-top: 9rem;
   button {

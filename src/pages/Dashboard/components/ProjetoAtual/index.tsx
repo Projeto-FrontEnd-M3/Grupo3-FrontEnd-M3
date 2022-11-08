@@ -13,7 +13,7 @@ import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 
 export const ProjetoAtual = () => {
   const navigate = useNavigate();
-  const { filteredList, setFilteredList } = useUserContext();
+  const [ filteredList, setFilteredList ] = useState([] as IDemandsResponse[]);
 
   useEffect(() => {
     const sessionUser = sessionStorage.getItem("@DevsHubUser");
@@ -23,7 +23,8 @@ export const ProjetoAtual = () => {
       try {
         const request = await Api.get("/jobs/?_expand=user");
         const response: IDemandsResponse[] = request.data;
-
+        console.log(filtered)
+        console.log(response)
         const filtered = response.filter(
           (elem) =>
             elem.status == "Em Andamento" &&

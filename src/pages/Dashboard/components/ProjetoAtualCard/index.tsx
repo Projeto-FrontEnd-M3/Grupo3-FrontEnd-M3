@@ -12,18 +12,51 @@ import {
   ContainerProjectLeftTitle,
 } from "./style";
 import IconImage from "../../../../assets/IconImage.png";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { Text } from "../../../../styles/TypograpyText";
-import { IDemandsResponse } from "../../../../interface/TypesGlobal";
+import {
+  IDemandsResponse,
+  IUserLogged,
+} from "../../../../interface/TypesGlobal";
+import { Api } from "../../../../services/api/api";
 
 interface IProjetoAtualCard {
-  obj: IDemandsResponse
+  obj: IDemandsResponse;
 }
 
+const sessionUser = sessionStorage.getItem("@DevsHubUser");
+const user: IUserLogged = JSON.parse(sessionUser as string);
+const joinProject = async (id: number) => {
+
+  const body = {
+    status: "Em Andamento",
+    work_in: [
+      {
+        email: user.user.email,
+        name: user.user.name,
+        id: user.user.id,
+      },
+    ],
+  };
+
+  try {
+    const request = await Api.patch(`/jobs/${id}`, body);
+    console.log(request);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
+
+  const handleButton = (projectId: number) => {
+    if (user.user.type == "dev") {
+      joinProject(projectId);
+    }
+  };
+
   return (
     <ContainerProject>
       <ContainerProjectLeft>
@@ -41,7 +74,12 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
           </Text>
         </ContainerProjectLeftResume>
         <ContainerProjectLefButton>
-          <ButtonDefault color="primary" bgColor="primary">
+          <Text fontSize="text3">Tipo do Projeto: {obj.project_type}</Text>
+          <ButtonDefault
+            onClick={() => handleButton(obj.id)}
+            color="primary"
+            bgColor="primary"
+          >
             {obj.status == "Pendente" ? "PEGAR PROJETO" : "CONCLUIR PROJETO"}
           </ButtonDefault>
         </ContainerProjectLefButton>
