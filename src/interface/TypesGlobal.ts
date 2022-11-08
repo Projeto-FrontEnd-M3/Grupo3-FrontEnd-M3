@@ -6,17 +6,35 @@ export interface IChildrenNode {
   children: React.ReactNode;
 }
 
+export interface IUser {
+  email: string;
+  name: string;
+  type: "ong" | "dev";
+  id: number;
+  cnpj?: string
+  bio?: string;
+  image?: string;
+  phone?: string;
+}
+
 export interface IUserLogged {
   accessToken: string;
-  user: {
-    email: string;
-    name: string;
-    type: string;
-    id: number;
-    bio?: string;
-    image?: string;
-    phone?: string;
-  };
+  user: IUser;
+}
+
+export interface IDemandsResponse {
+  title: string
+  description: string
+  status: "Pendente" | "Em Andamento" | "Finalizado"
+  userId: number | string
+  project_type: "WEB" | "MOBILE" | "DESKTOP"
+  created_at: string
+  estimated_time: string
+  id: number
+  work_in: [IUser]
+  dev_finished: boolean
+  finished_at: string
+  user: IUser
 }
 
 export interface IUserContextProvider {
@@ -29,3 +47,5 @@ export interface IUserContextProvider {
   setactualModalDashboard: React.Dispatch<React.SetStateAction<string>>;
   editProfileRequest: (data: IEditProfile) => Promise<void>;
 }
+
+export interface IDemandContextProvider {}

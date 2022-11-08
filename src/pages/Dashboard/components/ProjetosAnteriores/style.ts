@@ -65,3 +65,24 @@ export const ContainerProjectUl = styled.ul`
 export const ContainerProjectLi = styled.li`
   padding-bottom: 1rem;
 `;
+
+export const ContainerProjectEmpty = styled.div`
+  max-width: 1400px;
+  height: 400px;
+
+  padding: 0 8px;
+  border-radius: 20px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+
+  background-color: var(--color-primary-negative);
+
+  button {
+    max-width: 300px;
+  }
+`;
