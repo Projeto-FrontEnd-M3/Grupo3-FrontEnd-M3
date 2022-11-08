@@ -1,7 +1,13 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IChildrenNode,IUserContextProvider,IUserLogged } from "../interface/TypesGlobal";
+import {
+  IChildrenNode,
+  IDemandsResponse,
+  IUserContextProvider,
+  IUserLogged,
+} from "../interface/TypesGlobal";
+import { ICreateDemandRequest } from "../pages/Dashboard/components/ModalCreateResquest";
 import { IEditProfile } from "../pages/Dashboard/components/ModalEditProfile";
 import { ILoginHookForm } from "../pages/Home/componentsHome/ModalLogin";
 import { IRegisterHookForm } from "../pages/Home/componentsHome/ModalRegisterDev";
@@ -16,6 +22,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   const [actualSectionHome, setActualSectionHome] = useState("home");
   const [actualModalDashboard, setactualModalDashboard] = useState("");
   const [user, setUser] = useState<IUserLogged>({} as IUserLogged);
+  const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
   const navigate = useNavigate();
 
   const loginUser = async (data: ILoginHookForm) => {
@@ -23,14 +30,12 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       const request = await Api.post("/login", data);
       const response: IUserLogged = request.data;
       setActualSectionHome("none");
-
       toastSuccess("Bem-vindo ao Dev's Help");
 
-      if (response.user.type) {
-        setUser(response);
-        sessionStorage.setItem("@DevsHubUser", JSON.stringify(response));
-        navigate("/dashboard");
-      }
+      setUser(response);
+      Api.defaults.headers.common["Authorization"] = `Bearer ${response.accessToken}`;
+      sessionStorage.setItem("@DevsHubUser", JSON.stringify(response));
+      navigate("/dashboard");
     } catch {
       toastError("Dados inválidos!");
     }
@@ -53,11 +58,15 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   };
 
   // Funções a serem utilizadas ainda
-  const createDemandRequest = async (data: any) => {
+  const createDemandRequest = async (data: ICreateDemandRequest) => {
     try {
       const request = await Api.post("/jobs", data);
+      console.log(request.data);
+      toastSuccess("Cadastramos seu Pedido!");
     } catch (err) {
-      // Error
+      toastError("Ocorreu um erro!");
+    } finally {
+      setactualModalDashboard("none");
     }
   };
 
@@ -84,8 +93,6 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
     !data.password && delete data.password;
     !data.phone && delete data.phone;
 
-    Api.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
-
     try {
       const request = await Api.patch(`/users/${user.user.id}`, data);
       setUser({ ...user, user: request.data });
@@ -100,7 +107,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   useEffect(() => {
     const objectUser = sessionStorage.getItem("@DevsHubUser");
     const objectUserParse = objectUser && JSON.parse(objectUser);
-
+    // Api.defaults.headers.common["Authorization"] = `Bearer ${objectUserParse.accessToken}`;
     setUser(objectUserParse);
   }, []);
 
@@ -115,6 +122,9 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         actualModalDashboard,
         setactualModalDashboard,
         editProfileRequest,
+        createDemandRequest,
+        filteredList,
+        setFilteredList,
       }}
     >
       {children}

@@ -10,14 +10,66 @@ import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
+import { useUserContext } from "../../../../context/UserContext";
+import { CloseButton } from "../../../Home/componentsHome/ModalRegisterOng/style";
+import { CssTextField } from "../../../Home/componentsHome/ModalRegisterOng";
+import { useForm } from "react-hook-form";
+
+interface IMap {
+  dd: number;
+  mm: number;
+  aa: string;
+  aaaa: number;
+}
+
+export interface ICreateDemandRequest {
+  title: string;
+  description: string;
+  status: string;
+  userId: string;
+  project_type: string;
+  created_at: string;
+  estimated_time: string;
+}
 
 const ModalCreateResquest = () => {
+  const { setactualModalDashboard, user, createDemandRequest } =
+    useUserContext();
+
+  function formatDate() {
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+
+    const map: IMap = {
+      mm: today.getMonth() + 1,
+      dd: today.getDate(),
+      aa: today.getFullYear().toString().slice(-2),
+      aaaa: today.getFullYear(),
+    };
+
+    return `${map.dd}/${map.mm}/${map.aaaa}`;
+  }
+
+  const formOptions = {
+    defaultValues: {
+      userId: `${user.user?.id}`,
+      created_at: formatDate(),
+      status: "Pendente",
+    },
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ICreateDemandRequest>(formOptions);
+
   return (
     <ContainerModal>
       <ContainerModalEditProfile>
-        <ModalContent>
+        <ModalContent onSubmit={handleSubmit(createDemandRequest)}>
           <Text tag="h1" fontSize="title1" color="primary">
             Criar Pedido
           </Text>
@@ -26,15 +78,19 @@ const ModalCreateResquest = () => {
             <TitleTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField id="input-with-sx" label="Título" variant="standard" />
+            <CssTextField
+              {...register("title")}
+              label="Título"
+              variant="standard"
+            />
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>
             <DescriptionTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField
-              id="standard-multiline-static"
+            <CssTextField
+              {...register("description")}
               label="Descrição"
               multiline
               rows={2}
@@ -47,8 +103,8 @@ const ModalCreateResquest = () => {
             <CalendarMonthTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField
-              id="input-with-sx"
+            <CssTextField
+              {...register("estimated_time")}
               label="Data de entrega"
               variant="standard"
             />
@@ -62,13 +118,10 @@ const ModalCreateResquest = () => {
               variant="standard"
               sx={{ mr: 1, my: 0.5, minWidth: 175 }}
             >
-              <InputLabel id="demo-simple-select-standard-label">
-                Tipo do projeto
-              </InputLabel>
+              <InputLabel>Tipo do projeto</InputLabel>
               <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value=""
+                {...register("project_type")}
+                defaultValue="Web"
                 label="Tipo de projeto"
               >
                 <MenuItem value="Web">Web</MenuItem>
@@ -82,7 +135,7 @@ const ModalCreateResquest = () => {
             Criar
           </ButtonDefault>
 
-          <button className="buttonClosed">X</button>
+          <CloseButton onClick={() => setactualModalDashboard("none")} />
         </ModalContent>
       </ContainerModalEditProfile>
     </ContainerModal>

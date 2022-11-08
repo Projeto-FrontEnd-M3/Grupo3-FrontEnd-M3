@@ -41,7 +41,7 @@ export const productCreators = [
     instagram: "https://www.instagram.com/joaovitor_ts13/",
   },
   {
-    name: "Laércio medeiros",
+    name: "Laércio Medeiros",
     email: "laercioamedeiros@gmail.com",
     linkedin: "https://www.linkedin.com/in/laercioamedeiros/",
     gitHub: "https://github.com/laercioamedeiros",
