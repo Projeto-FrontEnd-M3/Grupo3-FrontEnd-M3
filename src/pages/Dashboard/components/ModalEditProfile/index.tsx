@@ -45,7 +45,7 @@ const ModalEditProfile = () => {
             />
             <CssTextField
               {...register("email")}
-              id="input-with-sx"
+              disabled
               label="Email"
               variant="standard"
               defaultValue={user?.user.email}
@@ -58,9 +58,9 @@ const ModalEditProfile = () => {
             />
             <CssTextField
               {...register("password")}
-              id="input-with-sx"
               label="Senha"
               variant="standard"
+              type={"password"}
             />
           </Box>
 
@@ -70,8 +70,7 @@ const ModalEditProfile = () => {
             />
             <CssTextField
               {...register("phone")}
-              id="input-with-sx"
-              label="Contato"
+              label="Contato (Email ou Whatsapp)"
               variant="standard"
               defaultValue={user?.user.phone}
             />
@@ -83,7 +82,6 @@ const ModalEditProfile = () => {
             />
             <CssTextField
               {...register("bio")}
-              id="standard-multiline-static"
               label="Descrição"
               variant="standard"
               defaultValue={user?.user.bio}
@@ -96,7 +94,6 @@ const ModalEditProfile = () => {
             />
             <CssTextField
               {...register("image")}
-              id="input-with-sx"
               label="Imagem de Perfil(URL)"
               variant="standard"
               defaultValue={user?.user.image}

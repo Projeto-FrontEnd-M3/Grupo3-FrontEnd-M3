@@ -58,20 +58,19 @@ export const registerValidateOng = yup.object().shape({
 //Dashboard Validations
 
 export const createDemandValidate = yup.object().shape({
-  name: yup
+  title: yup
     .string()
     .required("Nome do pedido obrigatório!")
     .max(22, "Máximo de 22 caracteres!"),
   description: yup
     .string()
     .required("Descrição do pedido obrigatória!")
-    .max(256, "Máximo de 256 caracteres!"),
+    .min(300, "Deve conter no mínimo 300 caracteres!")
+    .max(900, "Máximo de 900 caracteres!"),
   estimated_time: yup
     .string()
     .required("Data de entrega obrigatória!")
-    .max(8, "Data deve estar no formato 11/11/11"),
-  status: yup.string().required("Status obrigatório!"),
-  project_type: yup.string().required("Tipo do projeto obrigatório!"),
+    .length(10, "Data deve estar no formato 11/11/1111"),
 });
 
 export const demandEditValidate = yup.object().shape({
@@ -86,7 +85,7 @@ export const demandEditValidate = yup.object().shape({
   estimated_time: yup
     .string()
     .required("Data de entrega obrigatória!")
-    .max(8, "Data deve estar no formato 11/11/11"),
+    .max(10, "Data deve estar no formato 11/11/1111"),
   status: yup.string().required("Status obrigatório!"),
   project_type: yup.string().required("Tipo do projeto obrigatório!"),
 });
