@@ -9,7 +9,7 @@ export const TabsList = styled(TabsListUnstyled)(
  
     width: 90%;
     margin:  8px auto;
-    background-color: var(--color-primary-focus);
+    background-color: var(--color-primary);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -21,10 +21,10 @@ export const TabsList = styled(TabsListUnstyled)(
 
 export const Tab = styled(TabUnstyled)`
   font-family: Poppins, sans-serif;
-  color: var(--color-primary);
+  color: var(--color-grey-3);
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   background-color: transparent;
   width: 100%;
   padding: 12px;
@@ -38,25 +38,29 @@ export const Tab = styled(TabUnstyled)`
   &:hover {
     box-shadow: rgba(53, 87, 100, 0.5) 0px 3px 6px,
       rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    color: #00adb5;
+    color: var(--color-primary-focus);
   }
 
   &:focus {
     box-shadow: rgba(53, 87, 100, 0.5) 0px 3px 6px,
       rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    color: #eeeeee;
+    color: var(--color-primary-focus);
   }
 
   &.${tabUnstyledClasses.selected} {
     box-shadow: rgba(53, 87, 100, 0.5) 0px 3px 6px,
       rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    color: #c2ffd9;
-    background-color: var(--color-primary);
+    color: var(--color-grey-1);
+    background-color: var(--color-primary-negative);
   }
 
   &.${buttonUnstyledClasses.disabled} {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+  @media (max-width: 500px) {
+    font-size: 0.8rem;
+    font-weight: 600;
   }
 `;
 
