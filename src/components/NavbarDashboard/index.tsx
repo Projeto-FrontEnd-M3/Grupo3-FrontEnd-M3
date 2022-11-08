@@ -48,7 +48,7 @@ export const NavbarDashboard = () => {
   return (
     <AppBar position="static" sx={{ background: "#355764" }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar sx={{ height: "80px" }} disableGutters>
           <Typography
             variant="h6"
             noWrap
@@ -60,7 +60,6 @@ export const NavbarDashboard = () => {
               letterSpacing: ".3rem",
               color: "var(--color-white)",
               textDecoration: "none",
-              height: "80px",
               alignItems: "center",
             }}
           >
@@ -117,14 +116,19 @@ export const NavbarDashboard = () => {
               >
                 <Typography textAlign="center">Projetos Anteriores</Typography>
               </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  handleCloseNavMenu();
-                  navigate("projetos");
-                }}
-              >
-                <Typography textAlign="center">Projetos Disponíveis</Typography>
-              </MenuItem>
+
+              {user.user?.type == "dev" && (
+                <MenuItem
+                  onClick={() => {
+                    handleCloseNavMenu();
+                    navigate("projetos");
+                  }}
+                >
+                  <Typography textAlign="center">
+                    Projetos Disponíveis
+                  </Typography>
+                </MenuItem>
+              )}
             </Menu>
           </Box>
 
@@ -188,23 +192,25 @@ export const NavbarDashboard = () => {
               <Typography textAlign="center">Projetos Anteriores</Typography>
             </Button>
 
-            <Button
-              onClick={() => {
-                handleCloseNavMenu;
-                navigate("projetos");
-              }}
-              sx={{
-                my: 2,
-                color: "white",
-                display: "flex",
-                fontFamily: "poppins",
-                "&:hover": {
-                  backgroundColor: "#393E46",
-                },
-              }}
-            >
-              <Typography textAlign="center">Projetos Disponíveis</Typography>
-            </Button>
+            {user.user?.type == "dev" && (
+              <Button
+                onClick={() => {
+                  handleCloseNavMenu;
+                  navigate("projetos");
+                }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "flex",
+                  fontFamily: "poppins",
+                  "&:hover": {
+                    backgroundColor: "#393E46",
+                  },
+                }}
+              >
+                <Typography textAlign="center">Projetos Disponíveis</Typography>
+              </Button>
+            )}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -250,15 +256,22 @@ export const NavbarDashboard = () => {
                   Editar Perfil <SettingsIcon />
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography
-                  textAlign="center"
-                  sx={{ display: { xs: "flex" }, gap: 1 }}
+              {user.user?.type == "ong" && (
+                <MenuItem
+                  onClick={() => {
+                    handleCloseUserMenu();
+                    setactualModalDashboard("createDemand");
+                  }}
                 >
-                  Criar Projeto
-                  <AddIcon />
-                </Typography>
-              </MenuItem>
+                  <Typography
+                    textAlign="center"
+                    sx={{ display: { xs: "flex" }, gap: 1 }}
+                  >
+                    Criar Projeto
+                    <AddIcon />
+                  </Typography>
+                </MenuItem>
+              )}
               <MenuItem
                 onClick={() => {
                   navigate("/");

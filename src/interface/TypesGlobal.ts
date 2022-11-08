@@ -1,3 +1,4 @@
+import { ICreateDemandRequest } from "../pages/Dashboard/components/ModalCreateResquest";
 import { IEditProfile } from "../pages/Dashboard/components/ModalEditProfile";
 import { ILoginHookForm } from "../pages/Home/componentsHome/ModalLogin";
 import { IRegisterHookForm } from "../pages/Home/componentsHome/ModalRegisterDev";
@@ -46,6 +47,9 @@ export interface IUserContextProvider {
   actualModalDashboard: string;
   setactualModalDashboard: React.Dispatch<React.SetStateAction<string>>;
   editProfileRequest: (data: IEditProfile) => Promise<void>;
+  createDemandRequest: (data: ICreateDemandRequest) => Promise<void>;
+  filteredList: IDemandsResponse[];
+  setFilteredList: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
 }
 
 export interface IDemandContextProvider {}

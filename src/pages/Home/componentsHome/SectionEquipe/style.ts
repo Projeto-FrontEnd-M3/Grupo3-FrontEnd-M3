@@ -36,16 +36,17 @@ export const ContainerSquadIntern = styled.div`
     gap: 5rem;
     max-width: 960px;
     margin: auto;
+    padding: 1rem;
   }
 
   ul > li {
     max-width: 340px;
     width: 100%;
     display: flex;
-    align-items: center;
-    gap: 1rem;
     justify-content: space-between;
     flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
 
     .left__div {
       & :nth-child(1) {

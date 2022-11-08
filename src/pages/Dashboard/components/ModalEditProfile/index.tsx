@@ -2,7 +2,6 @@ import { ContainerModal } from "../../../../components/ContainerModal/style";
 import { ContainerModalEditProfile, ModalContent } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
-import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import SettingsCellIcon from "@mui/icons-material/SettingsCell";
 import DescriptionTwoToneIcon from "@mui/icons-material/DescriptionTwoTone";
 import AlternateEmailTwoToneIcon from "@mui/icons-material/AlternateEmailTwoTone";
@@ -86,8 +85,6 @@ const ModalEditProfile = () => {
               {...register("bio")}
               id="standard-multiline-static"
               label="Descrição"
-              // multiline
-              // rows={3}
               variant="standard"
               defaultValue={user?.user.bio}
             />
