@@ -17,7 +17,13 @@ export const MainSection = () => {
             Nós conectamos você!
           </Text>
           <Text tag="p" color="grey3">
-            O site que conecta ONGs que precisam com devs que querem desenvolver
+            Nós somos estudantes de desenvolvimento full stack. Criamos essa
+            plataforma porque percebemos que muitas ong's atualmente não tem
+            sites ou aplicações que possam auxiliar na divulgação e/ou
+            arrecadação de doações, e a falta de um meio que ligue
+            desenvolvedores a essas ong's nos motivou a criar essa plataforma,
+            que interliga esses dois mundos. Esse é um site de trabalho
+            voluntário com o objetivo de ajudar essas instituições.
           </Text>
         </div>
         <div className="containerDivBtn">

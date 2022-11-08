@@ -113,7 +113,7 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
               Entregar até <span>{obj.estimated_time}</span>
             </Text>
           </ContainerProjectLeftTitle>
-          <Text fontSize="text4" color="grey1">
+          <Text fontSize="text4" color="grey1" className="resumesize">
             {obj.description}
           </Text>
         </ContainerProjectLeftResume>
@@ -121,8 +121,8 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
           <Text fontSize="text3">Tipo do Projeto: {obj.project_type}</Text>
           <ButtonDefault
             onClick={() => handleButton(obj.id)}
-            color="primary"
-            bgColor="primary"
+            color="success"
+            bgColor="success"
           >
             {obj.status == "Pendente" ? "PEGAR PROJETO" : "CONCLUIR PROJETO"}
           </ButtonDefault>
@@ -161,7 +161,7 @@ export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
         </ContainerProjecRightContacts>
         <ContainerProjecRightText>
           <Text fontSize="text4" color="success">
-            Você pode entrar em contato com ONG pelos meios acima
+            Ultilize esses meios de contato para conversar com a ONG
           </Text>
         </ContainerProjecRightText>
       </ContainerProjecRight>

@@ -18,9 +18,10 @@ export const ContainerProject = styled.div`
 
 export const ContainerProjectLeft = styled.div`
   gap: 1rem;
-  margin: 3rem 4rem 3rem 2rem;
-  max-width: 60%;
+  margin: 3rem 4rem 3rem 1em;
+  width: 60%;
   @media (max-width: 750px) {
+    margin: 3rem 0rem 3rem 0rem;
     margin: auto;
     display: flex;
     flex-direction: column-reverse;
@@ -30,6 +31,11 @@ export const ContainerProjectLeft = styled.div`
 export const ContainerProjectLeftResume = styled.div`
   display: flex;
   flex-direction: column;
+  .resumesize {
+    max-width: 100%;
+    min-height: 20vh;
+    overflow: auto;
+  }
 `;
 
 export const ContainerProjectLeftTitle = styled.div`
@@ -38,7 +44,7 @@ export const ContainerProjectLeftTitle = styled.div`
   flex-direction: row;
   justify-content: space-between;
   text-align: justify;
-  @media (max-width: 750px) {
+  @media (max-width: 900px) {
     p {
       text-align: center;
       font-size: 16px;
@@ -77,8 +83,8 @@ export const ContainerProjectDiv = styled.div`
 `;
 export const ContainerProjecRight = styled.div`
   gap: 1rem;
-  margin: 3rem 2rem 3rem 0rem;
-  min-width: 35%;
+  margin: 3rem 0rem;
+  width: 35%;
 
   figure {
     margin: 0% 5%;
@@ -90,28 +96,35 @@ export const ContainerProjecRight = styled.div`
     height: 80px;
     border-radius: 50%;
   }
+  @media (max-width: 750px) {
+    width: unset;
+  }
 `;
 export const ContainerProjecRightInfo = styled.div`
   display: flex;
   flex-direction: row;
-`;
+  justify-content: flex-end;
 
-export const ContainerProjecRightTitle = styled.div`
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  .titlespace {
-    padding-bottom: 2rem;
+  @media (max-width: 750px) {
+    justify-content: center;
   }
 `;
 
-export const ContainerProjecRightContacts = styled.div`
-  padding-left: 15%;
-  margin-right: auto;
+export const ContainerProjecRightTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .titlespace {
+    padding-bottom: 0.5rem;
+  }
+`;
+
+export const ContainerProjecRightContacts = styled.ul`
   margin-top: 4%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   svg {
     color: var(--color-primary);
