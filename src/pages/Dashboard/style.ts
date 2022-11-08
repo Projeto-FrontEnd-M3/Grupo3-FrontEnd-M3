@@ -4,7 +4,7 @@ export const ContainerDev = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
   background-color: var(--color-primary);
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
 
   @media (max-width: 900px) {
     height: calc(100vh - 64px);
@@ -18,18 +18,18 @@ export const ContainerDevNav = styled.div`
   padding-top: 4rem;
   width: 94%;
   margin: auto;
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
 `;
 
 export const ContainerDevWindow = styled.div`
   margin: auto;
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
 `;
 
 export const ContainerTabs = styled.div`
   max-width: 1400px;
   margin: 0 auto;
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
 
   background-color: var(--color-primary-negative);
   span {
@@ -41,7 +41,7 @@ export const ContainerTabsNav = styled.ul`
   padding-top: 5rem;
   display: flex;
   justify-content: space-between;
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
 `;
 
 export const ContainerOutlet = styled.div`
@@ -50,5 +50,5 @@ export const ContainerOutlet = styled.div`
   margin: 0 auto;
   max-width: 1536px;
   background-color: var(--color-primary);
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
 `;

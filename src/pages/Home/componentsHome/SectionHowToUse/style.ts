@@ -10,7 +10,7 @@ export const ContainerHowToUse = styled.div`
   background-color: var(--color-primary-focus);
 
   .optionHowToUse{
-    animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
   }
 `;
 
@@ -34,7 +34,7 @@ export const ContainerAboutSite = styled.div`
   min-height: 300px;
   max-height: 450px;
   border-radius: 8px;
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
 
   p {
     text-align: justify;

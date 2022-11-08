@@ -7,7 +7,7 @@ export const ContainerModalLogin = styled.div`
   padding: 1.5rem;
   background-color: var(--color-grey-1);
   position: relative;
-  animation: fadeInDown 1.5s; 
+  animation: fadeInDown 1s; 
 
   
 `;

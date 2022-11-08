@@ -7,7 +7,7 @@ export const HeaderStyle = styled.div`
     background-color: var(--color-primary-negative);
     padding: 0 50px;
     justify-content: center;
-    animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
   }
 
   .header > div > button {
@@ -17,13 +17,13 @@ export const HeaderStyle = styled.div`
   .divLogo {
     display: flex;
     gap: 10px;
-    animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
   }
 
   .navBtn {
     color: var(--color-primary-focus);
     font-size: 18px;
-    animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
   }
 
   .navMobile {
@@ -33,7 +33,7 @@ export const HeaderStyle = styled.div`
   .nameModal {
     height: 30px;
     padding: 1rem;
-    animation: fadeIn 1.5s;
+    animation: fadeIn 1s;
   }
 
   img {

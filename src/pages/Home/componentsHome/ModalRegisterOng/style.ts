@@ -9,7 +9,7 @@ export const ContainerModalLogin = styled.div`
   padding: 1.5rem;
   background-color: var(--color-grey-1);
   position: relative;
-  animation: fadeInRight 1.5s;
+  animation: fadeInRight 1s;
 `;
 
 export const FormModalLogin = styled.form`
