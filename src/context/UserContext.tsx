@@ -22,7 +22,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   const [actualSectionHome, setActualSectionHome] = useState("home");
   const [actualModalDashboard, setactualModalDashboard] = useState("");
   const [user, setUser] = useState<IUserLogged>({} as IUserLogged);
-  const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
+  const [filteredListAux, setFilteredListAux] = useState([] as IDemandsResponse[])
   const navigate = useNavigate();
 
   const loginUser = async (data: ILoginHookForm) => {
@@ -131,8 +131,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         setactualModalDashboard,
         editProfileRequest,
         createDemandRequest,
-        filteredList,
-        setFilteredList,
+        filteredListAux,
+        setFilteredListAux,
       }}
     >
       {children}
