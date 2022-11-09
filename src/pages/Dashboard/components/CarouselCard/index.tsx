@@ -1,7 +1,7 @@
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { Text } from "../../../../styles/TypograpyText";
 
-const CarouselCard = ({ obj }) => {
+const CarouselCard = ({ obj }: any) => {
   return (
     <div>
       <div>

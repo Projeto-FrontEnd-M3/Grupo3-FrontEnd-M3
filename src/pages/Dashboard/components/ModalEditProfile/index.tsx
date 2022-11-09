@@ -104,13 +104,15 @@ const ModalEditProfile = () => {
             Editar
           </ButtonDefault>
 
-          <CloseButton onClick={() => { 
-            setExit(true)
-            setTimeout(() => {
-              setactualModalDashboard("none")
-              setExit(false)
-            }, 500);
-        }} />
+          <CloseButton
+            onClick={() => {
+              setExit(true);
+              setTimeout(() => {
+                setactualModalDashboard("none");
+                setExit(false);
+              }, 500);
+            }}
+          />
         </ModalContent>
       </ContainerModalEditProfile>
     </ContainerModal>
