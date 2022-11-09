@@ -1,23 +1,36 @@
 import { ContainerModal } from "../../../../components/ContainerModal/style";
-import { ContainerModalEditProfile, ModalContent } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
-import TextField from "@mui/material/TextField";
-import DevicesTwoToneIcon from "@mui/icons-material/DevicesTwoTone";
 import DescriptionTwoToneIcon from "@mui/icons-material/DescriptionTwoTone";
 import TitleTwoToneIcon from "@mui/icons-material/TitleTwoTone";
-import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Box from "@mui/material/Box";
+import {
+  ContainerModalLogin,
+  FormModalLogin,
+} from "../../../Home/componentsHome/ModalLogin/style";
+import { CloseButton } from "../../../Home/componentsHome/ModalRegisterOng/style";
+import { IEditDemand, useUserContext } from "../../../../context/UserContext";
+import { CssTextField } from "../../../Home/componentsHome/ModalRegisterOng";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { editDemandValidate } from "../../../../services/validations/validation";
 
 const ModalEditResquest = () => {
+  const { setactualModalDashboard, filteredListAux, editDemandRequest } =
+    useUserContext();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IEditDemand>({
+    resolver: yupResolver(editDemandValidate),
+  });
+
   return (
     <ContainerModal>
-      <ContainerModalEditProfile>
-        <ModalContent>
+      <ContainerModalLogin>
+        <FormModalLogin onSubmit={handleSubmit(editDemandRequest)}>
           <Text tag="h1" fontSize="title1" color="primary">
             Editar Pedido
           </Text>
@@ -26,66 +39,44 @@ const ModalEditResquest = () => {
             <TitleTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField id="input-with-sx" label="Título" variant="standard" />
+            <CssTextField
+              error={!!errors.title}
+              helperText={errors.title?.message}
+              {...register("title")}
+              id="input-with-sx"
+              label="Título"
+              variant="standard"
+              defaultValue={filteredListAux[0]?.title}
+            />
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>
             <DescriptionTwoToneIcon
               sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
             />
-            <TextField
+            <CssTextField
+              error={!!errors.description}
+              helperText={errors.description?.message}
+              {...register("description")}
               id="standard-multiline-static"
               label="Descrição"
               multiline
               rows={2}
-              defaultValue=""
+              defaultValue={filteredListAux[0]?.description}
               variant="standard"
             />
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <CalendarMonthTwoToneIcon
-              sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
-            />
-            <TextField
-              id="input-with-sx"
-              label="Data de entrega"
-              variant="standard"
-            />
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <DevicesTwoToneIcon
-              sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
-            />
-            <FormControl
-              variant="standard"
-              sx={{ mr: 1, my: 0.5, minWidth: 175 }}
-            >
-              <InputLabel id="demo-simple-select-standard-label">
-                Tipo do projeto
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value=""
-                label="Tipo de projeto"
-                defaultValue="Selecione um tipo"
-              >
-                <MenuItem value="Web">Web</MenuItem>
-                <MenuItem value="Mobile">Mobile </MenuItem>
-                <MenuItem value="Desktop">Desktop</MenuItem>
-              </Select>
-            </FormControl>
           </Box>
 
           <ButtonDefault bgColor="primary" color="primary">
             Editar
           </ButtonDefault>
 
-          <button className="buttonClosed">X</button>
-        </ModalContent>
-      </ContainerModalEditProfile>
+          <CloseButton
+            className="close"
+            onClick={() => setactualModalDashboard("none")}
+          />
+        </FormModalLogin>
+      </ContainerModalLogin>
     </ContainerModal>
   );
 };

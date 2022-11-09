@@ -96,4 +96,8 @@ export const GlobalStyles = createGlobalStyle`
     .App {
         height: 100vh;
     }
+
+    .inputDate {
+        width: 175px;
+    }
 `;
