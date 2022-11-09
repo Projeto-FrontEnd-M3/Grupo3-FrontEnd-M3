@@ -16,9 +16,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { Text } from "../../../../styles/TypograpyText";
-import {
-  IDemandsResponse,
-} from "../../../../interface/TypesGlobal";
+import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 import { Api } from "../../../../services/api/api";
 import { useUserContext } from "../../../../context/UserContext";
 import { toastError } from "../../../../styles/components/Toastify/toast";
@@ -28,7 +26,7 @@ import { IMap } from "../ModalCreateResquest";
 interface IProjetoAtualCard {
   obj: IDemandsResponse;
   listAllDemands?: () => Promise<void>;
-  listAllDisponibleDemands?: () => Promise<void>
+  listAllDisponibleDemands?: () => Promise<void>;
 }
 
 const formatDate = () => {
@@ -52,10 +50,10 @@ export const ProjetoAtualCard = ({ obj, listAllDemands, listAllDisponibleDemands
   const user = JSON.parse(sessionUser as string);
   
   const navigate = useNavigate();
-  
+
   const { filteredListAux } = useUserContext();
   const { pathname } = useLocation();
-  
+
   const joinProject = async (id: number) => {
     const body = {
       status: "Em Andamento",
@@ -67,34 +65,34 @@ export const ProjetoAtualCard = ({ obj, listAllDemands, listAllDisponibleDemands
         },
       ],
     };
-    
+
     try {
       const request = await Api.patch(`/jobs/${id}`, body);
-      if(listAllDisponibleDemands) {
-        listAllDisponibleDemands()
+      if (listAllDisponibleDemands) {
+        listAllDisponibleDemands();
       }
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   const finishProject = async (id: number) => {
     const body = {
       status: "Finalizado",
       dev_finished: true,
       finished_at: formatDate(),
     };
-  
+
     try {
       const request = await Api.patch(`/jobs/${id}`, body);
-      if(listAllDemands) {
-        listAllDemands()
+      if (listAllDemands) {
+        listAllDemands();
       }
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   const handleButton = (projectId: number) => {
     if (pathname == "/dashboard/atual" && user.user.type == "ong") {
       return setactualModalDashboard("editDemand");
