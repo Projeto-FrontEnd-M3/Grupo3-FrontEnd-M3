@@ -118,25 +118,6 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
     }
   };
 
-  const joinProject = async (id: number) => {
-    const body = {
-      status: "Em Andamento",
-      work_in: [
-        {
-          email: user.user.email,
-          name: user.user.name,
-          id: user.user.id,
-        },
-      ],
-    };
-
-    try {
-      const request = await Api.patch(`/jobs/${id}`, body);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     const searchUser = () => {
       const objectUser = sessionStorage.getItem("@DevsHubUser");
@@ -177,7 +158,6 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         setFilteredListAux,
         setExit,
         exit,
-        joinProject,
       }}
     >
       {children}

@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import ProjectsCard from "../ProjectsCard";
 import {
   IDemandsResponse,
-  IUserLogged,
 } from "../../../../interface/TypesGlobal";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
@@ -20,35 +19,43 @@ const ProjetosAnteriores = () => {
   const { user, setLoading } = useUserContext();
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
   
-  useEffect(() => {
-    const listAllDemands = async () => {
-      try {
-        setLoading(true);
-        const request = await Api.get("/jobs/?_expand=user");
-        const response: IDemandsResponse[] = request.data;
+  const listAllDemands = async () => {
+    try {
+      setLoading(true);
+      const request = await Api.get("/jobs/?_expand=user");
+      const response: IDemandsResponse[] = request.data;
 
-        if (user.user?.type == "ong") {
-          const filtered = response.filter(
-            (elem) => elem.dev_finished == true && elem.userId == user.user.id
-          );
-          setFilteredList(filtered);
-          return;
-        }
-
+      if (user.user?.type == "ong") {
         const filtered = response.filter(
-          (elem) =>
-            elem.dev_finished == true &&
-            elem.work_in?.find((elem) => elem.id == user.user?.id)
+          (elem) => elem.dev_finished == true && elem.userId == user.user.id
         );
         setFilteredList(filtered);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
+        return;
       }
-    };
+
+      const filtered = response.filter(
+        (elem) =>
+          elem.dev_finished == true &&
+          elem.work_in?.find((elem) => elem.id == user.user?.id)
+      );
+      setFilteredList(filtered);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     listAllDemands();
   }, []);
+
+  const handleHistoricButton = () => {
+    if(user.user.type == "dev") {
+      navigate("/dashboard/projetos")
+    }
+    navigate("/dashboard/atual")
+  }
 
   return filteredList.length > 0 ? (
     <ContainerProject className="animate__animated animate__fadeIn">
@@ -75,9 +82,9 @@ const ProjetosAnteriores = () => {
       <ButtonDefault
         color="grey1"
         bgColor="grey1"
-        onClick={() => navigate("/dashboard/projetos")}
+        onClick={() => handleHistoricButton()}
       >
-        ESCOLHER PROJETO
+        {user.user?.type == "dev" ? "ESCOLHER PROJETO" : "MEU PROJETO"}
       </ButtonDefault>
     </ContainerProjectEmpty>
   );
