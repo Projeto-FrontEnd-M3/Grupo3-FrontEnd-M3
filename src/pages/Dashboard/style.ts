@@ -37,4 +37,8 @@ export const ContainerOutlet = styled.div`
   margin: 0 auto;
   max-width: 1536px;
   background-color: var(--color-primary);
+
+  @media (max-width: 750px) {
+    padding: 16px;
+  }
 `;

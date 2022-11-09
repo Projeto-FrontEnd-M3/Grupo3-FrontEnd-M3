@@ -14,6 +14,7 @@ export const ContainerProject = styled.div`
   @media (max-width: 750px) {
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
   }
 `;
 
@@ -23,8 +24,8 @@ export const ContainerProjectLeft = styled.div`
   max-width: 60%;
 
   @media (max-width: 750px) {
-    margin: 3rem 0rem 3rem 0rem;
-    margin: auto;
+    min-width: 90%;
+    margin: 0;
     display: flex;
     flex-direction: column-reverse;
   }
@@ -38,6 +39,7 @@ export const ContainerProjectLeftResume = styled.div`
     max-width: 100%;
     min-height: 20vh;
     overflow: auto;
+    padding-bottom: 8px;
   }
 `;
 
@@ -75,7 +77,10 @@ export const ContainerProjectLefButton = styled.div`
   @media (max-width: 750px) {
     text-align: center;
     margin-top: 0rem;
-    margin-bottom: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 `;
 
@@ -104,7 +109,9 @@ export const ContainerProjecRight = styled.div`
     border-radius: 50%;
   }
   @media (max-width: 750px) {
-    width: unset;
+    margin: 0;
+    width: 100%;
+    padding: 1rem 0.5rem;
   }
 `;
 export const ContainerProjecRightInfo = styled.div`
