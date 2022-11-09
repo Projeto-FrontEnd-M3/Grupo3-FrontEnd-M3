@@ -14,9 +14,9 @@ export const MainSection = () => {
       <div className="container">
         <div className="containerDivText">
           <Text tag="h1" color="grey3" fontSize="title1">
-            Nós conectamos você!
+            Nosso Propósito
           </Text>
-          <Text tag="p" color="grey3">
+          <Text className="containerText" tag="p" color="grey3">
             Nós somos estudantes de desenvolvimento full stack. Criamos essa
             plataforma porque percebemos que muitas ong's atualmente não tem
             sites ou aplicações que possam auxiliar na divulgação e/ou
@@ -36,8 +36,8 @@ export const MainSection = () => {
           </ButtonDefault>
           <ButtonDefault
             onClick={() => setActualSectionHome("register")}
-            bgColor="white"
-            color="white"
+            bgColor="grey3"
+            color="grey3"
           >
             CADASTRE-SE
           </ButtonDefault>

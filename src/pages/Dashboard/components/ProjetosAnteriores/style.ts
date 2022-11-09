@@ -34,17 +34,6 @@ export const ContainerProjectUl = styled.ul`
   max-height: 500px;
   overflow-y: auto;
 
-  figure {
-    margin: auto 1%;
-  }
-
-  img {
-    gap: 2rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
   span {
     font-weight: 700;
   }
@@ -58,9 +47,25 @@ export const ContainerProjectUl = styled.ul`
     justify-content: space-between;
     background-color: var(--color-primary);
     flex-wrap: wrap;
+
+    @media (max-width: 750px) {
+      padding: 6px;
+
+      .containerMobileText {
+        font-size: 14px;
+      }
+
+      div {
+        padding: 0rem;
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 
   .resume {
+    height: 20vh;
+    overflow-y: scroll;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border: 0.2rem var(--color-primary-focus) solid;
@@ -68,6 +73,17 @@ export const ContainerProjectUl = styled.ul`
     text-align: justify;
     display: flex;
     justify-content: space-between;
+  }
+
+  figure {
+    margin: auto 1%;
+  }
+
+  img {
+    gap: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
   }
 `;
 

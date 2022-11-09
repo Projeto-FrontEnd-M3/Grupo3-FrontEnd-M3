@@ -8,7 +8,6 @@ import { ProjetoAtualCard } from "../ProjetoAtualCard";
 import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 
 export const ProjetoAtual = () => {
-
   const { setactualModalDashboard, listAllActualDemands, filteredList } =
     useUserContext();
 
@@ -31,7 +30,10 @@ export const ProjetoAtual = () => {
     }
   };
   return filteredList.length > 0 ? (
-    <ProjetoAtualCard listAllDemands={listAllActualDemands} obj={filteredList[0]} />
+    <ProjetoAtualCard
+      listAllDemands={listAllActualDemands}
+      obj={filteredList[0]}
+    />
   ) : (
     <ContainerProjectEmpty className="animate__animated animate__fadeIn">
       <Text fontSize="text3" color="success" className="message">
@@ -42,7 +44,7 @@ export const ProjetoAtual = () => {
         bgColor="grey1"
         onClick={() => handleEmptyListButton()}
       >
-        {user.user.type == "dev" ? "PEGAR UM PROJETO" : "CRIAR PROJETO"}
+        {user.user.type == "dev" ? "ESCOLHER PROJETO" : "CRIAR PROJETO"}
       </ButtonDefault>
     </ContainerProjectEmpty>
   );

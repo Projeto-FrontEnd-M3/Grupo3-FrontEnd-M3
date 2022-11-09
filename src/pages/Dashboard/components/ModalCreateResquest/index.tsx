@@ -39,7 +39,7 @@ const ModalCreateResquest = () => {
   const { setactualModalDashboard, user, createDemandRequest, exit, setExit } =
     useUserContext();
 
-const formatDate = () => {
+  const formatDate = () => {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
 
@@ -51,7 +51,7 @@ const formatDate = () => {
     };
 
     return `${map.dd}/${map.mm}/${map.aaaa}`;
-  }
+  };
 
   const formOptions = {
     defaultValues: {
@@ -73,7 +73,7 @@ const formatDate = () => {
       <ContainerModalEditProfile className={exit ? "exit" : ""}>
         <ModalContent onSubmit={handleSubmit(createDemandRequest)}>
           <Text tag="h1" fontSize="title1" color="primary">
-            Criar Pedido
+            CRIAR PROJETO
           </Text>
 
           <Box
@@ -166,16 +166,18 @@ const formatDate = () => {
           </Box>
 
           <ButtonDefault bgColor="primary" color="primary">
-            Criar
+            CRIAR
           </ButtonDefault>
 
-          <CloseButton onClick={() => { 
-            setExit(true)
-            setTimeout(() => {
-              setactualModalDashboard("none")
-              setExit(false)
-            }, 500);
-        }} />
+          <CloseButton
+            onClick={() => {
+              setExit(true);
+              setTimeout(() => {
+                setactualModalDashboard("none");
+                setExit(false);
+              }, 500);
+            }}
+          />
         </ModalContent>
       </ContainerModalEditProfile>
     </ContainerModal>

@@ -5,6 +5,10 @@ export const MainStyled = styled.div`
   display: flex;
   height: calc(100vh - 80px);
 
+  @media (max-width: 750px) {
+    height: calc(125vh - 80px);
+  }
+
   .container {
     width: 100%;
     display: flex;
@@ -24,6 +28,7 @@ export const MainStyled = styled.div`
 
   .containerDivText p {
     font-size: 1.2rem;
+    text-align: justify;
   }
 
   .containerDivBtn {

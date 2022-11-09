@@ -15,7 +15,7 @@ import Button from "@mui/material/Button";
 import { Text } from "../../../../styles/TypograpyText";
 import { useUserContext } from "../../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import duckLogo from "../../../../assets/duck-logo.png";
+import duckLogo from "../../../../assets/Logo.png";
 
 interface Props {
   window?: () => Window;

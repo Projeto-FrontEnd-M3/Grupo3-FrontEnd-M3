@@ -43,12 +43,16 @@ const formatDate = () => {
   return `${map.dd}/${map.mm}/${map.aaaa}`;
 };
 
-export const ProjetoAtualCard = ({ obj, listAllDemands, listAllDisponibleDemands }: IProjetoAtualCard) => {
+export const ProjetoAtualCard = ({
+  obj,
+  listAllDemands,
+  listAllDisponibleDemands,
+}: IProjetoAtualCard) => {
   const { setactualModalDashboard } = useUserContext();
 
   const sessionUser = sessionStorage.getItem("@DevsHubUser");
   const user = JSON.parse(sessionUser as string);
-  
+
   const navigate = useNavigate();
 
   const { filteredListAux } = useUserContext();
@@ -147,10 +151,10 @@ export const ProjetoAtualCard = ({ obj, listAllDemands, listAllDisponibleDemands
       <ContainerProjecRight>
         <ContainerProjecRightInfo>
           <ContainerProjecRightTitle>
-            <Text fontSize="text2" color="success" className="titlespace">
+            <Text fontSize="text3" color="success" className="titlespace">
               <span>{obj.user.name}</span>
             </Text>
-            <Text fontSize="text2" color="success">
+            <Text fontSize="text4" color="success">
               {obj.status}
             </Text>
           </ContainerProjecRightTitle>

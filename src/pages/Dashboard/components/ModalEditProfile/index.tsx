@@ -36,7 +36,7 @@ const ModalEditProfile = () => {
       <ContainerModalEditProfile className={exit ? "exit" : ""}>
         <ModalContent onSubmit={handleSubmit(editProfileRequest)}>
           <Text tag="h1" fontSize="title1" color="primary">
-            Editar perfil
+            EDITAR PERFIL
           </Text>
 
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -101,7 +101,7 @@ const ModalEditProfile = () => {
           </Box>
 
           <ButtonDefault bgColor="primary" color="primary">
-            Editar
+            EDITAR
           </ButtonDefault>
 
           <CloseButton

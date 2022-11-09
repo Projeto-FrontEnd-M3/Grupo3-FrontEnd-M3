@@ -4,7 +4,7 @@ import { Text } from "../../../../styles/TypograpyText";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 
 export interface IProjectsCard {
-  obj: IDemandsResponse
+  obj: IDemandsResponse;
 }
 
 const ProjectsCard = ({ obj }: IProjectsCard) => {
@@ -14,13 +14,16 @@ const ProjectsCard = ({ obj }: IProjectsCard) => {
         <Text fontSize="text2" color="grey1">
           {obj.user.name}
         </Text>
-        <Text fontSize="text2" color="grey1">
+        <Text className="containerMobileText" fontSize="text2" color="grey1">
           ENTREGUE EM: <span>{obj.finished_at}</span>
         </Text>
       </div>
       <div className="resume">
         <figure>
-          <img src={obj.user.image ? obj.user.image : IconImage} alt="Imagem de teste" />
+          <img
+            src={obj.user.image ? obj.user.image : IconImage}
+            alt="Imagem de teste"
+          />
         </figure>
         <Text fontSize="text4" color="grey1">
           {obj.description}
