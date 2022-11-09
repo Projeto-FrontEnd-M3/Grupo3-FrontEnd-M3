@@ -18,6 +18,10 @@ export const userContext = createContext<IUserContextProvider>(
   {} as IUserContextProvider
 );
 
+export interface IEditDemand {
+  title: string;
+  description: string;
+}
 export const UserContextProvider = ({ children }: IChildrenNode) => {
   const [loading, setLoading] = useState(false);
   const [exit, setExit] = useState(false);
@@ -83,19 +87,17 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
     }
   };
 
-  const editDemandRequest = async (id: string) => {
+  const editDemandRequest = async (data: IEditDemand) => {
     try {
-      const request = await Api.patch(`/jobs/${id}`);
+      setLoading(true);
+      const request = await Api.patch(`/jobs/${filteredListAux[0].id}`, data);
+      toastSuccess("Projeto Editado!");
+      listAllActualDemands();
     } catch (err) {
-      //Error
-    }
-  };
-
-  const deleteDemandRequest = async (id: string) => {
-    try {
-      const request = await Api.delete(`/jobs/${id}`);
-    } catch (err) {
-      //Error
+      toastError("Ocorreu um erro!");
+    } finally {
+      setactualModalDashboard("none");
+      setLoading(false);
     }
   };
 
@@ -114,6 +116,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       toastSuccess("Perfil Editado!");
 
       sessionStorage.setItem("@DevsHubUser", JSON.stringify(user));
+      listAllActualDemands();
     } catch (err) {
       toastError("Ocorreu algum erro!");
     } finally {
@@ -198,6 +201,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         exit,
         listAllActualDemands,
         filteredList,
+        editDemandRequest,
       }}
     >
       {children}

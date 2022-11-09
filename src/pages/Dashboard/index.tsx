@@ -5,6 +5,7 @@ import { ContainerDev, ContainerOutlet } from "./style";
 import { useUserContext } from "../../context/UserContext";
 import ModalEditProfile from "./components/ModalEditProfile";
 import ModalCreateResquest from "./components/ModalCreateResquest";
+import ModalEditResquest from "./components/ModalEditRequest";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -19,6 +20,7 @@ const Dashboard = () => {
     <>
       {actualModalDashboard == "editProfile" && <ModalEditProfile />}
       {actualModalDashboard == "createDemand" && <ModalCreateResquest />}
+      {actualModalDashboard == "editDemand" && <ModalEditResquest />}
       <NavbarDashboard />
       <ContainerDev>
         <ContainerOutlet>

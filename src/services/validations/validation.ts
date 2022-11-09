@@ -104,3 +104,15 @@ export const profileEditValidate = yup.object().shape({
     .required("Data de entrega obrigatória!")
     .max(8, "Data deve estar no formato 11/11/11"),
 });
+
+export const editDemandValidate = yup.object().shape({
+  title: yup
+    .string()
+    .required("Nome do pedido obrigatório!")
+    .max(22, "Máximo de 22 caracteres!"),
+  description: yup
+    .string()
+    .required("Descrição do pedido obrigatória!")
+    .min(300, "Deve conter no mínimo 300 caracteres!")
+    .max(900, "Máximo de 900 caracteres!"),
+});
