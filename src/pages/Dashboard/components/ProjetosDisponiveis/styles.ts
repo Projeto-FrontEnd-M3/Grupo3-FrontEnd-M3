@@ -6,6 +6,7 @@ export const CarouselContainer = styled.div`
   border-radius: 20px;
   padding: 20px;
   max-width: 100%;
+  animation: fadeIn 1s;
 `;
 
 export const StepperStyled = styled(MobileStepper)`

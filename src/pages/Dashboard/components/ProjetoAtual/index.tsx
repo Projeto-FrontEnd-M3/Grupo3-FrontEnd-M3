@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
-import { useUserContext } from "../../../../context/UserContext";
+import { userContext, useUserContext } from "../../../../context/UserContext";
 import {
   IDemandsResponse,
   IUserLogged,
@@ -15,16 +15,28 @@ export const ProjetoAtual = () => {
   const navigate = useNavigate();
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
 
-  const { setFilteredListAux } = useUserContext();
+  const { setFilteredListAux, setactualModalDashboard } = useUserContext();
+
+  const sessionUser = sessionStorage.getItem("@DevsHubUser");
+  const user: IUserLogged = JSON.parse(sessionUser as string);
 
   useEffect(() => {
-    const sessionUser = sessionStorage.getItem("@DevsHubUser");
-    const user: IUserLogged = JSON.parse(sessionUser as string);
-
     const listAllDemands = async () => {
       try {
         const request = await Api.get("/jobs/?_expand=user");
         const response: IDemandsResponse[] = request.data;
+
+        if (user.user.type == "ong") {
+          const filtered = response.filter(
+            (elem) =>
+              elem.status == "Em Andamento" ||
+              (elem.status == "Pendente" && elem.userId == user.user.id)
+          );
+
+          setFilteredList(filtered);
+          setFilteredListAux(filtered);
+          return;
+        }
 
         const filtered = response.filter(
           (elem) =>
@@ -41,6 +53,16 @@ export const ProjetoAtual = () => {
     listAllDemands();
   }, [filteredList]);
 
+  const handleEmptyListButton = () => {
+    if (user.user.type == "dev") {
+      return navigate("/dashboard/projetos");
+    }
+
+    if (user.user.type == "ong") {
+      return setactualModalDashboard("createDemand");
+    }
+  };
+
   return filteredList.length > 0 ? (
     <ProjetoAtualCard obj={filteredList[0]} />
   ) : (
@@ -51,9 +73,9 @@ export const ProjetoAtual = () => {
       <ButtonDefault
         color="primary"
         bgColor="primary"
-        onClick={() => navigate("/dashboard/projetos")}
+        onClick={() => handleEmptyListButton()}
       >
-        PEGAR UM PROJETO
+        {user.user.type == "dev" ? "PEGAR UM PROJETO" : "CRIAR PROJETO"}
       </ButtonDefault>
     </ContainerProjectEmpty>
   );

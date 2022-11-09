@@ -52,6 +52,8 @@ export interface IUserContextProvider {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   filteredListAux: IDemandsResponse[];
   setFilteredListAux: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
+  exit: boolean;
+  setExit: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IDemandContextProvider {}

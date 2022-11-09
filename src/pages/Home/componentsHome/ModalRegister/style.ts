@@ -11,6 +11,7 @@ export const ContainerModalRegister = styled.div`
   padding: 1.5rem;
   background-color: var(--color-grey-1);
   position: relative;
+  animation: fadeInDown 1s;
 `;
 
 export const AlignModalRegister = styled.div`

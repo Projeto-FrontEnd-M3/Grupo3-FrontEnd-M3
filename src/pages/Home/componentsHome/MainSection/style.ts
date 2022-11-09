@@ -12,6 +12,7 @@ export const MainStyled = styled.div`
     justify-content: center;
     align-items: flex-start;
     margin: 0 50px;
+    animation: fadeIn 1s;
   }
 
   .containerDivText {
@@ -37,6 +38,7 @@ export const MainStyled = styled.div`
 
   .containerImg {
     display: flex;
+    animation: fadeIn 1s;
   }
 
   img {
