@@ -86,7 +86,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .filterBackdrop {
-        backdrop-filter: blur(1px)
+        backdrop-filter: blur(2px)
     }
 
     .nameModal {

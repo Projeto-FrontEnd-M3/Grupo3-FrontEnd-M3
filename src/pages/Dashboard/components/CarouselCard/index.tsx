@@ -1,7 +1,8 @@
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { Text } from "../../../../styles/TypograpyText";
+import { IProjectsCard } from "../ProjectsCard";
 
-const CarouselCard = ({ obj }: any) => {
+const CarouselCard = ({ obj }: IProjectsCard) => {
   return (
     <div>
       <div>

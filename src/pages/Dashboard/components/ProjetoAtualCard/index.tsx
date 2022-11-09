@@ -30,28 +30,6 @@ interface IProjetoAtualCard {
   obj: IDemandsResponse;
 }
 
-const sessionUser = sessionStorage.getItem("@DevsHubUser");
-const user: IUserLogged = JSON.parse(sessionUser as string);
-
-const joinProject = async (id: number) => {
-  const body = {
-    status: "Em Andamento",
-    work_in: [
-      {
-        email: user.user.email,
-        name: user.user.name,
-        id: user.user.id,
-      },
-    ],
-  };
-
-  try {
-    const request = await Api.patch(`/jobs/${id}`, body);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const formatDate = () => {
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
@@ -81,8 +59,13 @@ const finishProject = async (id: number) => {
 };
 
 export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
+  const { setactualModalDashboard, user, joinProject } = useUserContext();
+
+  if (user.user == null) {
+    return null;
+  }
+
   const navigate = useNavigate();
-  const { setactualModalDashboard } = useUserContext();
 
   const { filteredListAux } = useUserContext();
   const { pathname } = useLocation();

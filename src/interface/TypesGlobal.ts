@@ -54,6 +54,7 @@ export interface IUserContextProvider {
   setFilteredListAux: React.Dispatch<React.SetStateAction<IDemandsResponse[]>>;
   exit: boolean;
   setExit: React.Dispatch<React.SetStateAction<boolean>>;
+  joinProject: (id: number) => Promise<void>;
 }
 
 export interface IDemandContextProvider {}

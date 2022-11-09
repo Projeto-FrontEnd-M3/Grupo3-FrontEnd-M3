@@ -110,7 +110,7 @@ const ModalEditProfile = () => {
               setTimeout(() => {
                 setactualModalDashboard("none");
                 setExit(false);
-              }, 500);
+              }, 200);
             }}
           />
         </ModalContent>

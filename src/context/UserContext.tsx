@@ -118,13 +118,36 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
     }
   };
 
-  useEffect(() => {
-    const objectUser = sessionStorage.getItem("@DevsHubUser");
-    const objectUserParse = objectUser && JSON.parse(objectUser);
+  const joinProject = async (id: number) => {
+    const body = {
+      status: "Em Andamento",
+      work_in: [
+        {
+          email: user.user.email,
+          name: user.user.name,
+          id: user.user.id,
+        },
+      ],
+    };
 
-    if (objectUserParse) {
-      setUser(objectUserParse);
+    try {
+      const request = await Api.patch(`/jobs/${id}`, body);
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  useEffect(() => {
+    const searchUser = () => {
+      const objectUser = sessionStorage.getItem("@DevsHubUser");
+      const objectUserParse = objectUser && JSON.parse(objectUser);
+
+      if (objectUserParse) {
+        setUser(objectUserParse);
+      }
+    };
+
+    searchUser();
   }, []);
 
   useEffect(() => {
@@ -154,6 +177,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         setFilteredListAux,
         setExit,
         exit,
+        joinProject,
       }}
     >
       {children}

@@ -19,7 +19,7 @@ import { useUserContext } from "../../context/UserContext";
 
 export const NavbarDashboard = () => {
   const navigate = useNavigate();
-  const { user, setactualModalDashboard } = useUserContext();
+  const { user, setactualModalDashboard, filteredListAux } = useUserContext();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -256,7 +256,7 @@ export const NavbarDashboard = () => {
                   Editar Perfil <SettingsIcon />
                 </Typography>
               </MenuItem>
-              {user.user?.type == "ong" && (
+              {user.user?.type == "ong" && filteredListAux.length == 0 && (
                 <MenuItem
                   onClick={() => {
                     handleCloseUserMenu();

@@ -2,26 +2,26 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
-import {
-  IDemandsResponse,
-  IUserLogged,
-} from "../../../../interface/TypesGlobal";
+import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 import { Api } from "../../../../services/api/api";
 import { Text } from "../../../../styles/TypograpyText";
 import { ProjetoAtualCard } from "../ProjetoAtualCard";
 import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 
 export const ProjetoAtual = () => {
+  const { setFilteredListAux, setactualModalDashboard, user, setLoading } =
+    useUserContext();
+
+  if (!user.user) {
+    return null;
+  }
+
   const navigate = useNavigate();
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
 
-  const { setFilteredListAux, setactualModalDashboard } = useUserContext();
-
-  const sessionUser = sessionStorage.getItem("@DevsHubUser");
-  const user: IUserLogged = JSON.parse(sessionUser as string);
-
   useEffect(() => {
     const listAllDemands = async () => {
+      setLoading(true);
       try {
         const request = await Api.get("/jobs/?_expand=user");
         const response: IDemandsResponse[] = request.data;
@@ -48,10 +48,12 @@ export const ProjetoAtual = () => {
         setFilteredListAux(filtered);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     listAllDemands();
-  }, [filteredList]);
+  }, []);
 
   const handleEmptyListButton = () => {
     if (user.user.type == "dev") {

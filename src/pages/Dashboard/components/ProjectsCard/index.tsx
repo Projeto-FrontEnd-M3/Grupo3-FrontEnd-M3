@@ -3,7 +3,7 @@ import IconImage from "../../../../assets/IconImage.png";
 import { Text } from "../../../../styles/TypograpyText";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 
-interface IProjectsCard {
+export interface IProjectsCard {
   obj: IDemandsResponse
 }
 

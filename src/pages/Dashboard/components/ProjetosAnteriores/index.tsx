@@ -12,23 +12,22 @@ import {
   IDemandsResponse,
   IUserLogged,
 } from "../../../../interface/TypesGlobal";
-import { Box, Skeleton } from "@mui/material";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
+import { useUserContext } from "../../../../context/UserContext";
 
 const ProjetosAnteriores = () => {
   const navigate = useNavigate();
-
+  const { user, setLoading } = useUserContext();
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
-
-  const sessionUser = sessionStorage.getItem("@DevsHubUser");
-  const user: IUserLogged = JSON.parse(sessionUser as string);
+  
   useEffect(() => {
     const listAllDemands = async () => {
       try {
+        setLoading(true);
         const request = await Api.get("/jobs/?_expand=user");
         const response: IDemandsResponse[] = request.data;
 
-        if (user.user.type == "ong") {
+        if (user.user?.type == "ong") {
           const filtered = response.filter(
             (elem) => elem.dev_finished == true && elem.userId == user.user.id
           );
@@ -39,11 +38,13 @@ const ProjetosAnteriores = () => {
         const filtered = response.filter(
           (elem) =>
             elem.dev_finished == true &&
-            elem.work_in?.find((elem) => elem.id == user.user.id)
+            elem.work_in?.find((elem) => elem.id == user.user?.id)
         );
         setFilteredList(filtered);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     listAllDemands();
