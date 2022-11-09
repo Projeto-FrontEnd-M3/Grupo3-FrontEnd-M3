@@ -29,15 +29,15 @@ export const MainSection = () => {
         <div className="containerDivBtn">
           <ButtonDefault
             onClick={() => navigate("/sobre")}
-            bgColor="negative"
-            color="negative"
+            bgColor="grey3"
+            color="grey3"
           >
             SAIBA MAIS
           </ButtonDefault>
           <ButtonDefault
             onClick={() => setActualSectionHome("register")}
-            bgColor="white"
-            color="white"
+            bgColor="grey3"
+            color="grey3"
           >
             CADASTRE-SE
           </ButtonDefault>

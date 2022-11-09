@@ -71,8 +71,8 @@ export const ProjetoAtual = () => {
         Você ainda não iniciou nenhum projeto
       </Text>
       <ButtonDefault
-        color="primary"
-        bgColor="primary"
+        color="grey1"
+        bgColor="grey1"
         onClick={() => handleEmptyListButton()}
       >
         {user.user.type == "dev" ? "PEGAR UM PROJETO" : "CRIAR PROJETO"}

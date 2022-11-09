@@ -7,7 +7,7 @@ export const ContainerHowToUse = styled.div`
   min-height: calc(100vh - 80px);
   height: auto;
   width: 100%;
-  background-color: var(--color-primary-focus);
+  background-color: var(--color-primary);
 
   .optionHowToUse{
     animation: fadeIn 1s;

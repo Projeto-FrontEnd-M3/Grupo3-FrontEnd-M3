@@ -7,6 +7,7 @@ export const MainStyled = styled.div`
 
   .container {
     width: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,15 +17,19 @@ export const MainStyled = styled.div`
   }
 
   .containerDivText {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .containerDivText h1 {
     margin-bottom: 2rem;
   }
 
+<<<<<<< HEAD
   .containerDivText p {
     font-size: 1.2rem;
+=======
+  .containerDivTitle {
+>>>>>>> 82f1664884b9de4fe913865650de948cda180cc6
   }
 
   .containerDivBtn {

@@ -9,7 +9,6 @@ export const TabsList = styled(TabsListUnstyled)(
  
     width: 90%;
     margin:  8px auto;
-    background-color: var(--color-primary);
     border-radius: 6px;
     display: flex;
     align-items: center;
