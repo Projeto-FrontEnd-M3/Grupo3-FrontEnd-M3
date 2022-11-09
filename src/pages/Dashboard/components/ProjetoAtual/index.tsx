@@ -12,48 +12,48 @@ export const ProjetoAtual = () => {
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
 
   const { setFilteredListAux, setactualModalDashboard, setLoading } =
-  useUserContext();
-  
+    useUserContext();
+
   const navigate = useNavigate();
-  
-  const sessionUser = sessionStorage.getItem("@DevsHubUser")
-  const user = JSON.parse(sessionUser as string)
-  
-  useEffect(() => {
-    const listAllDemands = async () => {
+
+  const sessionUser = sessionStorage.getItem("@DevsHubUser");
+  const user = JSON.parse(sessionUser as string);
+
+  const listAllDemands = async () => {
+    try {
       setLoading(true);
-      try {
-        const request = await Api.get("/jobs/?_expand=user");
-        const response: IDemandsResponse[] = request.data;
+      const request = await Api.get("/jobs/?_expand=user");
+      const response: IDemandsResponse[] = request.data;
 
-        if (user.user.type == "ong") {
-          const filtered = response.filter(
-            (elem) =>
-              elem.status == "Em Andamento" ||
-              (elem.status == "Pendente" && elem.userId == user.user.id)
-          );
-
-        () =>  setFilteredList(filtered);
-        () =>  setFilteredListAux(filtered);
-          return;
-        }
-
+      if (user.user.type == "ong") {
         const filtered = response.filter(
           (elem) =>
-            elem.status == "Em Andamento" &&
-            elem.work_in.find((dev) => dev.id == user.user.id)
+            elem.status == "Em Andamento" ||elem.status == "Pendente" && elem.userId == user.user.id
         );
 
-      () =>  setFilteredList(filtered);
-      () =>  setFilteredListAux(filtered);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
+        setFilteredList(filtered);
+        setFilteredListAux(filtered);
+        return;
       }
-    };
+
+      const filtered = response.filter(
+        (elem) =>
+          elem.status == "Em Andamento" &&
+          elem.work_in.find((dev) => dev.id == user.user.id)
+      );
+
+      setFilteredList(filtered);
+      setFilteredListAux(filtered);
+      
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
     listAllDemands();
-  }, [filteredList]);
+  }, []);
 
   const handleEmptyListButton = () => {
     if (user.user.type == "dev") {
@@ -64,9 +64,8 @@ export const ProjetoAtual = () => {
       return setactualModalDashboard("createDemand");
     }
   };
-
   return filteredList.length > 0 ? (
-    <ProjetoAtualCard obj={filteredList[0]} />
+    <ProjetoAtualCard listAllDemands={listAllDemands} obj={filteredList[0]} />
   ) : (
     <ContainerProjectEmpty className="animate__animated animate__fadeIn">
       <Text fontSize="text3" color="success" className="message">

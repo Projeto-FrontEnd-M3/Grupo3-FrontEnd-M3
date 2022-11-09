@@ -9,11 +9,13 @@ import { Api } from "../../../../services/api/api";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
 import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 import { Text } from "../../../../styles/TypograpyText";
+import { useUserContext } from "../../../../context/UserContext";
 
 const ProjetosDisponiveis = () => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
+  const {setLoading} = useUserContext()
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -23,24 +25,27 @@ const ProjetosDisponiveis = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  useEffect(() => {
-    const listAllDemands = async () => {
-      try {
-        const request = await Api.get("/jobs/?_expand=user");
-        const response: IDemandsResponse[] = request.data;
+  const listAllDisponibleDemands = async () => {
+    try {
+      setLoading(true)
+      const request = await Api.get("/jobs/?_expand=user");
+      const response: IDemandsResponse[] = request.data;
 
-        const filtered = response.filter((elem) => elem.status == "Pendente");
-        setFilteredList(filtered);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    listAllDemands();
-  }, [filteredList]);
+      const filtered = response.filter((elem) => elem.status == "Pendente");
+      setFilteredList(filtered);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false)
+    }
+  };
+  useEffect(() => {
+    listAllDisponibleDemands();
+  }, []);
 
   return filteredList.length > 0 ? (
     <CarouselContainer className="animate__animated animate__fadeIn">
-      <ProjetoAtualCard obj={filteredList[activeStep]} />
+      <ProjetoAtualCard listAllDisponibleDemands={listAllDisponibleDemands} obj={filteredList[activeStep]} />
       <StepperStyled
         variant="dots"
         steps={filteredList.length}
