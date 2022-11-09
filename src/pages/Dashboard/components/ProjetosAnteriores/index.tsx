@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import ProjectsCard from "../ProjectsCard";
 import {
   IDemandsResponse,
-  IUserLogged,
 } from "../../../../interface/TypesGlobal";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";

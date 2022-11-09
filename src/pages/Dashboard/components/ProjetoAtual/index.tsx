@@ -9,16 +9,16 @@ import { ProjetoAtualCard } from "../ProjetoAtualCard";
 import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 
 export const ProjetoAtual = () => {
-  const { setFilteredListAux, setactualModalDashboard, user, setLoading } =
-    useUserContext();
-
-  if (!user.user) {
-    return null;
-  }
-
-  const navigate = useNavigate();
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
 
+  const { setFilteredListAux, setactualModalDashboard, setLoading } =
+  useUserContext();
+  
+  const navigate = useNavigate();
+  
+  const sessionUser = sessionStorage.getItem("@DevsHubUser")
+  const user = JSON.parse(sessionUser as string)
+  
   useEffect(() => {
     const listAllDemands = async () => {
       setLoading(true);
@@ -33,8 +33,8 @@ export const ProjetoAtual = () => {
               (elem.status == "Pendente" && elem.userId == user.user.id)
           );
 
-          setFilteredList(filtered);
-          setFilteredListAux(filtered);
+        () =>  setFilteredList(filtered);
+        () =>  setFilteredListAux(filtered);
           return;
         }
 
@@ -44,8 +44,8 @@ export const ProjetoAtual = () => {
             elem.work_in.find((dev) => dev.id == user.user.id)
         );
 
-        setFilteredList(filtered);
-        setFilteredListAux(filtered);
+      () =>  setFilteredList(filtered);
+      () =>  setFilteredListAux(filtered);
       } catch (error) {
         console.log(error);
       } finally {
@@ -53,7 +53,7 @@ export const ProjetoAtual = () => {
       }
     };
     listAllDemands();
-  }, []);
+  }, [filteredList]);
 
   const handleEmptyListButton = () => {
     if (user.user.type == "dev") {

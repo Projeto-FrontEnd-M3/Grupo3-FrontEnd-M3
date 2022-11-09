@@ -18,7 +18,6 @@ import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { Text } from "../../../../styles/TypograpyText";
 import {
   IDemandsResponse,
-  IUserLogged,
 } from "../../../../interface/TypesGlobal";
 import { Api } from "../../../../services/api/api";
 import { useUserContext } from "../../../../context/UserContext";
@@ -59,16 +58,31 @@ const finishProject = async (id: number) => {
 };
 
 export const ProjetoAtualCard = ({ obj }: IProjetoAtualCard) => {
-  const { setactualModalDashboard, user, joinProject } = useUserContext();
-
-  if (user.user == null) {
-    return null;
-  }
+  const { setactualModalDashboard, user } = useUserContext();
 
   const navigate = useNavigate();
 
   const { filteredListAux } = useUserContext();
   const { pathname } = useLocation();
+
+  const joinProject = async (id: number) => {
+    const body = {
+      status: "Em Andamento",
+      work_in: [
+        {
+          email: user.user.email,
+          name: user.user.name,
+          id: user.user.id,
+        },
+      ],
+    };
+
+    try {
+      const request = await Api.patch(`/jobs/${id}`, body);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleButton = (projectId: number) => {
     if (pathname == "/dashboard/atual" && user.user.type == "ong") {
