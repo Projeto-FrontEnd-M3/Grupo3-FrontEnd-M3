@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
-import { IDemandsResponse } from "../../../../interface/TypesGlobal";
+import { IDemandsResponse, IUserLogged } from "../../../../interface/TypesGlobal";
 import { Api } from "../../../../services/api/api";
 import { Text } from "../../../../styles/TypograpyText";
 import { ProjetoAtualCard } from "../ProjetoAtualCard";
@@ -17,7 +17,7 @@ export const ProjetoAtual = () => {
   const navigate = useNavigate();
 
   const sessionUser = sessionStorage.getItem("@DevsHubUser");
-  const user = JSON.parse(sessionUser as string);
+  const user: IUserLogged = JSON.parse(sessionUser as string);
 
   const listAllDemands = async () => {
     try {
@@ -28,9 +28,9 @@ export const ProjetoAtual = () => {
       if (user.user.type == "ong") {
         const filtered = response.filter(
           (elem) =>
-            elem.status == "Em Andamento" ||elem.status == "Pendente" && elem.userId == user.user.id
+            (elem.status == "Em Andamento" || elem.status == "Pendente") && elem.userId == user.user.id
         );
-
+          console.log(filtered)
         setFilteredList(filtered);
         setFilteredListAux(filtered);
         return;
