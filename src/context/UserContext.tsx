@@ -74,7 +74,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       setLoading(true);
       const request = await Api.post("/jobs", data);
       toastSuccess("Cadastramos seu Pedido!");
-      listAllActualDemands()
+      listAllActualDemands();
     } catch (err) {
       toastError("Ocorreu um erro!");
     } finally {
@@ -122,7 +122,6 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   };
 
   const listAllActualDemands = async () => {
-
     const sessionUser = sessionStorage.getItem("@DevsHubUser");
     const userLogged: IUserLogged = JSON.parse(sessionUser as string);
 
@@ -134,7 +133,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       if (userLogged.user.type == "ong") {
         const filtered = response.filter(
           (elem) =>
-            (elem.status == "Em Andamento" || elem.status == "Pendente") && elem.userId == userLogged.user.id
+            (elem.status == "Em Andamento" || elem.status == "Pendente") &&
+            elem.userId == userLogged.user.id
         );
         setFilteredList(filtered);
         setFilteredListAux(filtered);
@@ -197,7 +197,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         setExit,
         exit,
         listAllActualDemands,
-        filteredList
+        filteredList,
       }}
     >
       {children}
