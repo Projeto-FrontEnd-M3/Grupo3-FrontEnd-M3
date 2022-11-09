@@ -57,13 +57,13 @@ export const NavbarDashboard = () => {
               display: { xs: "none", md: "flex" },
               fontFamily: "poppins",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".1rem",
               color: "var(--color-grey-1)",
               textDecoration: "none",
               alignItems: "center",
             }}
           >
-            DevOngUs
+            Dev's Helping
           </Typography>
 
           <Box
@@ -142,12 +142,12 @@ export const NavbarDashboard = () => {
               flexGrow: 1,
               fontFamily: "poppins",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".1rem",
               color: "var(--color-grey-1)",
               textDecoration: "none",
             }}
           >
-            DevOngUs
+            Devs's Helping
           </Typography>
           <Box
             sx={{

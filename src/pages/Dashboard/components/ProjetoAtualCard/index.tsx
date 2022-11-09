@@ -118,7 +118,7 @@ export const ProjetoAtualCard = ({ obj, listAllDemands, listAllDisponibleDemands
         <ContainerProjectLeftResume>
           <ContainerProjectLeftTitle>
             <Text fontSize="text1" color="success">
-              P E D I D O
+              {obj.title}
             </Text>
             <Text fontSize="text2" color="success">
               Entregar até <span>{obj.estimated_time}</span>
