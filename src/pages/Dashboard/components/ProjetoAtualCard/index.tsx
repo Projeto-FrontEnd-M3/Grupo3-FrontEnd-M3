@@ -27,7 +27,8 @@ import { IMap } from "../ModalCreateResquest";
 
 interface IProjetoAtualCard {
   obj: IDemandsResponse;
-  listAllDemands: () => Promise<void>;
+  listAllDemands?: () => Promise<void>;
+  listAllDisponibleDemands?: () => Promise<void>
 }
 
 const formatDate = () => {
@@ -44,7 +45,7 @@ const formatDate = () => {
   return `${map.dd}/${map.mm}/${map.aaaa}`;
 };
 
-export const ProjetoAtualCard = ({ obj, listAllDemands }: IProjetoAtualCard) => {
+export const ProjetoAtualCard = ({ obj, listAllDemands, listAllDisponibleDemands }: IProjetoAtualCard) => {
   const { setactualModalDashboard, user } = useUserContext();
   
   const navigate = useNavigate();
@@ -66,6 +67,9 @@ export const ProjetoAtualCard = ({ obj, listAllDemands }: IProjetoAtualCard) => 
     
     try {
       const request = await Api.patch(`/jobs/${id}`, body);
+      if(listAllDisponibleDemands) {
+        listAllDisponibleDemands()
+      }
     } catch (error) {
       console.log(error);
     }
@@ -80,7 +84,9 @@ export const ProjetoAtualCard = ({ obj, listAllDemands }: IProjetoAtualCard) => 
   
     try {
       const request = await Api.patch(`/jobs/${id}`, body);
-      listAllDemands()
+      if(listAllDemands) {
+        listAllDemands()
+      }
     } catch (error) {
       console.log(error);
     }
