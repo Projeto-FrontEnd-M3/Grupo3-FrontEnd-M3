@@ -1,3 +1,4 @@
+import { IEditDemand } from "../context/UserContext";
 import { ICreateDemandRequest } from "../pages/Dashboard/components/ModalCreateResquest";
 import { IEditProfile } from "../pages/Dashboard/components/ModalEditProfile";
 import { ILoginHookForm } from "../pages/Home/componentsHome/ModalLogin";
@@ -56,6 +57,7 @@ export interface IUserContextProvider {
   setExit: React.Dispatch<React.SetStateAction<boolean>>;
   listAllActualDemands: () => Promise<void>;
   filteredList: IDemandsResponse[];
+  editDemandRequest: (data: IEditDemand) => Promise<void>;
 }
 
 export interface IDemandContextProvider {}
