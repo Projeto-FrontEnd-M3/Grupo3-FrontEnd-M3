@@ -20,19 +20,18 @@ export const ProjetoAtual = () => {
   const user = JSON.parse(sessionUser as string);
 
   const listAllDemands = async () => {
-    setLoading(true);
     try {
+      setLoading(true);
       const request = await Api.get("/jobs/?_expand=user");
       const response: IDemandsResponse[] = request.data;
 
       if (user.user.type == "ong") {
         const filtered = response.filter(
           (elem) =>
-            elem.status == "Em Andamento" ||
-            (elem.status == "Pendente" && elem.userId == user.user.id)
+            elem.status == "Em Andamento" ||elem.status == "Pendente" && elem.userId == user.user.id
         );
 
-        () => setFilteredList(filtered);
+        setFilteredList(filtered);
         setFilteredListAux(filtered);
         return;
       }
@@ -45,7 +44,7 @@ export const ProjetoAtual = () => {
 
       setFilteredList(filtered);
       setFilteredListAux(filtered);
-
+      
     } catch (error) {
       console.log(error);
     } finally {
@@ -65,7 +64,6 @@ export const ProjetoAtual = () => {
       return setactualModalDashboard("createDemand");
     }
   };
-
   return filteredList.length > 0 ? (
     <ProjetoAtualCard listAllDemands={listAllDemands} obj={filteredList[0]} />
   ) : (

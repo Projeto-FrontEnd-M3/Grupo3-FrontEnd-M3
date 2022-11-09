@@ -46,7 +46,10 @@ const formatDate = () => {
 };
 
 export const ProjetoAtualCard = ({ obj, listAllDemands, listAllDisponibleDemands }: IProjetoAtualCard) => {
-  const { setactualModalDashboard, user } = useUserContext();
+  const { setactualModalDashboard } = useUserContext();
+
+  const sessionUser = sessionStorage.getItem("@DevsHubUser");
+  const user = JSON.parse(sessionUser as string);
   
   const navigate = useNavigate();
   
