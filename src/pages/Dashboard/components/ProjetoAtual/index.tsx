@@ -45,7 +45,6 @@ export const ProjetoAtual = () => {
 
       setFilteredList(filtered);
       setFilteredListAux(filtered);
-
     } catch (error) {
       console.log(error);
     } finally {

@@ -8,12 +8,15 @@ export const ContainerProject = styled.div`
   text-align: right;
   gap: 3rem;
   background-color: var(--color-primary-negative);
+
   span {
     font-weight: 700;
   }
+
   p {
     padding: 0.5rem;
   }
+
   .message {
     margin-right: 2rem;
     margin-top: 2rem;
@@ -27,6 +30,8 @@ export const ContainerProjectUl = styled.ul`
   display: flex;
   flex-direction: column;
   background-color: var(--color-primary-negative);
+  max-height: 500px;
+  overflow-y: auto;
 
   figure {
     margin: auto 1%;
@@ -38,6 +43,7 @@ export const ContainerProjectUl = styled.ul`
     height: 50px;
     border-radius: 50%;
   }
+
   span {
     font-weight: 700;
   }
@@ -50,7 +56,9 @@ export const ContainerProjectUl = styled.ul`
     display: flex;
     justify-content: space-between;
     background-color: var(--color-primary);
+    flex-wrap: wrap;
   }
+
   .resume {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -64,6 +72,14 @@ export const ContainerProjectUl = styled.ul`
 
 export const ContainerProjectLi = styled.li`
   padding-bottom: 1rem;
+
+  p {
+    word-break: break-all;
+  }
+
+  div {
+    padding: 1rem;
+  }
 `;
 
 export const ContainerProjectEmpty = styled.div`
