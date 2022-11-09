@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
-import { IDemandsResponse,IUserLogged} from "../../../../interface/TypesGlobal";
+import {
+  IDemandsResponse,
+  IUserLogged,
+} from "../../../../interface/TypesGlobal";
 import { Api } from "../../../../services/api/api";
 import { Text } from "../../../../styles/TypograpyText";
 import { ProjetoAtualCard } from "../ProjetoAtualCard";
@@ -10,9 +13,9 @@ import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 
 export const ProjetoAtual = () => {
   const navigate = useNavigate();
-  const [ filteredList, setFilteredList ] = useState([] as IDemandsResponse[]);
+  const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
 
-  const {setFilteredListAux} = useUserContext()
+  const { setFilteredListAux } = useUserContext();
 
   useEffect(() => {
     const sessionUser = sessionStorage.getItem("@DevsHubUser");
