@@ -8,6 +8,7 @@ export const ContainerProject = styled.div`
   text-align: right;
   gap: 3rem;
   background-color: var(--color-primary-negative);
+  animation: fadeIn 0.5s;
 
   span {
     font-weight: 700;

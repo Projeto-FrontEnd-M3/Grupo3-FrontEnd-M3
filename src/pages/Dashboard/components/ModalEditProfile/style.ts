@@ -7,7 +7,7 @@ export const ContainerModalEditProfile = styled.div`
   padding: 1.5rem;
   background-color: var(--color-grey-1);
   position: relative;
-  animation: fadeInDown 1s;
+  animation: fadeIn 0.5s;
 `;
 
 export const ModalContent = styled.form`
@@ -31,7 +31,6 @@ export const ModalContent = styled.form`
     text-decoration: underline;
     cursor: pointer;
   }
-
 
   .buttonClosed {
     position: absolute;
