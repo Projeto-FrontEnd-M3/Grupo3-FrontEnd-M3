@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ProjectsCard from "../ProjectsCard";
 import {
   IDemandsResponse,
+  IUserLogged,
 } from "../../../../interface/TypesGlobal";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
@@ -18,16 +19,20 @@ const ProjetosAnteriores = () => {
   const navigate = useNavigate();
   const { user, setLoading } = useUserContext();
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
-  
+
   const listAllDemands = async () => {
+    const user = sessionStorage.getItem("@DevsHubUser");
+    const userSession: IUserLogged = JSON.parse(user as string);
+
     try {
       setLoading(true);
       const request = await Api.get("/jobs/?_expand=user");
       const response: IDemandsResponse[] = request.data;
 
-      if (user.user?.type == "ong") {
+      if (userSession.user?.type == "ong") {
         const filtered = response.filter(
-          (elem) => elem.dev_finished == true && elem.userId == user.user.id
+          (elem) =>
+            elem.dev_finished == true && elem.userId == userSession.user.id
         );
         setFilteredList(filtered);
         return;
@@ -36,7 +41,7 @@ const ProjetosAnteriores = () => {
       const filtered = response.filter(
         (elem) =>
           elem.dev_finished == true &&
-          elem.work_in?.find((elem) => elem.id == user.user?.id)
+          elem.work_in?.find((elem) => elem.id == userSession.user?.id)
       );
       setFilteredList(filtered);
     } catch (error) {
@@ -51,11 +56,11 @@ const ProjetosAnteriores = () => {
   }, []);
 
   const handleHistoricButton = () => {
-    if(user.user.type == "dev") {
-      navigate("/dashboard/projetos")
+    if (user.user.type == "dev") {
+      navigate("/dashboard/projetos");
     }
-    navigate("/dashboard/atual")
-  }
+    navigate("/dashboard/atual");
+  };
 
   return filteredList.length > 0 ? (
     <ContainerProject className="animate__animated animate__fadeIn">
