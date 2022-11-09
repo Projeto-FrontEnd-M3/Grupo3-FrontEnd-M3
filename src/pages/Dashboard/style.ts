@@ -4,7 +4,9 @@ export const ContainerDev = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
   background-color: var(--color-primary);
+  animation: fadeIn 0.5s;
 `;
+
 export const ContainerDevNav = styled.div`
   padding-top: 4rem;
   width: 94%;
