@@ -27,6 +27,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
   const [filteredListAux, setFilteredListAux] = useState(
     [] as IDemandsResponse[]
   );
+  const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
+
   const navigate = useNavigate();
 
   const loginUser = async (data: ILoginHookForm) => {
@@ -72,6 +74,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
       setLoading(true);
       const request = await Api.post("/jobs", data);
       toastSuccess("Cadastramos seu Pedido!");
+      listAllActualDemands()
     } catch (err) {
       toastError("Ocorreu um erro!");
     } finally {
@@ -118,6 +121,41 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
     }
   };
 
+  const listAllActualDemands = async () => {
+
+    const sessionUser = sessionStorage.getItem("@DevsHubUser");
+    const userLogged: IUserLogged = JSON.parse(sessionUser as string);
+
+    try {
+      setLoading(true);
+      const request = await Api.get("/jobs/?_expand=user");
+      const response: IDemandsResponse[] = request.data;
+
+      if (userLogged.user.type == "ong") {
+        const filtered = response.filter(
+          (elem) =>
+            (elem.status == "Em Andamento" || elem.status == "Pendente") && elem.userId == userLogged.user.id
+        );
+        setFilteredList(filtered);
+        setFilteredListAux(filtered);
+        return;
+      }
+
+      const filtered = response.filter(
+        (elem) =>
+          elem.status == "Em Andamento" &&
+          elem.work_in.find((dev) => dev.id == userLogged.user.id)
+      );
+
+      setFilteredList(filtered);
+      setFilteredListAux(filtered);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     const searchUser = () => {
       const objectUser = sessionStorage.getItem("@DevsHubUser");
@@ -158,6 +196,8 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         setFilteredListAux,
         setExit,
         exit,
+        listAllActualDemands,
+        filteredList
       }}
     >
       {children}

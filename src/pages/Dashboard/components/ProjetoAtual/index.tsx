@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
-import { IDemandsResponse, IUserLogged } from "../../../../interface/TypesGlobal";
-import { Api } from "../../../../services/api/api";
+import { IUserLogged } from "../../../../interface/TypesGlobal";
 import { Text } from "../../../../styles/TypograpyText";
 import { ProjetoAtualCard } from "../ProjetoAtualCard";
 import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
 
 export const ProjetoAtual = () => {
-  const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
 
-  const { setFilteredListAux, setactualModalDashboard, setLoading } =
+  const { setactualModalDashboard, listAllActualDemands, filteredList } =
     useUserContext();
 
   const navigate = useNavigate();
@@ -19,39 +17,8 @@ export const ProjetoAtual = () => {
   const sessionUser = sessionStorage.getItem("@DevsHubUser");
   const user: IUserLogged = JSON.parse(sessionUser as string);
 
-  const listAllDemands = async () => {
-    try {
-      setLoading(true);
-      const request = await Api.get("/jobs/?_expand=user");
-      const response: IDemandsResponse[] = request.data;
-
-      if (user.user.type == "ong") {
-        const filtered = response.filter(
-          (elem) =>
-            (elem.status == "Em Andamento" || elem.status == "Pendente") && elem.userId == user.user.id
-        );
-          console.log(filtered)
-        setFilteredList(filtered);
-        setFilteredListAux(filtered);
-        return;
-      }
-
-      const filtered = response.filter(
-        (elem) =>
-          elem.status == "Em Andamento" &&
-          elem.work_in.find((dev) => dev.id == user.user.id)
-      );
-
-      setFilteredList(filtered);
-      setFilteredListAux(filtered);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
-    listAllDemands();
+    listAllActualDemands();
   }, []);
 
   const handleEmptyListButton = () => {
@@ -64,7 +31,7 @@ export const ProjetoAtual = () => {
     }
   };
   return filteredList.length > 0 ? (
-    <ProjetoAtualCard listAllDemands={listAllDemands} obj={filteredList[0]} />
+    <ProjetoAtualCard listAllDemands={listAllActualDemands} obj={filteredList[0]} />
   ) : (
     <ContainerProjectEmpty className="animate__animated animate__fadeIn">
       <Text fontSize="text3" color="success" className="message">
