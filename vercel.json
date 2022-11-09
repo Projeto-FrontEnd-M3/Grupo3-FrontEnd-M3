@@ -3,6 +3,9 @@
     { "source": "/home", "destination": "/" },
     { "source": "/sobre", "destination": "/" },
     { "source": "/equipe", "destination": "/" },
-    { "source": "/dashboard", "destination": "/" }
+    { "source": "/dashboard", "destination": "/" },
+    { "source": "/dashboard/atual", "destination": "/" },
+    { "source": "/dashboard/historico", "destination": "/" },
+    { "source": "/dashboard/projetos", "destination": "/" }
   ]
 }
