@@ -5,9 +5,9 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-export const SectionEquipe = () => {
+export const SectionSquad = () => {
   return (
-    <ContainerEquipe>
+    <ContainerEquipe className="animate__animated animate__fadeIn">
       <ContainerSquadIntern>
         <Text tag="h1" color="primary" fontSize="title2">
           EQUIPE DE DESENVOLVEDORES

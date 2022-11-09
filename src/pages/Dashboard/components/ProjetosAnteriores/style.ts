@@ -8,7 +8,6 @@ export const ContainerProject = styled.div`
   text-align: right;
   gap: 3rem;
   background-color: var(--color-primary-negative);
-  animation: fadeIn 1s;
   span {
     font-weight: 700;
   }
@@ -27,7 +26,6 @@ export const ContainerProjectUl = styled.ul`
   margin: auto;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 1s;
   background-color: var(--color-primary-negative);
 
   figure {
@@ -66,7 +64,6 @@ export const ContainerProjectUl = styled.ul`
 
 export const ContainerProjectLi = styled.li`
   padding-bottom: 1rem;
-  animation: fadeIn 1s;
 `;
 
 export const ContainerProjectEmpty = styled.div`
@@ -82,7 +79,6 @@ export const ContainerProjectEmpty = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  animation: fadeIn 1s;
 
   background-color: var(--color-primary-negative);
 

@@ -10,7 +10,7 @@ export const MainSection = () => {
   const { setActualSectionHome } = useUserContext();
 
   return (
-    <MainStyled>
+    <MainStyled className="animate__animated animate__fadeIn">
       <div className="container">
         <div className="containerDivText">
           <Text tag="h1" color="grey3" fontSize="title1">
@@ -36,8 +36,8 @@ export const MainSection = () => {
           </ButtonDefault>
           <ButtonDefault
             onClick={() => setActualSectionHome("register")}
-            bgColor="grey3"
-            color="grey3"
+            bgColor="white"
+            color="white"
           >
             CADASTRE-SE
           </ButtonDefault>

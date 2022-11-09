@@ -14,7 +14,6 @@ export const ContainerSquadIntern = styled.div`
   margin: auto;
   height: calc(100vh - 80px);
   padding: 2rem 0;
-  animation: fadeIn 1s;
 
   svg {
     color: var(--color-primary-negative);
@@ -41,11 +40,9 @@ export const ContainerSquadIntern = styled.div`
   }
 
   ul > li {
-    max-width: 340px;
+    max-width: 280px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     flex-direction: column;
     gap: 1rem;
 

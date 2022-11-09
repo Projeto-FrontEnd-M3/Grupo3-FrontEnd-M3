@@ -4,16 +4,6 @@ interface ISelector {
   selector?: string;
 }
 
-export const ContainerModalRegister = styled.div`
-  max-width: 380px;
-  width: 100%;
-  border-radius: 8px;
-  padding: 1.5rem;
-  background-color: var(--color-grey-1);
-  position: relative;
-  animation: fadeInDown 1s;
-`;
-
 export const AlignModalRegister = styled.div`
   padding: 1rem 0;
   width: 80%;

@@ -39,7 +39,7 @@ const ProjetosDisponiveis = () => {
   }, [filteredList]);
 
   return filteredList.length > 0 ? (
-    <CarouselContainer>
+    <CarouselContainer className="animate__animated animate__fadeIn">
       <ProjetoAtualCard obj={filteredList[activeStep]} />
       <StepperStyled
         variant="dots"
@@ -93,7 +93,7 @@ const ProjetosDisponiveis = () => {
       />
     </CarouselContainer>
   ) : (
-    <ContainerProjectEmpty>
+    <ContainerProjectEmpty className="animate__animated animate__fadeIn">
       <Text fontSize="text3" color="success" className="message">
         Não temos nenhum projeto disponivel no momento, verifique novamente mais
         tarde!

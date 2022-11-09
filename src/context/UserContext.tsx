@@ -152,7 +152,7 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
         setLoading,
         filteredListAux,
         setFilteredListAux,
-        setExit, 
+        setExit,
         exit,
       }}
     >

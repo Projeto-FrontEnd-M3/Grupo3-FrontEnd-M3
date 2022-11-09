@@ -12,11 +12,7 @@ const CarouselCard = ({ obj }) => {
       </div>
       <Text>{obj.description}</Text>
       <ButtonDefault color="primary" bgColor="primary">
-<<<<<<< HEAD
-        PEGAR PROJETO
-=======
         ESCOLHER PROJETO
->>>>>>> 82f1664884b9de4fe913865650de948cda180cc6
       </ButtonDefault>
     </div>
   );

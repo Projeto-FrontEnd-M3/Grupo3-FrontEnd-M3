@@ -15,7 +15,7 @@ import Button from "@mui/material/Button";
 import { Text } from "../../../../styles/TypograpyText";
 import { useUserContext } from "../../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import logoIcon from "../../../../assets/awesome-hand-logo-design_93835-290.webp";
+import duckLogo from "../../../../assets/duck-logo.png";
 
 interface Props {
   window?: () => Window;
@@ -49,7 +49,7 @@ export const Header = (props: Props) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Text className="nameModal" fontSize="text1" tag="h1" color="primary">
-        Nome do Site
+        Dev's Helping
       </Text>
       <Divider />
       <List>
@@ -101,14 +101,14 @@ export const Header = (props: Props) => {
                 gap: "15px",
               }}
             >
-              <img src={logoIcon} alt="Logo" />
+              <img src={duckLogo} alt="Logo" />
               <Text
                 className="logoName"
                 tag="h2"
-                color="secundary"
+                color="white"
                 fontSize="title3"
               >
-                Dev's Help
+                Dev's Helping
               </Text>
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>

@@ -7,13 +7,11 @@ export const MainStyled = styled.div`
 
   .container {
     width: 100%;
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     margin: 0 50px;
-    animation: fadeIn 1s;
   }
 
   .containerDivText {
@@ -24,12 +22,8 @@ export const MainStyled = styled.div`
     margin-bottom: 2rem;
   }
 
-<<<<<<< HEAD
   .containerDivText p {
     font-size: 1.2rem;
-=======
-  .containerDivTitle {
->>>>>>> 82f1664884b9de4fe913865650de948cda180cc6
   }
 
   .containerDivBtn {
@@ -43,7 +37,6 @@ export const MainStyled = styled.div`
 
   .containerImg {
     display: flex;
-    animation: fadeIn 1s;
   }
 
   img {

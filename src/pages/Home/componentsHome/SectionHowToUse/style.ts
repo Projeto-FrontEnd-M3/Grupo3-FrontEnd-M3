@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import { TabPanel } from "./styleMui";
+
+export const StyledPanel = styled(TabPanel)`
+  animation: fadeIn 0.5s;
+`
 
 export const ContainerHowToUse = styled.div`
   display: flex;
@@ -8,10 +13,6 @@ export const ContainerHowToUse = styled.div`
   height: auto;
   width: 100%;
   background-color: var(--color-primary);
-
-  .optionHowToUse{
-    animation: fadeIn 1s;
-  }
 `;
 
 export const ContainerHowToUseNav = styled.div`
@@ -34,7 +35,6 @@ export const ContainerAboutSite = styled.div`
   min-height: 300px;
   max-height: 450px;
   border-radius: 8px;
-  animation: fadeIn 1s;
 
   .AboutCenterText {
     text-align: justify;

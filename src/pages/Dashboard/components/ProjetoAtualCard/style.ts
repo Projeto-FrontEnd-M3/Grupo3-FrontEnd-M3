@@ -6,7 +6,7 @@ export const ContainerProject = styled.div`
   margin: auto;
   display: flex;
   background-color: var(--color-primary-negative);
-  animation: fadeIn 1s;
+  
   span {
     font-weight: 700;
   }
@@ -21,7 +21,6 @@ export const ContainerProjectLeft = styled.div`
   gap: 1rem;
   margin: 3rem 4rem 3rem 2rem;
   max-width: 60%;
-  animation: fadeIn 1s;
 
   @media (max-width: 750px) {
     margin: 3rem 0rem 3rem 0rem;
@@ -34,7 +33,6 @@ export const ContainerProjectLeft = styled.div`
 export const ContainerProjectLeftResume = styled.div`
   display: flex;
   flex-direction: column;
-  animation: fadeIn 1s;
 
   .resumesize {
     max-width: 100%;
@@ -49,7 +47,6 @@ export const ContainerProjectLeftTitle = styled.div`
   flex-direction: row;
   justify-content: space-between;
   text-align: justify;
-  animation: fadeIn 1s;
 
   @media (max-width: 900px) {
 
@@ -68,13 +65,13 @@ export const ContainerProjectLefButton = styled.div`
   align-items: center;
   text-align: right;
   margin-top: 9rem;
-  animation: fadeIn 1s;
+
   button {
     font-size: 1rem;
     width: 180px;
     height: 40px;
-    animation: fadeIn 1s;
   }
+  
   @media (max-width: 750px) {
     text-align: center;
     margin-top: 0rem;
@@ -87,7 +84,6 @@ export const ContainerProjectDiv = styled.div`
   margin: auto;
   height: 25vh;
   background-color: var(--color-primary);
-  animation: fadeIn 1s;
   @media (max-width: 750px) {
     display: none;
   }
@@ -96,7 +92,6 @@ export const ContainerProjecRight = styled.div`
   gap: 1rem;
   margin: 3rem 2rem 3rem 0rem;
   min-width: 35%;
-  animation: fadeIn 1s;
 
   figure {
     margin: 0% 5%;
@@ -115,7 +110,6 @@ export const ContainerProjecRight = styled.div`
 export const ContainerProjecRightInfo = styled.div`
   display: flex;
   flex-direction: row;
-  animation: fadeIn 1s;
   justify-content: flex-end;
 
   @media (max-width: 750px) {
@@ -127,7 +121,6 @@ export const ContainerProjecRightTitle = styled.div`
   display: flex;
   flex-direction: column;
   text-align: right;
-  animation: fadeIn 1s;
   align-items: center;
   justify-content: center;
 
@@ -140,7 +133,6 @@ export const ContainerProjecRightContacts = styled.ul`
   margin-top: 4%;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 1s;
   align-items: center;
 
   svg {
@@ -158,5 +150,4 @@ export const ContainerProjecRightText = styled.div`
   margin: auto;
   padding-top: 3rem;
   text-align: center;
-  animation: fadeIn 1s;
 `;

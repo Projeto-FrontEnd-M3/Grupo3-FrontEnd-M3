@@ -1,9 +1,5 @@
 import { ContainerModal } from "../../../../components/ContainerModal/style";
-import {
-  ContainerModalRegister,
-  AlignModalRegister,
-  OngOrDevBox,
-} from "./style";
+import { AlignModalRegister, OngOrDevBox } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import AccessibilityNewTwoToneIcon from "@mui/icons-material/AccessibilityNewTwoTone";
@@ -12,11 +8,12 @@ import { useUserContext } from "../../../../context/UserContext";
 import { useState } from "react";
 import { toastError } from "../../../../styles/components/Toastify/toast";
 import { BackButton, CloseButton } from "../ModalRegisterOng/style";
+import { ContainerModalLogin } from "../ModalLogin/style";
 
 const ModalRegister = () => {
   const [selectOngOrDev, setSelectOngOrDev] = useState("");
   const { setActualSectionHome } = useUserContext();
-  const {exit, setExit} = useUserContext();
+  const { exit, setExit } = useUserContext();
 
   const continueVerify = () => {
     if (!selectOngOrDev) {
@@ -29,7 +26,7 @@ const ModalRegister = () => {
 
   return (
     <ContainerModal>
-      <ContainerModalRegister className={exit ? "exit" : ""}>
+      <ContainerModalLogin className={exit ? "exit" : ""}>
         <AlignModalRegister>
           <Text tag="h2" fontSize="title1" color="primary">
             CADASTRO
@@ -68,16 +65,18 @@ const ModalRegister = () => {
             <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
 
-          <CloseButton onClick={() => {
-              setExit(true)
+          <CloseButton
+            onClick={() => {
+              setExit(true);
               setTimeout(() => {
-                setActualSectionHome("none")
-                setExit(false)
-              }, 500);
-             }} />
+                setActualSectionHome("none");
+                setExit(false);
+              }, 200);
+            }}
+          />
           <BackButton onClick={() => setActualSectionHome("login")} />
         </AlignModalRegister>
-      </ContainerModalRegister>
+      </ContainerModalLogin>
     </ContainerModal>
   );
 };

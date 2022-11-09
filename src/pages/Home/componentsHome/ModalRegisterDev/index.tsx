@@ -1,5 +1,4 @@
 import { ContainerModal } from "../../../../components/ContainerModal/style";
-import { ContainerModalLogin, FormModalLogin } from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
@@ -12,6 +11,7 @@ import { registerValidateDev } from "../../../../services/validations/validation
 import { useForm } from "react-hook-form";
 import { CssTextField } from "../ModalRegisterOng";
 import { BackButton, CloseButton } from "../ModalRegisterOng/style";
+import { ContainerModalLogin, FormModalLogin } from "../ModalLogin/style";
 
 export interface IRegisterHookForm {
   email: string;
@@ -22,7 +22,8 @@ export interface IRegisterHookForm {
 }
 
 const ModalRegisterDev = () => {
-  const { setActualSectionHome, registerUser, exit, setExit } = useUserContext();
+  const { setActualSectionHome, registerUser, exit, setExit } =
+    useUserContext();
 
   const formOptions = {
     defaultValues: { type: "dev" },
@@ -56,7 +57,6 @@ const ModalRegisterDev = () => {
               error={!!errors.name}
               {...register("name")}
               helperText={errors.name?.message}
-              id="input-with-sx"
               label="Nome"
               variant="standard"
             />
@@ -75,7 +75,6 @@ const ModalRegisterDev = () => {
               error={!!errors.email}
               {...register("email")}
               helperText={errors.email?.message}
-              id="input-with-sx"
               label="Email"
               variant="standard"
             />
@@ -94,7 +93,6 @@ const ModalRegisterDev = () => {
               error={!!errors.password}
               {...register("password")}
               helperText={errors.password?.message}
-              id="input-with-sx"
               label="Senha"
               variant="standard"
               type={"password"}
@@ -111,20 +109,24 @@ const ModalRegisterDev = () => {
             Já tem uma conta?{" "}
             <span onClick={() => setActualSectionHome("login")}>Login</span>
           </Text>
-          <CloseButton onClick={() => { 
-            setExit(true)
-            setTimeout(() => {
-              setActualSectionHome("none")
-              setExit(false)
-            }, 500);
-        }} />
-          <BackButton onClick={() => {
-            setExit(true)
-            setTimeout(() => {
-              setActualSectionHome("register")
-              setExit(false)
-            }, 500); 
-        }} />
+          <CloseButton
+            onClick={() => {
+              setExit(true);
+              setTimeout(() => {
+                setActualSectionHome("none");
+                setExit(false);
+              }, 200);
+            }}
+          />
+          <BackButton
+            onClick={() => {
+              setExit(true);
+              setTimeout(() => {
+                setActualSectionHome("register");
+                setExit(false);
+              }, 200);
+            }}
+          />
         </FormModalLogin>
       </ContainerModalLogin>
     </ContainerModal>

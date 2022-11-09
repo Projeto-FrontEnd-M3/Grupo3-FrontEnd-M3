@@ -5,7 +5,7 @@ import ProjetosAnteriores from "../pages/Dashboard/components/ProjetosAnteriores
 import ProjetosDisponiveis from "../pages/Dashboard/components/ProjetosDisponiveis";
 import HomePage from "../pages/Home";
 import { MainSection } from "../pages/Home/componentsHome/MainSection";
-import { SectionEquipe } from "../pages/Home/componentsHome/SectionEquipe";
+import { SectionSquad } from "../pages/Home/componentsHome/SectionSquad";
 import HowToUse from "../pages/Home/componentsHome/SectionHowToUse";
 
 const RoutesMain = () => {
@@ -15,7 +15,7 @@ const RoutesMain = () => {
         <Route path="/" element={<Navigate to={"home"} />} />
         <Route path="/home" element={<MainSection />} />
         <Route path="sobre" element={<HowToUse />} />
-        <Route path="equipe" element={<SectionEquipe />} />
+        <Route path="equipe" element={<SectionSquad />} />
       </Route>
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path="/dashboard" element={<Navigate to={"atual"} />} />

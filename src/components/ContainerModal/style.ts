@@ -11,8 +11,9 @@ export const ContainerModal = styled.div`
   padding: 0 0.5rem;
   z-index: 1;
   transition: 1.5s;
+
   .exit{
-    animation: fadeOutDown 0.5s;
+    animation: fadeOut 0.5s;
   }
 
   .exitRegister{

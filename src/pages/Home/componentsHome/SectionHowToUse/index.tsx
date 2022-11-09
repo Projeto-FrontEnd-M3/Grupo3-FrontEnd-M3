@@ -3,8 +3,8 @@ import TabsUnstyled from "@mui/base/TabsUnstyled";
 import AboutSite from "./components/AboutSite";
 import HowToUseDev from "./components/HowToUseDev";
 import HowToUseOng from "./components/HowToUseOng";
-import { ContainerHowToUse, ContainerHowToUseNav } from "./style";
-import { Tab, TabPanel, TabsList } from "./styleMui";
+import { ContainerHowToUse, ContainerHowToUseNav, StyledPanel } from "./style";
+import { Tab, TabsList } from "./styleMui";
 
 export default function HowToUse() {
   return (
@@ -16,15 +16,15 @@ export default function HowToUse() {
           <Tab className="optionHowToUse">Sou Dev, como uso?</Tab>
           <Tab className="optionHowToUse">Sou ONG, como uso?</Tab>
         </TabsList>
-        <TabPanel value={0}>
+        <StyledPanel value={0}>
           <AboutSite />
-        </TabPanel>
-        <TabPanel value={1}>
+        </StyledPanel>
+        <StyledPanel value={1}>
           <HowToUseDev />
-        </TabPanel>
-        <TabPanel value={2}>
+        </StyledPanel>
+        <StyledPanel value={2}>
           <HowToUseOng />
-        </TabPanel>
+        </StyledPanel>
       </TabsUnstyled>
     </ContainerHowToUse>
   );

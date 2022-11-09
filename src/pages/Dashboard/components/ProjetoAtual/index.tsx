@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
-import { userContext, useUserContext } from "../../../../context/UserContext";
+import { useUserContext } from "../../../../context/UserContext";
 import {
   IDemandsResponse,
   IUserLogged,
@@ -66,7 +66,7 @@ export const ProjetoAtual = () => {
   return filteredList.length > 0 ? (
     <ProjetoAtualCard obj={filteredList[0]} />
   ) : (
-    <ContainerProjectEmpty>
+    <ContainerProjectEmpty className="animate__animated animate__fadeIn">
       <Text fontSize="text3" color="success" className="message">
         Você ainda não iniciou nenhum projeto
       </Text>
