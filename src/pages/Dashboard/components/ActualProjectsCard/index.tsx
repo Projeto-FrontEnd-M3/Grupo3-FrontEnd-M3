@@ -22,7 +22,6 @@ import { useUserContext } from "../../../../context/UserContext";
 import { toastError } from "../../../../styles/components/Toastify/toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { IMap } from "../ModalCreateResquest";
-import { OngOrDevBox } from "../../../Home/componentsHome/ModalRegister/style";
 
 interface IProjetoAtualCard {
   obj: IDemandsResponse;

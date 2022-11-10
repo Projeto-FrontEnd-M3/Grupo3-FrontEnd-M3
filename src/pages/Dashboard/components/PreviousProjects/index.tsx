@@ -1,17 +1,10 @@
 import { useEffect, useState } from "react";
-import {
-  ContainerProject,
-  ContainerProjectEmpty,
-  ContainerProjectUl,
-} from "./style";
+import {ContainerProject,ContainerProjectEmpty,ContainerProjectUl} from "./style";
 import { Text } from "../../../../styles/TypograpyText";
 import { Api } from "../../../../services/api/api";
 import { useNavigate } from "react-router-dom";
 import ProjectsCard from "../ProjectsCard";
-import {
-  IDemandsResponse,
-  IUserLogged,
-} from "../../../../interface/TypesGlobal";
+import {IDemandsResponse,IUserLogged} from "../../../../interface/TypesGlobal";
 import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
 

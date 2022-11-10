@@ -1,4 +1,4 @@
-import { ContainerProjectLi } from "../ProjetosAnteriores/style";
+import { ContainerProjectLi } from "../PreviousProjects/style";
 import IconImage from "../../../../assets/IconImage.png";
 import { Text } from "../../../../styles/TypograpyText";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";

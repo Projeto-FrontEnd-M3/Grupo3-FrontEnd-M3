@@ -4,10 +4,10 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { CarouselContainer, StepperStyled } from "./styles";
-import { ProjetoAtualCard } from "../ProjetoAtualCard";
+import { ProjetoAtualCard } from "../ActualProjectsCard";
 import { Api } from "../../../../services/api/api";
 import { IDemandsResponse } from "../../../../interface/TypesGlobal";
-import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
+import { ContainerProjectEmpty } from "../PreviousProjects/style";
 import { Text } from "../../../../styles/TypograpyText";
 import { useUserContext } from "../../../../context/UserContext";
 
@@ -15,7 +15,7 @@ const ProjetosDisponiveis = () => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const [filteredList, setFilteredList] = useState([] as IDemandsResponse[]);
-  const {setLoading} = useUserContext()
+  const { setLoading } = useUserContext();
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -27,7 +27,7 @@ const ProjetosDisponiveis = () => {
 
   const listAllDisponibleDemands = async () => {
     try {
-      setLoading(true)
+      setLoading(true);
       const request = await Api.get("/jobs/?_expand=user");
       const response: IDemandsResponse[] = request.data;
 
@@ -36,7 +36,7 @@ const ProjetosDisponiveis = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -45,7 +45,10 @@ const ProjetosDisponiveis = () => {
 
   return filteredList.length > 0 ? (
     <CarouselContainer className="animate__animated animate__fadeIn">
-      <ProjetoAtualCard listAllDisponibleDemands={listAllDisponibleDemands} obj={filteredList[activeStep]} />
+      <ProjetoAtualCard
+        listAllDisponibleDemands={listAllDisponibleDemands}
+        obj={filteredList[activeStep]}
+      />
       <StepperStyled
         variant="dots"
         steps={filteredList.length}

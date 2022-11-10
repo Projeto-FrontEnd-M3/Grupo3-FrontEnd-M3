@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
-import { ProjetoAtual } from "../pages/Dashboard/components/ProjetoAtual";
-import ProjetosAnteriores from "../pages/Dashboard/components/ProjetosAnteriores";
-import ProjetosDisponiveis from "../pages/Dashboard/components/ProjetosDisponiveis";
+import { ProjetoAtual } from "../pages/Dashboard/components/ActualProjects";
+import ProjetosAnteriores from "../pages/Dashboard/components/PreviousProjects";
+import ProjetosDisponiveis from "../pages/Dashboard/components/AvailableProjects";
 import HomePage from "../pages/Home";
 import { MainSection } from "../pages/Home/componentsHome/MainSection";
 import { SectionSquad } from "../pages/Home/componentsHome/SectionSquad";

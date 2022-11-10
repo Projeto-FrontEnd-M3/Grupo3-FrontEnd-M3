@@ -1,4 +1,3 @@
-import * as React from "react";
 import TabsUnstyled from "@mui/base/TabsUnstyled";
 import AboutSite from "./components/AboutSite";
 import HowToUseDev from "./components/HowToUseDev";

@@ -4,8 +4,8 @@ import { ButtonDefault } from "../../../../components/ButtonDefault/style";
 import { useUserContext } from "../../../../context/UserContext";
 import { IUserLogged } from "../../../../interface/TypesGlobal";
 import { Text } from "../../../../styles/TypograpyText";
-import { ProjetoAtualCard } from "../ProjetoAtualCard";
-import { ContainerProjectEmpty } from "../ProjetosAnteriores/style";
+import { ProjetoAtualCard } from "../ActualProjectsCard";
+import { ContainerProjectEmpty } from "../PreviousProjects/style";
 
 export const ProjetoAtual = () => {
   const { setactualModalDashboard, listAllActualDemands, filteredList } =
