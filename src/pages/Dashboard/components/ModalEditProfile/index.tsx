@@ -69,7 +69,7 @@ const ModalEditProfile = () => {
             />
             <CssTextField
               {...register("phone")}
-              label="Contato (Email ou Whatsapp)"
+              label="Contato (Telefone ou Whatsapp)"
               variant="standard"
               defaultValue={user?.user.phone}
               type="number"
