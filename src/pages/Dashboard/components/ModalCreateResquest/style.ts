@@ -21,9 +21,13 @@ export const ModalContent = styled.form`
   flex-direction: column;
   gap: 2rem;
 
+  input {
+    width: 175px;
+  }
+
   h2 {
-    letter-spacing: 2rem;
-    margin-right: calc(2rem * -1);
+    font-size: 2rem;
+    text-align: center;
   }
 
   span {
@@ -38,8 +42,5 @@ export const ModalContent = styled.form`
     top: 10px;
     font-size: 18px;
     color: var(--color-grey-2);
-  }
-  .inputDate {
-    width: 175px;
   }
 `;

@@ -94,6 +94,7 @@ export const Header = (props: Props) => {
             }}
           >
             <Box
+              className="logoBox"
               sx={{
                 display: "flex",
                 justifyContent: "space-between",

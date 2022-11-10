@@ -14,10 +14,6 @@ export const ContainerProject = styled.div`
     font-weight: 700;
   }
 
-  p {
-    padding: 0.5rem;
-  }
-
   .message {
     margin-right: 2rem;
     margin-top: 2rem;
@@ -64,8 +60,6 @@ export const ContainerProjectUl = styled.ul`
   }
 
   .resume {
-    height: 20vh;
-    overflow-y: scroll;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border: 0.2rem var(--color-primary-focus) solid;

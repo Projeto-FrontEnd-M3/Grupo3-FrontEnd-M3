@@ -72,7 +72,7 @@ const ModalCreateResquest = () => {
     <ContainerModal>
       <ContainerModalEditProfile className={exit ? "exit" : ""}>
         <ModalContent onSubmit={handleSubmit(createDemandRequest)}>
-          <Text tag="h1" fontSize="title1" color="primary">
+          <Text tag="h2" fontSize="title1" color="primary">
             CRIAR PROJETO
           </Text>
 

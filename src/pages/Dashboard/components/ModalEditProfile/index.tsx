@@ -16,7 +16,6 @@ import { useForm } from "react-hook-form";
 export interface IEditProfile {
   email?: string;
   password?: string;
-  bio?: string;
   image?: string;
   phone?: string;
 }
@@ -73,18 +72,7 @@ const ModalEditProfile = () => {
               label="Contato (Email ou Whatsapp)"
               variant="standard"
               defaultValue={user?.user.phone}
-            />
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <DescriptionTwoToneIcon
-              sx={{ color: "var(--color-primary)", mr: 2, my: 0.5 }}
-            />
-            <CssTextField
-              {...register("bio")}
-              label="Descrição"
-              variant="standard"
-              defaultValue={user?.user.bio}
+              type="number"
             />
           </Box>
 

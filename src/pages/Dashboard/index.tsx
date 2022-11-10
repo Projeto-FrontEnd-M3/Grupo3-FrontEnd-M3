@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { NavbarDashboard } from "../../components/NavbarDashboard";
 import { ContainerDev, ContainerOutlet } from "./style";
 import { useUserContext } from "../../context/UserContext";
@@ -15,18 +15,25 @@ interface TabPanelProps {
 
 const Dashboard = () => {
   const { actualModalDashboard } = useUserContext();
+  const objectUser = sessionStorage.getItem("@DevsHubUser");
 
   return (
     <>
-      {actualModalDashboard == "editProfile" && <ModalEditProfile />}
-      {actualModalDashboard == "createDemand" && <ModalCreateResquest />}
-      {actualModalDashboard == "editDemand" && <ModalEditResquest />}
-      <NavbarDashboard />
-      <ContainerDev>
-        <ContainerOutlet>
-          <Outlet />
-        </ContainerOutlet>
-      </ContainerDev>
+      {objectUser ? (
+        <>
+          {actualModalDashboard == "editProfile" && <ModalEditProfile />}
+          {actualModalDashboard == "createDemand" && <ModalCreateResquest />}
+          {actualModalDashboard == "editDemand" && <ModalEditResquest />}
+          <NavbarDashboard />
+          <ContainerDev>
+            <ContainerOutlet>
+              <Outlet />
+            </ContainerOutlet>
+          </ContainerDev>
+        </>
+      ) : (
+        <Navigate to={"/home"} />
+      )}
     </>
   );
 };

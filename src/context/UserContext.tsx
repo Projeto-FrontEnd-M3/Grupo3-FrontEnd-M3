@@ -74,9 +74,13 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
 
   // Funções a serem utilizadas ainda
   const createDemandRequest = async (data: ICreateDemandRequest) => {
+    const newData = {
+      ...data,
+      estimated_time: data.estimated_time.split("-").reverse().join("-"),
+    };
     try {
       setLoading(true);
-      const request = await Api.post("/jobs", data);
+      const request = await Api.post("/jobs", newData);
       toastSuccess("Cadastramos seu Pedido!");
       listAllActualDemands();
     } catch (err) {
@@ -103,7 +107,6 @@ export const UserContextProvider = ({ children }: IChildrenNode) => {
 
   const editProfileRequest = async (data: IEditProfile) => {
     !data.email && delete data.email;
-    !data.bio && delete data.bio;
     !data.image && delete data.image;
     !data.password && delete data.password;
     !data.phone && delete data.phone;

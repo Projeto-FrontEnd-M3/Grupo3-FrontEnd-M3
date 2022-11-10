@@ -22,6 +22,7 @@ import { useUserContext } from "../../../../context/UserContext";
 import { toastError } from "../../../../styles/components/Toastify/toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { IMap } from "../ModalCreateResquest";
+import { OngOrDevBox } from "../../../Home/componentsHome/ModalRegister/style";
 
 interface IProjetoAtualCard {
   obj: IDemandsResponse;
@@ -66,6 +67,7 @@ export const ProjetoAtualCard = ({
           email: user.user.email,
           name: user.user.name,
           id: user.user.id,
+          phone: user.user.phone,
         },
       ],
     };
@@ -108,6 +110,16 @@ export const ProjetoAtualCard = ({
 
     if (user.user.type == "dev" && filteredListAux.length > 0) {
       return toastError("É permitido apenas um projeto ativo por usuário");
+    }
+
+    if (
+      user.user.type == "dev" &&
+      !(filteredListAux.length > 0) &&
+      !user.user.phone
+    ) {
+      return toastError(
+        "Cadastre um número de telefone no seu perfil antes de pegar um projeto!"
+      );
     }
 
     if (user.user.type == "dev") {
@@ -166,21 +178,26 @@ export const ProjetoAtualCard = ({
           <li>
             <MailOutlineIcon />
             <Text fontSize="text4" color="success">
-              {obj.user.email}
+              {user.user?.type == "ong" && obj.status !== "Pendente"
+                ? filteredListAux[0].work_in[0].email
+                : obj.user.email}
             </Text>
           </li>
           {obj.user.phone && (
             <li>
               <PhoneInTalkIcon />
               <Text fontSize="text4" color="success">
-                {obj.user.phone}
+                {user.user?.type == "ong" && obj.status !== "Pendente"
+                  ? filteredListAux[0].work_in[0].phone
+                  : obj.user.phone}
               </Text>
             </li>
           )}
         </ContainerProjecRightContacts>
         <ContainerProjecRightText>
           <Text fontSize="text4" color="success">
-            Ultilize esses meios de contato para conversar com a ONG
+            Utilize esses meios de contato para conversar com
+            {user.user?.type == "dev" ? "a ONG." : "o DEV."}
           </Text>
         </ContainerProjecRightText>
       </ContainerProjecRight>

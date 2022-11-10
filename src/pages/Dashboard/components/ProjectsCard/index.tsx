@@ -8,11 +8,12 @@ export interface IProjectsCard {
 }
 
 const ProjectsCard = ({ obj }: IProjectsCard) => {
+  console.log(obj)
   return (
     <ContainerProjectLi>
       <div className="title">
         <Text fontSize="text2" color="grey1">
-          {obj.user.name}
+          {obj.title}
         </Text>
         <Text className="containerMobileText" fontSize="text2" color="grey1">
           ENTREGUE EM: <span>{obj.finished_at}</span>

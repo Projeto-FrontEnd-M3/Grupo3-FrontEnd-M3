@@ -32,6 +32,7 @@ export const ModalContent = styled.form`
     cursor: pointer;
   }
 
+
   .buttonClosed {
     position: absolute;
     right: 10px;

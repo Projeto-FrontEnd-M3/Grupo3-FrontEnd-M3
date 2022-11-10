@@ -36,8 +36,8 @@ export const MainSection = () => {
           </ButtonDefault>
           <ButtonDefault
             onClick={() => setActualSectionHome("register")}
-            bgColor="grey3"
-            color="grey3"
+            bgColor="white"
+            color="white"
           >
             CADASTRE-SE
           </ButtonDefault>
