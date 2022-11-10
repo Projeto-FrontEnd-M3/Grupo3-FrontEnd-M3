@@ -8,7 +8,6 @@ export interface IProjectsCard {
 }
 
 const ProjectsCard = ({ obj }: IProjectsCard) => {
-  console.log(obj)
   return (
     <ContainerProjectLi>
       <div className="title">
