@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const Api = axios.create({
-  baseURL: "https://json-server-m3-t13.herokuapp.com",
+  baseURL: "https://m3-devs-helping-server.onrender.com",
   timeout: 5000,
 });
